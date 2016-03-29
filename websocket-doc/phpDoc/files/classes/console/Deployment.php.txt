@@ -243,6 +243,8 @@ class Deployment extends Console
         $directoriesTree = static::$PROJECT_MAIN_STRUCTURE;
         unset($directoriesTree[$this->deploymentConfiguration['remoteProjectRootDirectoryName']]['static']);
 
+        static::out(PHP_EOL . 'Uploading php files ...' . PHP_EOL);
+
         $this->deploy($directoriesTree);
         $this->composerInstall();
     }
@@ -256,6 +258,8 @@ class Deployment extends Console
 
         $directoriesTree = static::$PROJECT_MAIN_STRUCTURE;
         unset($directoriesTree[$this->deploymentConfiguration['remoteProjectRootDirectoryName']]['php']);
+
+        static::out(PHP_EOL . 'Uploading static files ...' . PHP_EOL);
 
         $this->deploy($directoriesTree);
 
@@ -416,8 +420,8 @@ class Deployment extends Console
      */
     private function composerInstall()
     {
-        static::out('Installing composer dependencies on remote ...' . PHP_EOL);
-        static::execWithPrint(
+        static::out('Installing composer dependencies on remote ...' . PHP_EOL . PHP_EOL);
+        static::execWithPrintInLive(
             'ssh root@vps cd ' . $this->deploymentConfiguration['remoteProjectRootDirectory'] . '/' .
             $this->deploymentConfiguration['remoteProjectRootDirectoryName'] . '/php; composer install --no-dev'
         );
@@ -428,8 +432,8 @@ class Deployment extends Console
      */
     private function gulpPreprocessingStatic()
     {
-        static::out('Prepare the static deployment, running gulp tasks ...' . PHP_EOL);
-        static::execWithPrint('cd ../static & gulp deploy_static');
+        static::out('Prepare the static deployment, running gulp tasks ...' . PHP_EOL . PHP_EOL);
+        static::execWithPrintInLive('cd ../static & gulp deploy_static');
     }
 
     /**
@@ -437,7 +441,7 @@ class Deployment extends Console
      */
     private function gulpPreprocessingPhp()
     {
-        static::out('Prepare the php deployment, running gulp tasks ...' . PHP_EOL);
+        static::out('Prepare the php deployment, running gulp tasks ...' . PHP_EOL . PHP_EOL);
         static::execWithPrintInLive('cd ../static & gulp deploy_php');
     }
 }

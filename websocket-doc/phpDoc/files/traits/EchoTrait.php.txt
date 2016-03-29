@@ -106,7 +106,6 @@ trait EchoTrait
 
         while (!feof($proc)) {
             static::out(fread($proc, 4096));
-            // @flush();
         }
     }
 
