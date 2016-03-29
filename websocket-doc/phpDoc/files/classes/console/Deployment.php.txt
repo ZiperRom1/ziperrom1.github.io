@@ -438,7 +438,7 @@ class Deployment extends Console
     private function gulpPreprocessingPhp()
     {
         static::out('Prepare the php deployment, running gulp tasks ...' . PHP_EOL);
-        static::execWithPrint('cd ../static & gulp deploy_php');
+        static::execWithPrintInLive('cd ../static & gulp deploy_php');
     }
 }
 

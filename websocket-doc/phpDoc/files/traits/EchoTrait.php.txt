@@ -96,6 +96,21 @@ trait EchoTrait
     }
 
     /**
+     * Execute a command and display the result in the console in live
+     *
+     * @param      string  $cmd    The command to run
+     */
+    public static function execWithPrintInLive(string $cmd)
+    {
+        $proc = popen($cmd, 'r');
+
+        while (!feof($proc)) {
+            static::out(fread($proc, 4096));
+            // @flush();
+        }
+    }
+
+    /**
      * Convert a console output to a HTML output
      *
      * @param      string  $output  The console formatted output

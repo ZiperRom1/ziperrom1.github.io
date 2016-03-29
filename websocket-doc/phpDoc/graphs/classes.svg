@@ -65,13 +65,13 @@
 <path fill="none" stroke="gray" d="M36,-2772C36,-2772 632.689,-2772 632.689,-2772 638.689,-2772 644.689,-2778 644.689,-2784 644.689,-2784 644.689,-2994 644.689,-2994 644.689,-3000 638.689,-3006 632.689,-3006 632.689,-3006 36,-3006 36,-3006 30,-3006 24,-3000 24,-2994 24,-2994 24,-2784 24,-2784 24,-2778 30,-2772 36,-2772"/>
 <text text-anchor="middle" x="334.345" y="-2993.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">http</text>
 </g>
-<g id="clust16" class="cluster"><title>cluster_\tests</title>
-<path fill="none" stroke="gray" d="M1162.25,-571C1162.25,-571 1211.25,-571 1211.25,-571 1217.25,-571 1223.25,-577 1223.25,-583 1223.25,-583 1223.25,-631 1223.25,-631 1223.25,-637 1217.25,-643 1211.25,-643 1211.25,-643 1162.25,-643 1162.25,-643 1156.25,-643 1150.25,-637 1150.25,-631 1150.25,-631 1150.25,-583 1150.25,-583 1150.25,-577 1156.25,-571 1162.25,-571"/>
-<text text-anchor="middle" x="1186.75" y="-630.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">tests</text>
-</g>
 <g id="clust15" class="cluster"><title>cluster_\traits</title>
-<path fill="none" stroke="gray" d="M1125.25,-309C1125.25,-309 1248.25,-309 1248.25,-309 1254.25,-309 1260.25,-315 1260.25,-321 1260.25,-321 1260.25,-531 1260.25,-531 1260.25,-537 1254.25,-543 1248.25,-543 1248.25,-543 1125.25,-543 1125.25,-543 1119.25,-543 1113.25,-537 1113.25,-531 1113.25,-531 1113.25,-321 1113.25,-321 1113.25,-315 1119.25,-309 1125.25,-309"/>
-<text text-anchor="middle" x="1186.75" y="-530.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">traits</text>
+<path fill="none" stroke="gray" d="M1125.25,-409C1125.25,-409 1248.25,-409 1248.25,-409 1254.25,-409 1260.25,-415 1260.25,-421 1260.25,-421 1260.25,-631 1260.25,-631 1260.25,-637 1254.25,-643 1248.25,-643 1248.25,-643 1125.25,-643 1125.25,-643 1119.25,-643 1113.25,-637 1113.25,-631 1113.25,-631 1113.25,-421 1113.25,-421 1113.25,-415 1119.25,-409 1125.25,-409"/>
+<text text-anchor="middle" x="1186.75" y="-630.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">traits</text>
+</g>
+<g id="clust16" class="cluster"><title>cluster_\tests</title>
+<path fill="none" stroke="gray" d="M1162.25,-309C1162.25,-309 1211.25,-309 1211.25,-309 1217.25,-309 1223.25,-315 1223.25,-321 1223.25,-321 1223.25,-369 1223.25,-369 1223.25,-375 1217.25,-381 1211.25,-381 1211.25,-381 1162.25,-381 1162.25,-381 1156.25,-381 1150.25,-375 1150.25,-369 1150.25,-369 1150.25,-321 1150.25,-321 1150.25,-315 1156.25,-309 1162.25,-309"/>
+<text text-anchor="middle" x="1186.75" y="-368.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">tests</text>
 </g>
 <!-- \\classes\\entitiesCollection\\UserChatRightCollection -->
 <g id="node1" class="node"><title>\\classes\\entitiesCollection\\UserChatRightCollection</title>
@@ -617,28 +617,28 @@
 </g>
 <!-- \\traits\\FiltersTrait -->
 <g id="node59" class="node"><title>\\traits\\FiltersTrait</title>
-<polygon fill="none" stroke="black" points="1235.75,-515 1137.75,-515 1137.75,-479 1235.75,-479 1235.75,-515"/>
-<text text-anchor="middle" x="1186.75" y="-494.2" font-family="Courier,monospace" font-size="11.00">FiltersTrait</text>
+<polygon fill="none" stroke="black" points="1235.75,-615 1137.75,-615 1137.75,-579 1235.75,-579 1235.75,-615"/>
+<text text-anchor="middle" x="1186.75" y="-594.2" font-family="Courier,monospace" font-size="11.00">FiltersTrait</text>
 </g>
 <!-- \\traits\\PrettyOutputTrait -->
 <g id="node60" class="node"><title>\\traits\\PrettyOutputTrait</title>
-<polygon fill="none" stroke="black" points="1252.25,-461 1121.25,-461 1121.25,-425 1252.25,-425 1252.25,-461"/>
-<text text-anchor="middle" x="1186.75" y="-440.2" font-family="Courier,monospace" font-size="11.00">PrettyOutputTrait</text>
+<polygon fill="none" stroke="black" points="1252.25,-561 1121.25,-561 1121.25,-525 1252.25,-525 1252.25,-561"/>
+<text text-anchor="middle" x="1186.75" y="-540.2" font-family="Courier,monospace" font-size="11.00">PrettyOutputTrait</text>
 </g>
 <!-- \\traits\\EchoTrait -->
 <g id="node61" class="node"><title>\\traits\\EchoTrait</title>
-<polygon fill="none" stroke="black" points="1225.25,-407 1148.25,-407 1148.25,-371 1225.25,-371 1225.25,-407"/>
-<text text-anchor="middle" x="1186.75" y="-386.2" font-family="Courier,monospace" font-size="11.00">EchoTrait</text>
+<polygon fill="none" stroke="black" points="1225.25,-507 1148.25,-507 1148.25,-471 1225.25,-471 1225.25,-507"/>
+<text text-anchor="middle" x="1186.75" y="-486.2" font-family="Courier,monospace" font-size="11.00">EchoTrait</text>
 </g>
 <!-- \\traits\\ShortcutsTrait -->
 <g id="node62" class="node"><title>\\traits\\ShortcutsTrait</title>
-<polygon fill="none" stroke="black" points="1242.25,-353 1131.25,-353 1131.25,-317 1242.25,-317 1242.25,-353"/>
-<text text-anchor="middle" x="1186.75" y="-332.2" font-family="Courier,monospace" font-size="11.00">ShortcutsTrait</text>
+<polygon fill="none" stroke="black" points="1242.25,-453 1131.25,-453 1131.25,-417 1242.25,-417 1242.25,-453"/>
+<text text-anchor="middle" x="1186.75" y="-432.2" font-family="Courier,monospace" font-size="11.00">ShortcutsTrait</text>
 </g>
 <!-- \\tests\\Traits -->
 <g id="node63" class="node"><title>\\tests\\Traits</title>
-<polygon fill="none" stroke="black" points="1215.25,-615 1158.25,-615 1158.25,-579 1215.25,-579 1215.25,-615"/>
-<text text-anchor="middle" x="1186.75" y="-594.2" font-family="Courier,monospace" font-size="11.00">Traits</text>
+<polygon fill="none" stroke="black" points="1215.25,-353 1158.25,-353 1158.25,-317 1215.25,-317 1215.25,-353"/>
+<text text-anchor="middle" x="1186.75" y="-332.2" font-family="Courier,monospace" font-size="11.00">Traits</text>
 </g>
 </g>
 </svg>
