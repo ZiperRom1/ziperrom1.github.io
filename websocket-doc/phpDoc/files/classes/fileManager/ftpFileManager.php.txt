@@ -41,7 +41,7 @@ class FtpFileManager implements FileManagerInterface
     public function __construct(array $parameters = null, bool $verbose = null)
     {
         $this->params    = ($parameters !== null ? $parameters : Ini::getSectionParams('Deployment'));
-        $this->verbose   =  Ini::getParam('Deployment', 'verbose');
+        $this->verbose   =  (int) Ini::getParam('Deployment', 'verbose');
         $this->ressource = null;
     }
 
@@ -68,7 +68,7 @@ class FtpFileManager implements FileManagerInterface
             throw new \Exception('Cannot connect to FTP ' . $this->params['url'] . ':' . $this->params['port']);
         }
 
-        if ($this->verbose) {
+        if ($this->verbose > 0) {
             static::ok('Successfuly connected to ' . $this->params['url'] . ':' . $this->params['port'] . PHP_EOL);
         }
     }
@@ -84,7 +84,7 @@ class FtpFileManager implements FileManagerInterface
             throw new \Exception('Login or password incorrect');
         }
 
-        if ($this->verbose) {
+        if ($this->verbose > 0) {
             static::ok('Successfuly login with the username ' . $this->params['login'] . PHP_EOL);
         }
     }
@@ -102,7 +102,7 @@ class FtpFileManager implements FileManagerInterface
             throw new \Exception('wrong path, cannot access to "' . ftp_pwd($this->ressource) . '/' . $path . '"');
         }
 
-        if ($this->verbose) {
+        if ($this->verbose > 1) {
             static::out('Current directory is now "' . ftp_pwd($this->ressource) . '"' . PHP_EOL);
         }
     }
@@ -120,7 +120,7 @@ class FtpFileManager implements FileManagerInterface
             throw new \Exception('Fail to create directory <' . $dirName . '> in "' . ftp_pwd($this->ressource) . '"');
         }
 
-        if ($this->verbose) {
+        if ($this->verbose > 0) {
             static::ok(
                 'New directory <' . $dirName . '> successfuly created in "' . ftp_pwd($this->ressource) . '"' . PHP_EOL
             );
@@ -188,7 +188,7 @@ class FtpFileManager implements FileManagerInterface
             }
         }
 
-        if ($this->verbose) {
+        if ($this->verbose > 0) {
             static::ok('File "' . $localFilePath . '" successfuly uploaded to "' . $remoteFilePath . '"' . PHP_EOL);
         }
     }
@@ -207,7 +207,7 @@ class FtpFileManager implements FileManagerInterface
             throw new \Exception('Fail to change rights on directory / file "'. $path . '"');
         }
 
-        if ($this->verbose) {
+        if ($this->verbose > 0) {
             static::ok('File "' . $path . '" has now the permission ' . $value . PHP_EOL);
         }
     }
@@ -234,7 +234,7 @@ class FtpFileManager implements FileManagerInterface
         $success         = @ftp_close($this->ressource);
         $this->ressource = null;
 
-        if ($this->verbose) {
+        if ($this->verbose > 0) {
             if ($success) {
                 static::ok('Connection closed successfuly' . PHP_EOL);
             } else {
