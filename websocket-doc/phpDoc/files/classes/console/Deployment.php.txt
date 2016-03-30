@@ -80,6 +80,7 @@ class Deployment extends Console
         'conf-example.ini',
         'phpdoc.dist.xml',
         'log.txt',
+        'app.js.map',
         'gulpfile.js',
         'package.json',
         'bower.json',
@@ -87,6 +88,7 @@ class Deployment extends Console
         '.bowerrc',
         '.jscsrc',
         '.jshintrc',
+        '.git',
         '.gitignore',
         '.gitattributes',
         'composer.lock',
@@ -260,7 +262,7 @@ class Deployment extends Console
         $this->deploy($directoriesTree);
         $this->composerInstall();
 
-        static::ok(PHP_EOL . 'PHP deployment completed' . PHP_EOL);
+        static::ok('PHP deployment completed' . PHP_EOL);
     }
 
     /**
@@ -277,7 +279,7 @@ class Deployment extends Console
 
         $this->deploy($directoriesTree);
 
-        static::ok(PHP_EOL . 'Static deployment completed' . PHP_EOL);
+        static::ok('Static deployment completed' . PHP_EOL);
     }
 
     /**
@@ -375,27 +377,34 @@ class Deployment extends Console
         $localWorkingDirectory .= DIRECTORY_SEPARATOR . $workingDirectory;
 
         foreach ($arrayDepth[$workingDirectory] as $directoryName => $subdir) {
-            $currentDirectory = new \DirectoryIterator($localWorkingDirectory);
+            $fileManager->changeDir($directoryName);
+            $currentDirectory = new \DirectoryIterator($localWorkingDirectory . DIRECTORY_SEPARATOR . $directoryName);
 
             foreach ($currentDirectory as $fileInfo) {
-                if (!$fileInfo->isDot() &&
-                    $fileInfo->isFile() &&
-                    $fileInfo->getMTime() > $fileManager->lastModified($fileInfo->getFilename())
-                ) {
-                    if (!in_array($fileInfo->getFilename(), static::$IGNORED_FILES)) {
-                        $fileManager->upload($fileInfo->getFilename(), $fileInfo->getPathname());
-                    } elseif ((int) $this->deploymentConfiguration['verbose'] > 1) {
-                        static::out($fileInfo->getPathname() . ' is ignored' . PHP_EOL);
+                if (!$fileInfo->isDot()) {
+                    if (!$fileInfo->isDot() &&
+                        $fileInfo->isFile() &&
+                        $fileInfo->getMTime() > $fileManager->lastModified($fileInfo->getFilename())
+                    ) {
+                        if (!in_array($fileInfo->getFilename(), static::$IGNORED_FILES)) {
+                            $fileManager->upload($fileInfo->getFilename(), $fileInfo->getPathname());
+                        } elseif ((int) $this->deploymentConfiguration['verbose'] > 1) {
+                            static::out($fileInfo->getPathname() . ' is ignored' . PHP_EOL);
+                        }
                     }
                 }
             }
 
-            $this->uploadFilesRecursive(
-                $fileManager,
-                $directoryName,
-                $arrayDepth[$workingDirectory],
-                $localWorkingDirectory
-            );
+            $fileManager->changeDir('..');
+
+            if (is_array($subdir)) {
+                $this->uploadFilesRecursive(
+                    $fileManager,
+                    $directoryName,
+                    $arrayDepth[$workingDirectory],
+                    $localWorkingDirectory
+                );
+            }
         }
 
         $fileManager->changeDir('..');
