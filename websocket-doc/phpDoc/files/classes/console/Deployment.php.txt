@@ -26,7 +26,7 @@ class Deployment extends Console
      */
     private static $SELF_COMMANDS = array(
         'protocol [-p protocol] [--list|set]'               => 'Get all the available deployment protocols or get/set the protocol',
-        'deploy [--static|php]'                             => 'Deploy the static or the php server or both (DEFAULT)',
+        'deploy [--static|php] [--skip-gulp]'               => 'Deploy the static or the php server or both (DEFAULT)',
         'configuration [-p param -v value] [--print|save]'  => 'Display or set deployment parameter (--save to save it in conf.ini'
     );
     /**
@@ -194,16 +194,17 @@ class Deployment extends Console
      */
     private function deployProcess(string $command)
     {
-        $args = $this->getArgs($command);
+        $args     = $this->getArgs($command);
+        $skipGulp = isset($args['skip-gulp']);
 
         try {
             if (isset($args['static'])) {
-                $this->deployStatic();
+                $this->deployStatic($skipGulp);
             } elseif (isset($args['php'])) {
-                $this->deployPhp();
+                $this->deployPhp($skipGulp);
             } else {
-                $this->deployStatic();
-                $this->deployPhp();
+                $this->deployStatic($skipGulp);
+                $this->deployPhp($skipGulp);
             }
         } catch (\Exception $e) {
             static::fail($e->getMessage());
@@ -249,10 +250,14 @@ class Deployment extends Console
 
     /**
      * Deploy the php server on the remote server
+     *
+     * @param      boolean  $skipGulp  True to skip gulp process else false DEFAULT false
      */
-    private function deployPhp()
+    private function deployPhp($skipGulp = false)
     {
-        $this->gulpPreprocessingPhp();
+        if (!$skipGulp) {
+            $this->gulpPreprocessingPhp();
+        }
 
         $directoriesTree = static::$PROJECT_MAIN_STRUCTURE;
         unset($directoriesTree[$this->deploymentConfiguration['remoteProjectRootDirectoryName']]['static']);
@@ -267,10 +272,14 @@ class Deployment extends Console
 
     /**
      * Deploy the static repo (js and css) on the remote server
+     *
+     * @param      boolean  $skipGulp  True to skip gulp process else false DEFAULT false
      */
-    private function deployStatic()
+    private function deployStatic($skipGulp = false)
     {
-        $this->gulpPreprocessingStatic();
+        if (!$skipGulp) {
+            $this->gulpPreprocessingStatic();
+        }
 
         $directoriesTree = static::$PROJECT_MAIN_STRUCTURE;
         unset($directoriesTree[$this->deploymentConfiguration['remoteProjectRootDirectoryName']]['php']);
