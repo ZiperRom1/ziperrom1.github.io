@@ -189,7 +189,7 @@ class FtpFileManager implements FileManagerInterface
         }
 
         if ($this->verbose > 0) {
-            static::ok('File "' . $localFilePath . '" successfuly uploaded to "' . $remoteFilePath . '"' . PHP_EOL);
+            static::ok('File "' . $localFilePath . '" successfuly uploaded'. PHP_EOL);
         }
     }
 
