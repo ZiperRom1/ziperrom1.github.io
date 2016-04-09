@@ -13,43 +13,39 @@
 <path fill="none" stroke="gray" d="M20,-314C20,-314 1150.38,-314 1150.38,-314 1156.38,-314 1162.38,-320 1162.38,-326 1162.38,-326 1162.38,-1728 1162.38,-1728 1162.38,-1734 1156.38,-1740 1150.38,-1740 1150.38,-1740 20,-1740 20,-1740 14,-1740 8,-1734 8,-1728 8,-1728 8,-326 8,-326 8,-320 14,-314 20,-314"/>
 <text text-anchor="middle" x="585.191" y="-1727.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">Global</text>
 </g>
-<g id="clust3" class="cluster"><title>cluster_\classes</title>
+<g id="clust2" class="cluster"><title>cluster_\classes</title>
 <path fill="none" stroke="gray" d="M942.382,-402C942.382,-402 1142.38,-402 1142.38,-402 1148.38,-402 1154.38,-408 1154.38,-414 1154.38,-414 1154.38,-1566 1154.38,-1566 1154.38,-1572 1148.38,-1578 1142.38,-1578 1142.38,-1578 942.382,-1578 942.382,-1578 936.382,-1578 930.382,-1572 930.382,-1566 930.382,-1566 930.382,-414 930.382,-414 930.382,-408 936.382,-402 942.382,-402"/>
 <text text-anchor="middle" x="1042.38" y="-1565.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">classes</text>
 </g>
-<g id="clust4" class="cluster"><title>cluster_\classes\console</title>
-<path fill="none" stroke="gray" d="M1004.38,-1344C1004.38,-1344 1080.38,-1344 1080.38,-1344 1086.38,-1344 1092.38,-1350 1092.38,-1356 1092.38,-1356 1092.38,-1404 1092.38,-1404 1092.38,-1410 1086.38,-1416 1080.38,-1416 1080.38,-1416 1004.38,-1416 1004.38,-1416 998.382,-1416 992.382,-1410 992.382,-1404 992.382,-1404 992.382,-1356 992.382,-1356 992.382,-1350 998.382,-1344 1004.38,-1344"/>
-<text text-anchor="middle" x="1042.38" y="-1403.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">console</text>
+<g id="clust3" class="cluster"><title>cluster_\classes\entitiesCollection</title>
+<path fill="none" stroke="gray" d="M960.382,-1182C960.382,-1182 1124.38,-1182 1124.38,-1182 1130.38,-1182 1136.38,-1188 1136.38,-1194 1136.38,-1194 1136.38,-1404 1136.38,-1404 1136.38,-1410 1130.38,-1416 1124.38,-1416 1124.38,-1416 960.382,-1416 960.382,-1416 954.382,-1416 948.382,-1410 948.382,-1404 948.382,-1404 948.382,-1194 948.382,-1194 948.382,-1188 954.382,-1182 960.382,-1182"/>
+<text text-anchor="middle" x="1042.38" y="-1403.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">entitiesCollection</text>
 </g>
-<g id="clust6" class="cluster"><title>cluster_\classes\entitiesCollection</title>
-<path fill="none" stroke="gray" d="M960.382,-860C960.382,-860 1124.38,-860 1124.38,-860 1130.38,-860 1136.38,-866 1136.38,-872 1136.38,-872 1136.38,-1082 1136.38,-1082 1136.38,-1088 1130.38,-1094 1124.38,-1094 1124.38,-1094 960.382,-1094 960.382,-1094 954.382,-1094 948.382,-1088 948.382,-1082 948.382,-1082 948.382,-872 948.382,-872 948.382,-866 954.382,-860 960.382,-860"/>
-<text text-anchor="middle" x="1042.38" y="-1081.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">entitiesCollection</text>
-</g>
-<g id="clust5" class="cluster"><title>cluster_\classes\entities</title>
-<path fill="none" stroke="gray" d="M994.382,-1102C994.382,-1102 1090.38,-1102 1090.38,-1102 1096.38,-1102 1102.38,-1108 1102.38,-1114 1102.38,-1114 1102.38,-1324 1102.38,-1324 1102.38,-1330 1096.38,-1336 1090.38,-1336 1090.38,-1336 994.382,-1336 994.382,-1336 988.382,-1336 982.382,-1330 982.382,-1324 982.382,-1324 982.382,-1114 982.382,-1114 982.382,-1108 988.382,-1102 994.382,-1102"/>
-<text text-anchor="middle" x="1042.38" y="-1323.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">entities</text>
-</g>
-<g id="clust7" class="cluster"><title>cluster_\classes\entitiesManager</title>
-<path fill="none" stroke="gray" d="M950.382,-672C950.382,-672 1134.38,-672 1134.38,-672 1140.38,-672 1146.38,-678 1146.38,-684 1146.38,-684 1146.38,-840 1146.38,-840 1146.38,-846 1140.38,-852 1134.38,-852 1134.38,-852 950.382,-852 950.382,-852 944.382,-852 938.382,-846 938.382,-840 938.382,-840 938.382,-684 938.382,-684 938.382,-678 944.382,-672 950.382,-672"/>
-<text text-anchor="middle" x="1042.38" y="-839.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">entitiesManager</text>
-</g>
-<g id="clust8" class="cluster"><title>cluster_\classes\logger</title>
+<g id="clust4" class="cluster"><title>cluster_\classes\logger</title>
 <path fill="none" stroke="gray" d="M1004.38,-1424C1004.38,-1424 1080.38,-1424 1080.38,-1424 1086.38,-1424 1092.38,-1430 1092.38,-1436 1092.38,-1436 1092.38,-1538 1092.38,-1538 1092.38,-1544 1086.38,-1550 1080.38,-1550 1080.38,-1550 1004.38,-1550 1004.38,-1550 998.382,-1550 992.382,-1544 992.382,-1538 992.382,-1538 992.382,-1436 992.382,-1436 992.382,-1430 998.382,-1424 1004.38,-1424"/>
 <text text-anchor="middle" x="1042.38" y="-1537.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">logger</text>
 </g>
-<g id="clust2" class="cluster"><title>cluster_\abstracts</title>
-<path fill="none" stroke="gray" d="M706.691,-1451C706.691,-1451 836.691,-1451 836.691,-1451 842.691,-1451 848.691,-1457 848.691,-1463 848.691,-1463 848.691,-1619 848.691,-1619 848.691,-1625 842.691,-1631 836.691,-1631 836.691,-1631 706.691,-1631 706.691,-1631 700.691,-1631 694.691,-1625 694.691,-1619 694.691,-1619 694.691,-1463 694.691,-1463 694.691,-1457 700.691,-1451 706.691,-1451"/>
-<text text-anchor="middle" x="771.691" y="-1618.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">abstracts</text>
+<g id="clust5" class="cluster"><title>cluster_\classes\entitiesManager</title>
+<path fill="none" stroke="gray" d="M950.382,-994C950.382,-994 1134.38,-994 1134.38,-994 1140.38,-994 1146.38,-1000 1146.38,-1006 1146.38,-1006 1146.38,-1162 1146.38,-1162 1146.38,-1168 1140.38,-1174 1134.38,-1174 1134.38,-1174 950.382,-1174 950.382,-1174 944.382,-1174 938.382,-1168 938.382,-1162 938.382,-1162 938.382,-1006 938.382,-1006 938.382,-1000 944.382,-994 950.382,-994"/>
+<text text-anchor="middle" x="1042.38" y="-1161.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">entitiesManager</text>
 </g>
-<g id="clust9" class="cluster"><title>cluster_\controllers</title>
+<g id="clust6" class="cluster"><title>cluster_\classes\console</title>
+<path fill="none" stroke="gray" d="M1004.38,-914C1004.38,-914 1080.38,-914 1080.38,-914 1086.38,-914 1092.38,-920 1092.38,-926 1092.38,-926 1092.38,-974 1092.38,-974 1092.38,-980 1086.38,-986 1080.38,-986 1080.38,-986 1004.38,-986 1004.38,-986 998.382,-986 992.382,-980 992.382,-974 992.382,-974 992.382,-926 992.382,-926 992.382,-920 998.382,-914 1004.38,-914"/>
+<text text-anchor="middle" x="1042.38" y="-973.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">console</text>
+</g>
+<g id="clust7" class="cluster"><title>cluster_\classes\entities</title>
+<path fill="none" stroke="gray" d="M994.382,-672C994.382,-672 1090.38,-672 1090.38,-672 1096.38,-672 1102.38,-678 1102.38,-684 1102.38,-684 1102.38,-894 1102.38,-894 1102.38,-900 1096.38,-906 1090.38,-906 1090.38,-906 994.382,-906 994.382,-906 988.382,-906 982.382,-900 982.382,-894 982.382,-894 982.382,-684 982.382,-684 982.382,-678 988.382,-672 994.382,-672"/>
+<text text-anchor="middle" x="1042.38" y="-893.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">entities</text>
+</g>
+<g id="clust10" class="cluster"><title>cluster_\controllers</title>
 <path fill="none" stroke="gray" d="M983.882,-1586C983.882,-1586 1100.88,-1586 1100.88,-1586 1106.88,-1586 1112.88,-1592 1112.88,-1598 1112.88,-1598 1112.88,-1700 1112.88,-1700 1112.88,-1706 1106.88,-1712 1100.88,-1712 1100.88,-1712 983.882,-1712 983.882,-1712 977.882,-1712 971.882,-1706 971.882,-1700 971.882,-1700 971.882,-1598 971.882,-1598 971.882,-1592 977.882,-1586 983.882,-1586"/>
 <text text-anchor="middle" x="1042.38" y="-1699.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">controllers</text>
 </g>
-<g id="clust10" class="cluster"><title>cluster_\interfaces</title>
+<g id="clust8" class="cluster"><title>cluster_\interfaces</title>
 <path fill="none" stroke="gray" d="M28,-1342C28,-1342 601,-1342 601,-1342 607,-1342 613,-1348 613,-1354 613,-1354 613,-1700 613,-1700 613,-1706 607,-1712 601,-1712 601,-1712 28,-1712 28,-1712 22,-1712 16,-1706 16,-1700 16,-1700 16,-1354 16,-1354 16,-1348 22,-1342 28,-1342"/>
 <text text-anchor="middle" x="314.5" y="-1699.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">interfaces</text>
 </g>
-<g id="clust11" class="cluster"><title>cluster_\interfaces\http</title>
+<g id="clust9" class="cluster"><title>cluster_\interfaces\http</title>
 <path fill="none" stroke="gray" d="M36,-1450C36,-1450 593,-1450 593,-1450 599,-1450 605,-1456 605,-1462 605,-1462 605,-1672 605,-1672 605,-1678 599,-1684 593,-1684 593,-1684 36,-1684 36,-1684 30,-1684 24,-1678 24,-1672 24,-1672 24,-1462 24,-1462 24,-1456 30,-1450 36,-1450"/>
 <text text-anchor="middle" x="314.5" y="-1671.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">http</text>
 </g>
@@ -57,308 +53,312 @@
 <path fill="none" stroke="gray" d="M1017.88,-322C1017.88,-322 1066.88,-322 1066.88,-322 1072.88,-322 1078.88,-328 1078.88,-334 1078.88,-334 1078.88,-382 1078.88,-382 1078.88,-388 1072.88,-394 1066.88,-394 1066.88,-394 1017.88,-394 1017.88,-394 1011.88,-394 1005.88,-388 1005.88,-382 1005.88,-382 1005.88,-334 1005.88,-334 1005.88,-328 1011.88,-322 1017.88,-322"/>
 <text text-anchor="middle" x="1042.38" y="-381.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">tests</text>
 </g>
-<!-- \\abstracts\\AbstractController -->
-<g id="node1" class="node"><title>\\abstracts\\AbstractController</title>
-<polygon fill="none" stroke="black" points="840.691,-1603 702.691,-1603 702.691,-1567 840.691,-1567 840.691,-1603"/>
-<text text-anchor="start" x="737.691" y="-1588.2" font-family="Courier,monospace" font-size="11.00">«abstract»</text>
-<text text-anchor="start" x="710.691" y="-1576.2" font-family="Courier,monospace" font-size="11.00">AbstractController</text>
-</g>
-<!-- \\abstracts\\AbstractLogger -->
-<g id="node2" class="node"><title>\\abstracts\\AbstractLogger</title>
-<polygon fill="none" stroke="black" points="827.191,-1549 716.191,-1549 716.191,-1513 827.191,-1513 827.191,-1549"/>
-<text text-anchor="start" x="737.691" y="-1534.2" font-family="Courier,monospace" font-size="11.00">«abstract»</text>
-<text text-anchor="start" x="724.191" y="-1522.2" font-family="Courier,monospace" font-size="11.00">AbstractLogger</text>
-</g>
-<!-- \\interfaces\\LoggerInterface -->
-<g id="node32" class="node"><title>\\interfaces\\LoggerInterface</title>
-<polygon fill="none" stroke="black" points="573.5,-1440 455.5,-1440 455.5,-1404 573.5,-1404 573.5,-1440"/>
-<text text-anchor="middle" x="514.5" y="-1419.2" font-family="Courier,monospace" font-size="11.00">LoggerInterface</text>
-</g>
-<!-- \\abstracts\\AbstractLogger&#45;&gt;\\interfaces\\LoggerInterface -->
-<g id="edge1" class="edge"><title>\\abstracts\\AbstractLogger&#45;&gt;\\interfaces\\LoggerInterface</title>
-<path fill="none" stroke="black" stroke-dasharray="1,5" d="M716.011,-1522.24C700.137,-1518.2 683.253,-1512.37 669,-1504 638.106,-1485.85 644.058,-1463.87 613,-1446 603.897,-1440.76 593.679,-1436.66 583.374,-1433.45"/>
-<polygon fill="none" stroke="black" points="584.078,-1430.01 573.502,-1430.64 582.16,-1436.74 584.078,-1430.01"/>
-</g>
-<!-- \\abstracts\\Manager -->
-<g id="node3" class="node"><title>\\abstracts\\Manager</title>
-<polygon fill="none" stroke="black" points="813.691,-1495 729.691,-1495 729.691,-1459 813.691,-1459 813.691,-1495"/>
-<text text-anchor="start" x="737.691" y="-1480.2" font-family="Courier,monospace" font-size="11.00">«abstract»</text>
-<text text-anchor="start" x="747.691" y="-1468.2" font-family="Courier,monospace" font-size="11.00">Manager</text>
-</g>
-<!-- \\classes\\console\\Deployment -->
-<g id="node4" class="node"><title>\\classes\\console\\Deployment</title>
-<polygon fill="none" stroke="black" points="1084.38,-1388 1000.38,-1388 1000.38,-1352 1084.38,-1352 1084.38,-1388"/>
-<text text-anchor="middle" x="1042.38" y="-1367.2" font-family="Courier,monospace" font-size="11.00">Deployment</text>
-</g>
-<!-- \\classes\\console\\Console -->
-<g id="node36" class="node"><title>\\classes\\console\\Console</title>
-<ellipse fill="none" stroke="black" cx="771.691" cy="-288" rx="102.882" ry="18"/>
-<text text-anchor="middle" x="771.691" y="-284.3" font-family="Times New Roman,serif" font-size="14.00" fill="gray">\classes\console\Console</text>
-</g>
-<!-- \\classes\\console\\Deployment&#45;&gt;\\classes\\console\\Console -->
-<g id="edge3" class="edge"><title>\\classes\\console\\Deployment&#45;&gt;\\classes\\console\\Console</title>
-<path fill="none" stroke="black" d="M1000.28,-1369.49C976.436,-1366.92 947.778,-1359.52 930.382,-1340 790.15,-1182.61 774.623,-469.361 772.905,-316.782"/>
-<polygon fill="none" stroke="black" points="776.401,-316.362 772.8,-306.398 769.401,-316.433 776.401,-316.362"/>
-</g>
-<!-- \\classes\\entities\\ChatRoom -->
-<g id="node5" class="node"><title>\\classes\\entities\\ChatRoom</title>
-<polygon fill="none" stroke="black" points="1077.88,-1308 1006.88,-1308 1006.88,-1272 1077.88,-1272 1077.88,-1308"/>
-<text text-anchor="middle" x="1042.38" y="-1287.2" font-family="Courier,monospace" font-size="11.00">ChatRoom</text>
-</g>
-<!-- \\abstracts\\Entity -->
-<g id="node37" class="node"><title>\\abstracts\\Entity</title>
-<ellipse fill="none" stroke="black" cx="771.691" cy="-234" rx="61.99" ry="18"/>
-<text text-anchor="middle" x="771.691" y="-230.3" font-family="Times New Roman,serif" font-size="14.00" fill="gray">\abstractsntity</text>
-</g>
-<!-- \\classes\\entities\\ChatRoom&#45;&gt;\\abstracts\\Entity -->
-<g id="edge4" class="edge"><title>\\classes\\entities\\ChatRoom&#45;&gt;\\abstracts\\Entity</title>
-<path fill="none" stroke="black" d="M1006.72,-1291.62C981.487,-1290.75 948.649,-1284.95 930.382,-1263 787.737,-1091.57 1015.23,-433.911 874.382,-261 866.108,-250.843 854.489,-244.258 842.048,-240.04"/>
-<polygon fill="none" stroke="black" points="842.995,-236.671 832.417,-237.257 841.052,-243.396 842.995,-236.671"/>
-</g>
-<!-- \\classes\\entities\\ChatRoomBan -->
-<g id="node6" class="node"><title>\\classes\\entities\\ChatRoomBan</title>
-<polygon fill="none" stroke="black" points="1087.88,-1254 996.882,-1254 996.882,-1218 1087.88,-1218 1087.88,-1254"/>
-<text text-anchor="middle" x="1042.38" y="-1233.2" font-family="Courier,monospace" font-size="11.00">ChatRoomBan</text>
-</g>
-<!-- \\classes\\entities\\ChatRoomBan&#45;&gt;\\abstracts\\Entity -->
-<g id="edge5" class="edge"><title>\\classes\\entities\\ChatRoomBan&#45;&gt;\\abstracts\\Entity</title>
-<path fill="none" stroke="black" d="M996.691,-1237C973.321,-1234.97 946.332,-1228.11 930.382,-1209 795.142,-1047 1007.92,-424.41 874.382,-261 866.219,-251.011 854.821,-244.479 842.594,-240.256"/>
-<polygon fill="none" stroke="black" points="843.237,-236.797 832.657,-237.342 841.268,-243.515 843.237,-236.797"/>
-</g>
-<!-- \\classes\\entities\\UserRight -->
-<g id="node7" class="node"><title>\\classes\\entities\\UserRight</title>
-<polygon fill="none" stroke="black" points="1080.88,-1200 1003.88,-1200 1003.88,-1164 1080.88,-1164 1080.88,-1200"/>
-<text text-anchor="middle" x="1042.38" y="-1179.2" font-family="Courier,monospace" font-size="11.00">UserRight</text>
-</g>
-<!-- \\classes\\entities\\UserRight&#45;&gt;\\abstracts\\Entity -->
-<g id="edge6" class="edge"><title>\\classes\\entities\\UserRight&#45;&gt;\\abstracts\\Entity</title>
-<path fill="none" stroke="black" d="M1003.84,-1183.46C979.065,-1182.23 948.022,-1176.06 930.382,-1155 802.547,-1002.42 1000.61,-414.911 874.382,-261 866.201,-251.026 854.795,-244.5 842.566,-240.279"/>
-<polygon fill="none" stroke="black" points="843.209,-236.82 832.628,-237.366 841.24,-243.537 843.209,-236.82"/>
-</g>
-<!-- \\classes\\entities\\UserStatistic -->
-<g id="node8" class="node"><title>\\classes\\entities\\UserStatistic</title>
-<polygon fill="none" stroke="black" points="1094.38,-1146 990.382,-1146 990.382,-1110 1094.38,-1110 1094.38,-1146"/>
-<text text-anchor="middle" x="1042.38" y="-1125.2" font-family="Courier,monospace" font-size="11.00">UserStatistic</text>
-</g>
-<!-- \\classes\\entities\\UserStatistic&#45;&gt;\\abstracts\\Entity -->
-<g id="edge7" class="edge"><title>\\classes\\entities\\UserStatistic&#45;&gt;\\abstracts\\Entity</title>
-<path fill="none" stroke="black" d="M990.132,-1126.79C968.401,-1123.47 944.812,-1115.6 930.382,-1098 812.179,-953.851 992.904,-404.886 874.382,-261 866.18,-251.043 854.765,-244.525 842.533,-240.306"/>
-<polygon fill="none" stroke="black" points="843.175,-236.847 832.594,-237.394 841.206,-243.565 843.175,-236.847"/>
-</g>
-<!-- \\classes\\entitiesCollection\\ChatRoomBanCollection -->
-<g id="node9" class="node"><title>\\classes\\entitiesCollection\\ChatRoomBanCollection</title>
-<polygon fill="none" stroke="black" points="1121.38,-1066 963.382,-1066 963.382,-1030 1121.38,-1030 1121.38,-1066"/>
-<text text-anchor="middle" x="1042.38" y="-1045.2" font-family="Courier,monospace" font-size="11.00">ChatRoomBanCollection</text>
-</g>
-<!-- \\abstracts\\Collection -->
-<g id="node38" class="node"><title>\\abstracts\\Collection</title>
-<ellipse fill="none" stroke="black" cx="771.691" cy="-180" rx="85.2851" ry="18"/>
-<text text-anchor="middle" x="771.691" y="-176.3" font-family="Times New Roman,serif" font-size="14.00" fill="gray">\abstracts\Collection</text>
-</g>
-<!-- \\classes\\entitiesCollection\\ChatRoomBanCollection&#45;&gt;\\abstracts\\Collection -->
-<g id="edge8" class="edge"><title>\\classes\\entitiesCollection\\ChatRoomBanCollection&#45;&gt;\\abstracts\\Collection</title>
-<path fill="none" stroke="black" d="M963.216,-1042.19C950.631,-1037.85 938.947,-1031.16 930.382,-1021 813.514,-882.373 989.794,-346.842 874.382,-207 869.546,-201.14 863.597,-196.472 857.024,-192.762"/>
-<polygon fill="none" stroke="black" points="858.248,-189.467 847.721,-188.277 855.208,-195.773 858.248,-189.467"/>
-</g>
-<!-- \\classes\\entitiesCollection\\ChatRoomCollection -->
-<g id="node10" class="node"><title>\\classes\\entitiesCollection\\ChatRoomCollection</title>
-<polygon fill="none" stroke="black" points="1111.38,-1012 973.382,-1012 973.382,-976 1111.38,-976 1111.38,-1012"/>
-<text text-anchor="middle" x="1042.38" y="-991.2" font-family="Courier,monospace" font-size="11.00">ChatRoomCollection</text>
-</g>
-<!-- \\classes\\entitiesCollection\\ChatRoomCollection&#45;&gt;\\abstracts\\Collection -->
-<g id="edge9" class="edge"><title>\\classes\\entitiesCollection\\ChatRoomCollection&#45;&gt;\\abstracts\\Collection</title>
-<path fill="none" stroke="black" d="M973.264,-991.099C956.99,-987.074 941.215,-979.787 930.382,-967 820.914,-837.79 982.492,-337.348 874.382,-207 869.531,-201.152 863.573,-196.492 856.994,-192.787"/>
-<polygon fill="none" stroke="black" points="858.213,-189.49 847.684,-188.307 855.177,-195.797 858.213,-189.49"/>
+<g id="clust11" class="cluster"><title>cluster_\abstracts</title>
+<path fill="none" stroke="gray" d="M706.691,-1451C706.691,-1451 836.691,-1451 836.691,-1451 842.691,-1451 848.691,-1457 848.691,-1463 848.691,-1463 848.691,-1619 848.691,-1619 848.691,-1625 842.691,-1631 836.691,-1631 836.691,-1631 706.691,-1631 706.691,-1631 700.691,-1631 694.691,-1625 694.691,-1619 694.691,-1619 694.691,-1463 694.691,-1463 694.691,-1457 700.691,-1451 706.691,-1451"/>
+<text text-anchor="middle" x="771.691" y="-1618.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">abstracts</text>
 </g>
 <!-- \\classes\\entitiesCollection\\UserChatRightCollection -->
-<g id="node11" class="node"><title>\\classes\\entitiesCollection\\UserChatRightCollection</title>
-<polygon fill="none" stroke="black" points="1128.38,-958 956.382,-958 956.382,-922 1128.38,-922 1128.38,-958"/>
-<text text-anchor="middle" x="1042.38" y="-937.2" font-family="Courier,monospace" font-size="11.00">UserChatRightCollection</text>
+<g id="node1" class="node"><title>\\classes\\entitiesCollection\\UserChatRightCollection</title>
+<polygon fill="none" stroke="black" points="1128.38,-1388 956.382,-1388 956.382,-1352 1128.38,-1352 1128.38,-1388"/>
+<text text-anchor="middle" x="1042.38" y="-1367.2" font-family="Courier,monospace" font-size="11.00">UserChatRightCollection</text>
+</g>
+<!-- \\abstracts\\Collection -->
+<g id="node35" class="node"><title>\\abstracts\\Collection</title>
+<ellipse fill="none" stroke="black" cx="771.691" cy="-288" rx="85.2851" ry="18"/>
+<text text-anchor="middle" x="771.691" y="-284.3" font-family="Times New Roman,serif" font-size="14.00" fill="gray">\abstracts\Collection</text>
 </g>
 <!-- \\classes\\entitiesCollection\\UserChatRightCollection&#45;&gt;\\abstracts\\Collection -->
-<g id="edge10" class="edge"><title>\\classes\\entitiesCollection\\UserChatRightCollection&#45;&gt;\\abstracts\\Collection</title>
-<path fill="none" stroke="black" d="M956.361,-931.442C946.448,-927.175 937.392,-921.227 930.382,-913 828.313,-793.205 975.193,-327.856 874.382,-207 869.515,-201.166 863.545,-196.514 856.96,-192.816"/>
-<polygon fill="none" stroke="black" points="858.172,-189.516 847.643,-188.341 855.142,-195.826 858.172,-189.516"/>
+<g id="edge1" class="edge"><title>\\classes\\entitiesCollection\\UserChatRightCollection&#45;&gt;\\abstracts\\Collection</title>
+<path fill="none" stroke="black" d="M956.333,-1360.75C946.552,-1356.57 937.539,-1350.83 930.382,-1343 787.65,-1186.77 774.086,-468.731 772.818,-316.437"/>
+<polygon fill="none" stroke="black" points="776.315,-316.059 772.744,-306.084 769.316,-316.109 776.315,-316.059"/>
+</g>
+<!-- \\classes\\entitiesCollection\\ChatRoomCollection -->
+<g id="node2" class="node"><title>\\classes\\entitiesCollection\\ChatRoomCollection</title>
+<polygon fill="none" stroke="black" points="1111.38,-1334 973.382,-1334 973.382,-1298 1111.38,-1298 1111.38,-1334"/>
+<text text-anchor="middle" x="1042.38" y="-1313.2" font-family="Courier,monospace" font-size="11.00">ChatRoomCollection</text>
+</g>
+<!-- \\classes\\entitiesCollection\\ChatRoomCollection&#45;&gt;\\abstracts\\Collection -->
+<g id="edge2" class="edge"><title>\\classes\\entitiesCollection\\ChatRoomCollection&#45;&gt;\\abstracts\\Collection</title>
+<path fill="none" stroke="black" d="M973.097,-1312.26C957.121,-1308.2 941.533,-1301.11 930.382,-1289 794.644,-1141.6 775.614,-463.915 773.069,-316.399"/>
+<polygon fill="none" stroke="black" points="776.567,-316.279 772.907,-306.337 769.568,-316.392 776.567,-316.279"/>
+</g>
+<!-- \\classes\\entitiesCollection\\ChatRoomBanCollection -->
+<g id="node3" class="node"><title>\\classes\\entitiesCollection\\ChatRoomBanCollection</title>
+<polygon fill="none" stroke="black" points="1121.38,-1280 963.382,-1280 963.382,-1244 1121.38,-1244 1121.38,-1280"/>
+<text text-anchor="middle" x="1042.38" y="-1259.2" font-family="Courier,monospace" font-size="11.00">ChatRoomBanCollection</text>
+</g>
+<!-- \\classes\\entitiesCollection\\ChatRoomBanCollection&#45;&gt;\\abstracts\\Collection -->
+<g id="edge5" class="edge"><title>\\classes\\entitiesCollection\\ChatRoomBanCollection&#45;&gt;\\abstracts\\Collection</title>
+<path fill="none" stroke="black" d="M963.151,-1255.21C950.807,-1250.93 939.223,-1244.52 930.382,-1235 801.58,-1096.35 777.205,-458.529 773.342,-316.21"/>
+<polygon fill="none" stroke="black" points="776.838,-316.02 773.08,-306.114 769.841,-316.201 776.838,-316.02"/>
 </g>
 <!-- \\classes\\entitiesCollection\\UserCollection -->
-<g id="node12" class="node"><title>\\classes\\entitiesCollection\\UserCollection</title>
-<polygon fill="none" stroke="black" points="1097.88,-904 986.882,-904 986.882,-868 1097.88,-868 1097.88,-904"/>
-<text text-anchor="middle" x="1042.38" y="-883.2" font-family="Courier,monospace" font-size="11.00">UserCollection</text>
+<g id="node4" class="node"><title>\\classes\\entitiesCollection\\UserCollection</title>
+<polygon fill="none" stroke="black" points="1097.88,-1226 986.882,-1226 986.882,-1190 1097.88,-1190 1097.88,-1226"/>
+<text text-anchor="middle" x="1042.38" y="-1205.2" font-family="Courier,monospace" font-size="11.00">UserCollection</text>
 </g>
 <!-- \\classes\\entitiesCollection\\UserCollection&#45;&gt;\\abstracts\\Collection -->
-<g id="edge11" class="edge"><title>\\classes\\entitiesCollection\\UserCollection&#45;&gt;\\abstracts\\Collection</title>
-<path fill="none" stroke="black" d="M986.847,-884.096C966.129,-880.462 944.212,-872.539 930.382,-856 837.519,-744.953 967.491,-317.841 874.382,-207 869.455,-201.134 863.413,-196.466 856.753,-192.76"/>
-<polygon fill="none" stroke="black" points="857.871,-189.416 847.337,-188.281 854.864,-195.737 857.871,-189.416"/>
-</g>
-<!-- \\classes\\entitiesManager\\GlobalEntityManager -->
-<g id="node13" class="node"><title>\\classes\\entitiesManager\\GlobalEntityManager</title>
-<polygon fill="none" stroke="black" points="1114.88,-824 969.882,-824 969.882,-788 1114.88,-788 1114.88,-824"/>
-<text text-anchor="middle" x="1042.38" y="-803.2" font-family="Courier,monospace" font-size="11.00">GlobalEntityManager</text>
-</g>
-<!-- \\abstracts\\EntityManager -->
-<g id="node39" class="node"><title>\\abstracts\\EntityManager</title>
-<ellipse fill="none" stroke="black" cx="771.691" cy="-126" rx="92.8835" ry="18"/>
-<text text-anchor="middle" x="771.691" y="-122.3" font-family="Times New Roman,serif" font-size="14.00" fill="gray">\abstractsntityManager</text>
-</g>
-<!-- \\classes\\entitiesManager\\GlobalEntityManager&#45;&gt;\\abstracts\\EntityManager -->
-<g id="edge12" class="edge"><title>\\classes\\entitiesManager\\GlobalEntityManager&#45;&gt;\\abstracts\\EntityManager</title>
-<path fill="none" stroke="black" d="M969.653,-801.997C954.72,-797.811 940.474,-790.724 930.382,-779 839.268,-673.146 964.384,-259.801 874.382,-153 870.21,-148.05 865.245,-143.953 859.786,-140.568"/>
-<polygon fill="none" stroke="black" points="861.317,-137.418 850.844,-135.814 858.031,-143.599 861.317,-137.418"/>
-</g>
-<!-- \\classes\\entitiesManager\\UserRightEntityManager -->
-<g id="node14" class="node"><title>\\classes\\entitiesManager\\UserRightEntityManager</title>
-<polygon fill="none" stroke="black" points="1124.88,-770 959.882,-770 959.882,-734 1124.88,-734 1124.88,-770"/>
-<text text-anchor="middle" x="1042.38" y="-749.2" font-family="Courier,monospace" font-size="11.00">UserRightEntityManager</text>
-</g>
-<!-- \\classes\\entitiesManager\\UserRightEntityManager&#45;&gt;\\abstracts\\EntityManager -->
-<g id="edge13" class="edge"><title>\\classes\\entitiesManager\\UserRightEntityManager&#45;&gt;\\abstracts\\EntityManager</title>
-<path fill="none" stroke="black" d="M959.812,-744.664C948.595,-740.347 938.247,-734.061 930.382,-725 846.658,-628.551 957.093,-250.319 874.382,-153 870.112,-147.976 865.025,-143.832 859.436,-140.42"/>
-<polygon fill="none" stroke="black" points="860.769,-137.168 850.285,-135.639 857.527,-143.372 860.769,-137.168"/>
-</g>
-<!-- \\classes\\entitiesManager\\UserStatisticEntityManager -->
-<g id="node15" class="node"><title>\\classes\\entitiesManager\\UserStatisticEntityManager</title>
-<polygon fill="none" stroke="black" points="1138.38,-716 946.382,-716 946.382,-680 1138.38,-680 1138.38,-716"/>
-<text text-anchor="middle" x="1042.38" y="-695.2" font-family="Courier,monospace" font-size="11.00">UserStatisticEntityManager</text>
-</g>
-<!-- \\classes\\entitiesManager\\UserStatisticEntityManager&#45;&gt;\\abstracts\\EntityManager -->
-<g id="edge14" class="edge"><title>\\classes\\entitiesManager\\UserStatisticEntityManager&#45;&gt;\\abstracts\\EntityManager</title>
-<path fill="none" stroke="black" d="M946.161,-688.323C940.314,-685.054 934.956,-681.001 930.382,-676 772.596,-503.508 1026.58,-330.441 874.382,-153 870.089,-147.996 864.986,-143.866 859.385,-140.463"/>
-<polygon fill="none" stroke="black" points="860.707,-137.205 850.221,-135.694 857.476,-143.415 860.707,-137.205"/>
-</g>
-<!-- \\classes\\logger\\FileLogger -->
-<g id="node16" class="node"><title>\\classes\\logger\\FileLogger</title>
-<polygon fill="none" stroke="black" points="1084.38,-1522 1000.38,-1522 1000.38,-1486 1084.38,-1486 1084.38,-1522"/>
-<text text-anchor="middle" x="1042.38" y="-1501.2" font-family="Courier,monospace" font-size="11.00">FileLogger</text>
-</g>
-<!-- \\classes\\logger\\FileLogger&#45;&gt;\\abstracts\\AbstractLogger -->
-<g id="edge16" class="edge"><title>\\classes\\logger\\FileLogger&#45;&gt;\\abstracts\\AbstractLogger</title>
-<path fill="none" stroke="black" d="M1000.28,-1508.13C956.958,-1512.48 888.108,-1519.4 837.469,-1524.49"/>
-<polygon fill="none" stroke="black" points="836.876,-1521.03 827.276,-1525.51 837.576,-1528 836.876,-1521.03"/>
+<g id="edge10" class="edge"><title>\\classes\\entitiesCollection\\UserCollection&#45;&gt;\\abstracts\\Collection</title>
+<path fill="none" stroke="black" d="M986.714,-1205.3C966.356,-1201.51 944.734,-1193.68 930.382,-1178 810.607,-1047.11 779.393,-453.049 773.739,-316.183"/>
+<polygon fill="none" stroke="black" points="777.232,-315.94 773.334,-306.088 770.237,-316.22 777.232,-315.94"/>
 </g>
 <!-- \\classes\\logger\\LogLevel -->
-<g id="node17" class="node"><title>\\classes\\logger\\LogLevel</title>
-<polygon fill="none" stroke="black" points="1077.88,-1468 1006.88,-1468 1006.88,-1432 1077.88,-1432 1077.88,-1468"/>
-<text text-anchor="middle" x="1042.38" y="-1447.2" font-family="Courier,monospace" font-size="11.00">LogLevel</text>
+<g id="node5" class="node"><title>\\classes\\logger\\LogLevel</title>
+<polygon fill="none" stroke="black" points="1077.88,-1522 1006.88,-1522 1006.88,-1486 1077.88,-1486 1077.88,-1522"/>
+<text text-anchor="middle" x="1042.38" y="-1501.2" font-family="Courier,monospace" font-size="11.00">LogLevel</text>
 </g>
-<!-- \\classes\\AssertionErrorManager -->
-<g id="node18" class="node"><title>\\classes\\AssertionErrorManager</title>
-<polygon fill="none" stroke="black" points="1121.38,-662 963.382,-662 963.382,-626 1121.38,-626 1121.38,-662"/>
-<text text-anchor="middle" x="1042.38" y="-641.2" font-family="Courier,monospace" font-size="11.00">AssertionErrorManager</text>
+<!-- \\classes\\logger\\FileLogger -->
+<g id="node6" class="node"><title>\\classes\\logger\\FileLogger</title>
+<polygon fill="none" stroke="black" points="1084.38,-1468 1000.38,-1468 1000.38,-1432 1084.38,-1432 1084.38,-1468"/>
+<text text-anchor="middle" x="1042.38" y="-1447.2" font-family="Courier,monospace" font-size="11.00">FileLogger</text>
 </g>
-<!-- \\AssertionError -->
-<g id="node35" class="node"><title>\\AssertionError</title>
-<ellipse fill="none" stroke="black" cx="771.691" cy="-72" rx="66.8882" ry="18"/>
-<text text-anchor="middle" x="771.691" y="-68.3" font-family="Times New Roman,serif" font-size="14.00" fill="gray">\AssertionError</text>
+<!-- \\abstracts\\AbstractLogger -->
+<g id="node31" class="node"><title>\\abstracts\\AbstractLogger</title>
+<polygon fill="none" stroke="black" points="827.191,-1495 716.191,-1495 716.191,-1459 827.191,-1459 827.191,-1495"/>
+<text text-anchor="start" x="737.691" y="-1480.2" font-family="Courier,monospace" font-size="11.00">«abstract»</text>
+<text text-anchor="start" x="724.191" y="-1468.2" font-family="Courier,monospace" font-size="11.00">AbstractLogger</text>
 </g>
-<!-- \\classes\\AssertionErrorManager&#45;&gt;\\AssertionError -->
-<g id="edge2" class="edge"><title>\\classes\\AssertionErrorManager&#45;&gt;\\AssertionError</title>
-<path fill="none" stroke="black" d="M963.255,-637.819C950.746,-633.502 939.078,-626.916 930.382,-617 777.703,-442.9 1025.23,-274.687 874.382,-99 866.881,-90.2642 856.908,-84.1934 846.136,-80.0049"/>
-<polygon fill="none" stroke="black" points="847.1,-76.6367 836.506,-76.789 844.883,-83.2763 847.1,-76.6367"/>
+<!-- \\classes\\logger\\FileLogger&#45;&gt;\\abstracts\\AbstractLogger -->
+<g id="edge13" class="edge"><title>\\classes\\logger\\FileLogger&#45;&gt;\\abstracts\\AbstractLogger</title>
+<path fill="none" stroke="black" d="M1000.28,-1454.13C956.958,-1458.48 888.108,-1465.4 837.469,-1470.49"/>
+<polygon fill="none" stroke="black" points="836.876,-1467.03 827.276,-1471.51 837.576,-1474 836.876,-1467.03"/>
+</g>
+<!-- \\classes\\entitiesManager\\UserStatisticEntityManager -->
+<g id="node7" class="node"><title>\\classes\\entitiesManager\\UserStatisticEntityManager</title>
+<polygon fill="none" stroke="black" points="1138.38,-1146 946.382,-1146 946.382,-1110 1138.38,-1110 1138.38,-1146"/>
+<text text-anchor="middle" x="1042.38" y="-1125.2" font-family="Courier,monospace" font-size="11.00">UserStatisticEntityManager</text>
+</g>
+<!-- \\abstracts\\EntityManager -->
+<g id="node36" class="node"><title>\\abstracts\\EntityManager</title>
+<ellipse fill="none" stroke="black" cx="771.691" cy="-234" rx="92.8835" ry="18"/>
+<text text-anchor="middle" x="771.691" y="-230.3" font-family="Times New Roman,serif" font-size="14.00" fill="gray">\abstractsntityManager</text>
+</g>
+<!-- \\classes\\entitiesManager\\UserStatisticEntityManager&#45;&gt;\\abstracts\\EntityManager -->
+<g id="edge3" class="edge"><title>\\classes\\entitiesManager\\UserStatisticEntityManager&#45;&gt;\\abstracts\\EntityManager</title>
+<path fill="none" stroke="black" d="M946.281,-1114.4C940.324,-1110.8 934.914,-1106.39 930.382,-1101 809.95,-957.838 993.31,-405.414 874.382,-261 870.267,-256.003 865.342,-251.872 859.912,-248.464"/>
+<polygon fill="none" stroke="black" points="861.47,-245.328 851.004,-243.68 858.159,-251.495 861.47,-245.328"/>
+</g>
+<!-- \\classes\\entitiesManager\\UserRightEntityManager -->
+<g id="node8" class="node"><title>\\classes\\entitiesManager\\UserRightEntityManager</title>
+<polygon fill="none" stroke="black" points="1124.88,-1092 959.882,-1092 959.882,-1056 1124.88,-1056 1124.88,-1092"/>
+<text text-anchor="middle" x="1042.38" y="-1071.2" font-family="Courier,monospace" font-size="11.00">UserRightEntityManager</text>
+</g>
+<!-- \\classes\\entitiesManager\\UserRightEntityManager&#45;&gt;\\abstracts\\EntityManager -->
+<g id="edge8" class="edge"><title>\\classes\\entitiesManager\\UserRightEntityManager&#45;&gt;\\abstracts\\EntityManager</title>
+<path fill="none" stroke="black" d="M959.878,-1066.95C948.581,-1062.61 938.191,-1056.24 930.382,-1047 817.351,-913.256 986.007,-395.919 874.382,-261 870.255,-256.013 865.323,-251.889 859.886,-248.484"/>
+<polygon fill="none" stroke="black" points="861.439,-245.346 850.972,-243.707 858.133,-251.516 861.439,-245.346"/>
+</g>
+<!-- \\classes\\entitiesManager\\GlobalEntityManager -->
+<g id="node9" class="node"><title>\\classes\\entitiesManager\\GlobalEntityManager</title>
+<polygon fill="none" stroke="black" points="1114.88,-1038 969.882,-1038 969.882,-1002 1114.88,-1002 1114.88,-1038"/>
+<text text-anchor="middle" x="1042.38" y="-1017.2" font-family="Courier,monospace" font-size="11.00">GlobalEntityManager</text>
+</g>
+<!-- \\classes\\entitiesManager\\GlobalEntityManager&#45;&gt;\\abstracts\\EntityManager -->
+<g id="edge17" class="edge"><title>\\classes\\entitiesManager\\GlobalEntityManager&#45;&gt;\\abstracts\\EntityManager</title>
+<path fill="none" stroke="black" d="M969.709,-1014.14C954.68,-1009.56 940.378,-1002.07 930.382,-990 826.74,-864.871 978.301,-385.898 874.382,-261 870.242,-256.024 865.299,-251.908 859.856,-248.51"/>
+<polygon fill="none" stroke="black" points="861.402,-245.368 850.932,-243.74 858.101,-251.541 861.402,-245.368"/>
+</g>
+<!-- \\classes\\console\\Deployment -->
+<g id="node10" class="node"><title>\\classes\\console\\Deployment</title>
+<polygon fill="none" stroke="black" points="1084.38,-958 1000.38,-958 1000.38,-922 1084.38,-922 1084.38,-958"/>
+<text text-anchor="middle" x="1042.38" y="-937.2" font-family="Courier,monospace" font-size="11.00">Deployment</text>
+</g>
+<!-- \\classes\\console\\Console -->
+<g id="node37" class="node"><title>\\classes\\console\\Console</title>
+<ellipse fill="none" stroke="black" cx="771.691" cy="-180" rx="102.882" ry="18"/>
+<text text-anchor="middle" x="771.691" y="-176.3" font-family="Times New Roman,serif" font-size="14.00" fill="gray">\classes\console\Console</text>
+</g>
+<!-- \\classes\\console\\Deployment&#45;&gt;\\classes\\console\\Console -->
+<g id="edge4" class="edge"><title>\\classes\\console\\Deployment&#45;&gt;\\classes\\console\\Console</title>
+<path fill="none" stroke="black" d="M1000.33,-939.97C976.204,-937.612 947.219,-930.269 930.382,-910 830.244,-789.449 974.787,-327.329 874.382,-207 870.887,-202.812 866.825,-199.234 862.374,-196.18"/>
+<polygon fill="none" stroke="black" points="863.784,-192.951 853.383,-190.931 860.255,-198.996 863.784,-192.951"/>
+</g>
+<!-- \\classes\\entities\\UserRight -->
+<g id="node11" class="node"><title>\\classes\\entities\\UserRight</title>
+<polygon fill="none" stroke="black" points="1080.88,-878 1003.88,-878 1003.88,-842 1080.88,-842 1080.88,-878"/>
+<text text-anchor="middle" x="1042.38" y="-857.2" font-family="Courier,monospace" font-size="11.00">UserRight</text>
+</g>
+<!-- \\abstracts\\Entity -->
+<g id="node39" class="node"><title>\\abstracts\\Entity</title>
+<ellipse fill="none" stroke="black" cx="771.691" cy="-126" rx="61.99" ry="18"/>
+<text text-anchor="middle" x="771.691" y="-122.3" font-family="Times New Roman,serif" font-size="14.00" fill="gray">\abstractsntity</text>
+</g>
+<!-- \\classes\\entities\\UserRight&#45;&gt;\\abstracts\\Entity -->
+<g id="edge9" class="edge"><title>\\classes\\entities\\UserRight&#45;&gt;\\abstracts\\Entity</title>
+<path fill="none" stroke="black" d="M1003.71,-861.34C979.029,-860.026 948.163,-853.806 930.382,-833 831.874,-717.737 971.679,-269.287 874.382,-153 866.104,-143.106 854.654,-136.617 842.413,-132.406"/>
+<polygon fill="none" stroke="black" points="843.052,-128.946 832.471,-129.496 841.085,-135.664 843.052,-128.946"/>
+</g>
+<!-- \\classes\\entities\\ChatRoomBan -->
+<g id="node12" class="node"><title>\\classes\\entities\\ChatRoomBan</title>
+<polygon fill="none" stroke="black" points="1087.88,-824 996.882,-824 996.882,-788 1087.88,-788 1087.88,-824"/>
+<text text-anchor="middle" x="1042.38" y="-803.2" font-family="Courier,monospace" font-size="11.00">ChatRoomBan</text>
+</g>
+<!-- \\classes\\entities\\ChatRoomBan&#45;&gt;\\abstracts\\Entity -->
+<g id="edge12" class="edge"><title>\\classes\\entities\\ChatRoomBan&#45;&gt;\\abstracts\\Entity</title>
+<path fill="none" stroke="black" d="M996.636,-806.786C973.398,-804.667 946.555,-797.789 930.382,-779 839.268,-673.146 964.384,-259.801 874.382,-153 866.069,-143.136 854.604,-136.659 842.358,-132.452"/>
+<polygon fill="none" stroke="black" points="842.996,-128.992 832.415,-129.543 841.03,-135.71 842.996,-128.992"/>
+</g>
+<!-- \\classes\\entities\\ChatRoom -->
+<g id="node13" class="node"><title>\\classes\\entities\\ChatRoom</title>
+<polygon fill="none" stroke="black" points="1077.88,-770 1006.88,-770 1006.88,-734 1077.88,-734 1077.88,-770"/>
+<text text-anchor="middle" x="1042.38" y="-749.2" font-family="Courier,monospace" font-size="11.00">ChatRoom</text>
+</g>
+<!-- \\classes\\entities\\ChatRoom&#45;&gt;\\abstracts\\Entity -->
+<g id="edge15" class="edge"><title>\\classes\\entities\\ChatRoom&#45;&gt;\\abstracts\\Entity</title>
+<path fill="none" stroke="black" d="M1006.72,-753.392C981.657,-752.373 949.038,-746.492 930.382,-725 846.658,-628.551 957.093,-250.319 874.382,-153 866.028,-143.171 854.544,-136.71 842.293,-132.507"/>
+<polygon fill="none" stroke="black" points="842.93,-129.046 832.349,-129.599 840.965,-135.765 842.93,-129.046"/>
+</g>
+<!-- \\classes\\entities\\UserStatistic -->
+<g id="node14" class="node"><title>\\classes\\entities\\UserStatistic</title>
+<polygon fill="none" stroke="black" points="1094.38,-716 990.382,-716 990.382,-680 1094.38,-680 1094.38,-716"/>
+<text text-anchor="middle" x="1042.38" y="-695.2" font-family="Courier,monospace" font-size="11.00">UserStatistic</text>
+</g>
+<!-- \\classes\\entities\\UserStatistic&#45;&gt;\\abstracts\\Entity -->
+<g id="edge18" class="edge"><title>\\classes\\entities\\UserStatistic&#45;&gt;\\abstracts\\Entity</title>
+<path fill="none" stroke="black" d="M990.197,-700.408C968.749,-698.586 945.365,-692.38 930.382,-676 772.596,-503.508 1026.58,-330.441 874.382,-153 865.983,-143.209 854.48,-136.765 842.223,-132.566"/>
+<polygon fill="none" stroke="black" points="842.858,-129.105 832.278,-129.66 840.894,-135.824 842.858,-129.105"/>
+</g>
+<!-- \\classes\\ThrowableManager -->
+<g id="node15" class="node"><title>\\classes\\ThrowableManager</title>
+<polygon fill="none" stroke="black" points="1104.88,-662 979.882,-662 979.882,-626 1104.88,-626 1104.88,-662"/>
+<text text-anchor="middle" x="1042.38" y="-641.2" font-family="Courier,monospace" font-size="11.00">ThrowableManager</text>
 </g>
 <!-- \\classes\\ExceptionManager -->
-<g id="node19" class="node"><title>\\classes\\ExceptionManager</title>
+<g id="node16" class="node"><title>\\classes\\ExceptionManager</title>
 <polygon fill="none" stroke="black" points="1104.88,-608 979.882,-608 979.882,-572 1104.88,-572 1104.88,-608"/>
 <text text-anchor="middle" x="1042.38" y="-587.2" font-family="Courier,monospace" font-size="11.00">ExceptionManager</text>
 </g>
 <!-- \\Exception -->
-<g id="node40" class="node"><title>\\Exception</title>
-<ellipse fill="none" stroke="black" cx="771.691" cy="-18" rx="42.4939" ry="18"/>
-<text text-anchor="middle" x="771.691" y="-14.3" font-family="Times New Roman,serif" font-size="14.00" fill="gray">xception</text>
+<g id="node38" class="node"><title>\\Exception</title>
+<ellipse fill="none" stroke="black" cx="771.691" cy="-72" rx="42.4939" ry="18"/>
+<text text-anchor="middle" x="771.691" y="-68.3" font-family="Times New Roman,serif" font-size="14.00" fill="gray">xception</text>
 </g>
 <!-- \\classes\\ExceptionManager&#45;&gt;\\Exception -->
-<g id="edge15" class="edge"><title>\\classes\\ExceptionManager&#45;&gt;\\Exception</title>
-<path fill="none" stroke="black" d="M979.635,-588.203C961.293,-584.536 942.804,-577.166 930.382,-563 777.703,-388.9 1025.23,-220.687 874.382,-45 861.932,-30.5004 842.673,-23.3427 824.25,-19.9477"/>
-<polygon fill="none" stroke="black" points="824.56,-16.4549 814.15,-18.4259 823.517,-23.3768 824.56,-16.4549"/>
-</g>
-<!-- \\classes\\ImagesManager -->
-<g id="node20" class="node"><title>\\classes\\ImagesManager</title>
-<polygon fill="none" stroke="black" points="1094.38,-554 990.382,-554 990.382,-518 1094.38,-518 1094.38,-554"/>
-<text text-anchor="middle" x="1042.38" y="-533.2" font-family="Courier,monospace" font-size="11.00">ImagesManager</text>
+<g id="edge7" class="edge"><title>\\classes\\ExceptionManager&#45;&gt;\\Exception</title>
+<path fill="none" stroke="black" d="M979.739,-588.112C961.403,-584.439 942.892,-577.088 930.382,-563 792.458,-407.681 1010.67,-255.753 874.382,-99 861.842,-84.5779 842.567,-77.4345 824.156,-74.029"/>
+<polygon fill="none" stroke="black" points="824.477,-70.5377 814.065,-72.4993 823.428,-77.4587 824.477,-70.5377"/>
 </g>
 <!-- \\classes\\IniManager -->
-<g id="node21" class="node"><title>\\classes\\IniManager</title>
-<polygon fill="none" stroke="black" points="1084.38,-500 1000.38,-500 1000.38,-464 1084.38,-464 1084.38,-500"/>
-<text text-anchor="middle" x="1042.38" y="-479.2" font-family="Courier,monospace" font-size="11.00">IniManager</text>
+<g id="node17" class="node"><title>\\classes\\IniManager</title>
+<polygon fill="none" stroke="black" points="1084.38,-554 1000.38,-554 1000.38,-518 1084.38,-518 1084.38,-554"/>
+<text text-anchor="middle" x="1042.38" y="-533.2" font-family="Courier,monospace" font-size="11.00">IniManager</text>
 </g>
-<!-- \\classes\\ThrowableManager -->
-<g id="node22" class="node"><title>\\classes\\ThrowableManager</title>
-<polygon fill="none" stroke="black" points="1104.88,-446 979.882,-446 979.882,-410 1104.88,-410 1104.88,-446"/>
-<text text-anchor="middle" x="1042.38" y="-425.2" font-family="Courier,monospace" font-size="11.00">ThrowableManager</text>
+<!-- \\classes\\AssertionErrorManager -->
+<g id="node18" class="node"><title>\\classes\\AssertionErrorManager</title>
+<polygon fill="none" stroke="black" points="1121.38,-500 963.382,-500 963.382,-464 1121.38,-464 1121.38,-500"/>
+<text text-anchor="middle" x="1042.38" y="-479.2" font-family="Courier,monospace" font-size="11.00">AssertionErrorManager</text>
 </g>
-<!-- \\controllers\\KibanaController -->
-<g id="node23" class="node"><title>\\controllers\\KibanaController</title>
-<polygon fill="none" stroke="black" points="1104.88,-1684 979.882,-1684 979.882,-1648 1104.88,-1648 1104.88,-1684"/>
-<text text-anchor="middle" x="1042.38" y="-1663.2" font-family="Courier,monospace" font-size="11.00">KibanaController</text>
+<!-- \\AssertionError -->
+<g id="node40" class="node"><title>\\AssertionError</title>
+<ellipse fill="none" stroke="black" cx="771.691" cy="-18" rx="66.8882" ry="18"/>
+<text text-anchor="middle" x="771.691" y="-14.3" font-family="Times New Roman,serif" font-size="14.00" fill="gray">\AssertionError</text>
 </g>
-<!-- \\controllers\\KibanaController&#45;&gt;\\abstracts\\AbstractController -->
-<g id="edge17" class="edge"><title>\\controllers\\KibanaController&#45;&gt;\\abstracts\\AbstractController</title>
-<path fill="none" stroke="black" d="M979.758,-1652.07C963.613,-1648.13 946.278,-1643.64 930.382,-1639 897.316,-1629.34 860.904,-1616.99 831.407,-1606.53"/>
-<polygon fill="none" stroke="black" points="832.279,-1603.13 821.684,-1603.07 829.929,-1609.72 832.279,-1603.13"/>
+<!-- \\classes\\AssertionErrorManager&#45;&gt;\\AssertionError -->
+<g id="edge14" class="edge"><title>\\classes\\AssertionErrorManager&#45;&gt;\\AssertionError</title>
+<path fill="none" stroke="black" d="M963.2,-475.52C950.774,-471.222 939.149,-464.719 930.382,-455 807.192,-318.439 996.136,-182.841 874.382,-45 866.759,-36.3702 856.725,-30.3533 845.929,-26.1857"/>
+<polygon fill="none" stroke="black" points="846.88,-22.8137 836.287,-22.9801 844.672,-29.4562 846.88,-22.8137"/>
 </g>
-<!-- \\controllers\\UserController -->
-<g id="node24" class="node"><title>\\controllers\\UserController</title>
-<polygon fill="none" stroke="black" points="1097.88,-1630 986.882,-1630 986.882,-1594 1097.88,-1594 1097.88,-1630"/>
-<text text-anchor="middle" x="1042.38" y="-1609.2" font-family="Courier,monospace" font-size="11.00">UserController</text>
-</g>
-<!-- \\controllers\\UserController&#45;&gt;\\abstracts\\AbstractController -->
-<g id="edge18" class="edge"><title>\\controllers\\UserController&#45;&gt;\\abstracts\\AbstractController</title>
-<path fill="none" stroke="black" d="M986.684,-1606.5C947.68,-1602.58 894.657,-1597.26 851.15,-1592.88"/>
-<polygon fill="none" stroke="black" points="851.468,-1589.4 841.168,-1591.88 850.768,-1596.36 851.468,-1589.4"/>
-</g>
-<!-- \\interfaces\\http\\MessageInterface -->
-<g id="node25" class="node"><title>\\interfaces\\http\\MessageInterface</title>
-<polygon fill="none" stroke="black" points="157,-1629 32,-1629 32,-1593 157,-1593 157,-1629"/>
-<text text-anchor="middle" x="94.5" y="-1608.2" font-family="Courier,monospace" font-size="11.00">MessageInterface</text>
-</g>
-<!-- \\interfaces\\http\\RequestInterface -->
-<g id="node26" class="node"><title>\\interfaces\\http\\RequestInterface</title>
-<polygon fill="none" stroke="black" points="357,-1602 232,-1602 232,-1566 357,-1566 357,-1602"/>
-<text text-anchor="middle" x="294.5" y="-1581.2" font-family="Courier,monospace" font-size="11.00">RequestInterface</text>
-</g>
-<!-- \\interfaces\\http\\RequestInterface&#45;&gt;\\interfaces\\http\\MessageInterface -->
-<g id="edge19" class="edge"><title>\\interfaces\\http\\RequestInterface&#45;&gt;\\interfaces\\http\\MessageInterface</title>
-<path fill="none" stroke="black" d="M231.937,-1592.39C211.357,-1595.2 188.245,-1598.35 166.975,-1601.25"/>
-<polygon fill="none" stroke="black" points="166.46,-1597.79 157.025,-1602.61 167.406,-1604.73 166.46,-1597.79"/>
-</g>
-<!-- \\interfaces\\http\\ResponseInterface -->
-<g id="node27" class="node"><title>\\interfaces\\http\\ResponseInterface</title>
-<polygon fill="none" stroke="black" points="360,-1656 229,-1656 229,-1620 360,-1620 360,-1656"/>
-<text text-anchor="middle" x="294.5" y="-1635.2" font-family="Courier,monospace" font-size="11.00">ResponseInterface</text>
-</g>
-<!-- \\interfaces\\http\\ResponseInterface&#45;&gt;\\interfaces\\http\\MessageInterface -->
-<g id="edge20" class="edge"><title>\\interfaces\\http\\ResponseInterface&#45;&gt;\\interfaces\\http\\MessageInterface</title>
-<path fill="none" stroke="black" d="M228.941,-1629.2C209.247,-1626.51 187.475,-1623.54 167.33,-1620.8"/>
-<polygon fill="none" stroke="black" points="167.658,-1617.31 157.277,-1619.42 166.712,-1624.24 167.658,-1617.31"/>
+<!-- \\classes\\ImagesManager -->
+<g id="node19" class="node"><title>\\classes\\ImagesManager</title>
+<polygon fill="none" stroke="black" points="1094.38,-446 990.382,-446 990.382,-410 1094.38,-410 1094.38,-446"/>
+<text text-anchor="middle" x="1042.38" y="-425.2" font-family="Courier,monospace" font-size="11.00">ImagesManager</text>
 </g>
 <!-- \\interfaces\\http\\ServerRequestInterface -->
-<g id="node28" class="node"><title>\\interfaces\\http\\ServerRequestInterface</title>
+<g id="node20" class="node"><title>\\interfaces\\http\\ServerRequestInterface</title>
 <polygon fill="none" stroke="black" points="597,-1656 432,-1656 432,-1620 597,-1620 597,-1656"/>
 <text text-anchor="middle" x="514.5" y="-1635.2" font-family="Courier,monospace" font-size="11.00">ServerRequestInterface</text>
 </g>
-<!-- \\interfaces\\http\\ServerRequestInterface&#45;&gt;\\interfaces\\http\\RequestInterface -->
-<g id="edge21" class="edge"><title>\\interfaces\\http\\ServerRequestInterface&#45;&gt;\\interfaces\\http\\RequestInterface</title>
-<path fill="none" stroke="black" d="M440.606,-1619.94C416.887,-1614.07 390.597,-1607.56 366.982,-1601.71"/>
-<polygon fill="none" stroke="black" points="367.589,-1598.25 357.041,-1599.24 365.906,-1605.05 367.589,-1598.25"/>
+<!-- \\interfaces\\http\\RequestInterface -->
+<g id="node21" class="node"><title>\\interfaces\\http\\RequestInterface</title>
+<polygon fill="none" stroke="black" points="357,-1656 232,-1656 232,-1620 357,-1620 357,-1656"/>
+<text text-anchor="middle" x="294.5" y="-1635.2" font-family="Courier,monospace" font-size="11.00">RequestInterface</text>
 </g>
-<!-- \\interfaces\\http\\StreamInterface -->
-<g id="node29" class="node"><title>\\interfaces\\http\\StreamInterface</title>
-<polygon fill="none" stroke="black" points="573.5,-1602 455.5,-1602 455.5,-1566 573.5,-1566 573.5,-1602"/>
-<text text-anchor="middle" x="514.5" y="-1581.2" font-family="Courier,monospace" font-size="11.00">StreamInterface</text>
+<!-- \\interfaces\\http\\ServerRequestInterface&#45;&gt;\\interfaces\\http\\RequestInterface -->
+<g id="edge19" class="edge"><title>\\interfaces\\http\\ServerRequestInterface&#45;&gt;\\interfaces\\http\\RequestInterface</title>
+<path fill="none" stroke="black" d="M431.705,-1638C410.62,-1638 388.085,-1638 367.537,-1638"/>
+<polygon fill="none" stroke="black" points="367.31,-1634.5 357.31,-1638 367.31,-1641.5 367.31,-1634.5"/>
+</g>
+<!-- \\interfaces\\http\\MessageInterface -->
+<g id="node26" class="node"><title>\\interfaces\\http\\MessageInterface</title>
+<polygon fill="none" stroke="black" points="157,-1629 32,-1629 32,-1593 157,-1593 157,-1629"/>
+<text text-anchor="middle" x="94.5" y="-1608.2" font-family="Courier,monospace" font-size="11.00">MessageInterface</text>
+</g>
+<!-- \\interfaces\\http\\RequestInterface&#45;&gt;\\interfaces\\http\\MessageInterface -->
+<g id="edge20" class="edge"><title>\\interfaces\\http\\RequestInterface&#45;&gt;\\interfaces\\http\\MessageInterface</title>
+<path fill="none" stroke="black" d="M231.937,-1629.61C211.357,-1626.8 188.245,-1623.65 166.975,-1620.75"/>
+<polygon fill="none" stroke="black" points="167.406,-1617.27 157.025,-1619.39 166.46,-1624.21 167.406,-1617.27"/>
+</g>
+<!-- \\interfaces\\http\\ResponseInterface -->
+<g id="node22" class="node"><title>\\interfaces\\http\\ResponseInterface</title>
+<polygon fill="none" stroke="black" points="360,-1602 229,-1602 229,-1566 360,-1566 360,-1602"/>
+<text text-anchor="middle" x="294.5" y="-1581.2" font-family="Courier,monospace" font-size="11.00">ResponseInterface</text>
+</g>
+<!-- \\interfaces\\http\\ResponseInterface&#45;&gt;\\interfaces\\http\\MessageInterface -->
+<g id="edge21" class="edge"><title>\\interfaces\\http\\ResponseInterface&#45;&gt;\\interfaces\\http\\MessageInterface</title>
+<path fill="none" stroke="black" d="M228.941,-1592.8C209.247,-1595.49 187.475,-1598.46 167.33,-1601.2"/>
+<polygon fill="none" stroke="black" points="166.712,-1597.76 157.277,-1602.58 167.658,-1604.69 166.712,-1597.76"/>
 </g>
 <!-- \\interfaces\\http\\UploadedFileInterface -->
-<g id="node30" class="node"><title>\\interfaces\\http\\UploadedFileInterface</title>
-<polygon fill="none" stroke="black" points="593.5,-1548 435.5,-1548 435.5,-1512 593.5,-1512 593.5,-1548"/>
-<text text-anchor="middle" x="514.5" y="-1527.2" font-family="Courier,monospace" font-size="11.00">UploadedFileInterface</text>
+<g id="node23" class="node"><title>\\interfaces\\http\\UploadedFileInterface</title>
+<polygon fill="none" stroke="black" points="593.5,-1602 435.5,-1602 435.5,-1566 593.5,-1566 593.5,-1602"/>
+<text text-anchor="middle" x="514.5" y="-1581.2" font-family="Courier,monospace" font-size="11.00">UploadedFileInterface</text>
+</g>
+<!-- \\interfaces\\http\\StreamInterface -->
+<g id="node24" class="node"><title>\\interfaces\\http\\StreamInterface</title>
+<polygon fill="none" stroke="black" points="573.5,-1548 455.5,-1548 455.5,-1512 573.5,-1512 573.5,-1548"/>
+<text text-anchor="middle" x="514.5" y="-1527.2" font-family="Courier,monospace" font-size="11.00">StreamInterface</text>
 </g>
 <!-- \\interfaces\\http\\UriInterface -->
-<g id="node31" class="node"><title>\\interfaces\\http\\UriInterface</title>
+<g id="node25" class="node"><title>\\interfaces\\http\\UriInterface</title>
 <polygon fill="none" stroke="black" points="563.5,-1494 465.5,-1494 465.5,-1458 563.5,-1458 563.5,-1494"/>
 <text text-anchor="middle" x="514.5" y="-1473.2" font-family="Courier,monospace" font-size="11.00">UriInterface</text>
 </g>
 <!-- \\interfaces\\ServiceInterface -->
-<g id="node33" class="node"><title>\\interfaces\\ServiceInterface</title>
-<polygon fill="none" stroke="black" points="577,-1386 452,-1386 452,-1350 577,-1350 577,-1386"/>
-<text text-anchor="middle" x="514.5" y="-1365.2" font-family="Courier,monospace" font-size="11.00">ServiceInterface</text>
+<g id="node27" class="node"><title>\\interfaces\\ServiceInterface</title>
+<polygon fill="none" stroke="black" points="577,-1440 452,-1440 452,-1404 577,-1404 577,-1440"/>
+<text text-anchor="middle" x="514.5" y="-1419.2" font-family="Courier,monospace" font-size="11.00">ServiceInterface</text>
+</g>
+<!-- \\interfaces\\LoggerInterface -->
+<g id="node28" class="node"><title>\\interfaces\\LoggerInterface</title>
+<polygon fill="none" stroke="black" points="573.5,-1386 455.5,-1386 455.5,-1350 573.5,-1350 573.5,-1386"/>
+<text text-anchor="middle" x="514.5" y="-1365.2" font-family="Courier,monospace" font-size="11.00">LoggerInterface</text>
+</g>
+<!-- \\controllers\\UserController -->
+<g id="node29" class="node"><title>\\controllers\\UserController</title>
+<polygon fill="none" stroke="black" points="1097.88,-1684 986.882,-1684 986.882,-1648 1097.88,-1648 1097.88,-1684"/>
+<text text-anchor="middle" x="1042.38" y="-1663.2" font-family="Courier,monospace" font-size="11.00">UserController</text>
+</g>
+<!-- \\abstracts\\AbstractController -->
+<g id="node33" class="node"><title>\\abstracts\\AbstractController</title>
+<polygon fill="none" stroke="black" points="840.691,-1603 702.691,-1603 702.691,-1567 840.691,-1567 840.691,-1603"/>
+<text text-anchor="start" x="737.691" y="-1588.2" font-family="Courier,monospace" font-size="11.00">«abstract»</text>
+<text text-anchor="start" x="710.691" y="-1576.2" font-family="Courier,monospace" font-size="11.00">AbstractController</text>
+</g>
+<!-- \\controllers\\UserController&#45;&gt;\\abstracts\\AbstractController -->
+<g id="edge6" class="edge"><title>\\controllers\\UserController&#45;&gt;\\abstracts\\AbstractController</title>
+<path fill="none" stroke="black" d="M986.637,-1653.73C968.625,-1649.42 948.562,-1644.31 930.382,-1639 897.316,-1629.34 860.904,-1616.99 831.407,-1606.53"/>
+<polygon fill="none" stroke="black" points="832.279,-1603.13 821.684,-1603.07 829.929,-1609.72 832.279,-1603.13"/>
+</g>
+<!-- \\controllers\\KibanaController -->
+<g id="node30" class="node"><title>\\controllers\\KibanaController</title>
+<polygon fill="none" stroke="black" points="1104.88,-1630 979.882,-1630 979.882,-1594 1104.88,-1594 1104.88,-1630"/>
+<text text-anchor="middle" x="1042.38" y="-1609.2" font-family="Courier,monospace" font-size="11.00">KibanaController</text>
+</g>
+<!-- \\controllers\\KibanaController&#45;&gt;\\abstracts\\AbstractController -->
+<g id="edge16" class="edge"><title>\\controllers\\KibanaController&#45;&gt;\\abstracts\\AbstractController</title>
+<path fill="none" stroke="black" d="M979.739,-1605.81C941.522,-1601.97 892.073,-1597 851.085,-1592.88"/>
+<polygon fill="none" stroke="black" points="851.43,-1589.39 841.13,-1591.88 850.73,-1596.36 851.43,-1589.39"/>
+</g>
+<!-- \\abstracts\\AbstractLogger&#45;&gt;\\interfaces\\LoggerInterface -->
+<g id="edge11" class="edge"><title>\\abstracts\\AbstractLogger&#45;&gt;\\interfaces\\LoggerInterface</title>
+<path fill="none" stroke="black" stroke-dasharray="1,5" d="M740.47,-1458.85C709.369,-1440.76 659.087,-1413.13 613,-1395 603.525,-1391.27 593.341,-1387.85 583.255,-1384.78"/>
+<polygon fill="none" stroke="black" points="584.223,-1381.42 573.642,-1381.95 582.247,-1388.13 584.223,-1381.42"/>
+</g>
+<!-- \\abstracts\\Manager -->
+<g id="node32" class="node"><title>\\abstracts\\Manager</title>
+<polygon fill="none" stroke="black" points="813.691,-1549 729.691,-1549 729.691,-1513 813.691,-1513 813.691,-1549"/>
+<text text-anchor="start" x="737.691" y="-1534.2" font-family="Courier,monospace" font-size="11.00">«abstract»</text>
+<text text-anchor="start" x="747.691" y="-1522.2" font-family="Courier,monospace" font-size="11.00">Manager</text>
 </g>
 <!-- \\tests\\Traits -->
 <g id="node34" class="node"><title>\\tests\\Traits</title>
