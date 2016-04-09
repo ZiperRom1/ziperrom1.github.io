@@ -33,25 +33,25 @@
 <path fill="none" stroke="gray" d="M1138.75,-1318C1138.75,-1318 1234.75,-1318 1234.75,-1318 1240.75,-1318 1246.75,-1324 1246.75,-1330 1246.75,-1330 1246.75,-1486 1246.75,-1486 1246.75,-1492 1240.75,-1498 1234.75,-1498 1234.75,-1498 1138.75,-1498 1138.75,-1498 1132.75,-1498 1126.75,-1492 1126.75,-1486 1126.75,-1486 1126.75,-1330 1126.75,-1330 1126.75,-1324 1132.75,-1318 1138.75,-1318"/>
 <text text-anchor="middle" x="1186.75" y="-1485.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">logger</text>
 </g>
-<g id="clust7" class="cluster"><title>cluster_\classes\websocket</title>
-<path fill="none" stroke="gray" d="M818.566,-2824C818.566,-2824 1258.75,-2824 1258.75,-2824 1264.75,-2824 1270.75,-2830 1270.75,-2836 1270.75,-2836 1270.75,-2966 1270.75,-2966 1270.75,-2972 1264.75,-2978 1258.75,-2978 1258.75,-2978 818.566,-2978 818.566,-2978 812.566,-2978 806.566,-2972 806.566,-2966 806.566,-2966 806.566,-2836 806.566,-2836 806.566,-2830 812.566,-2824 818.566,-2824"/>
-<text text-anchor="middle" x="1038.66" y="-2965.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">websocket</text>
-</g>
-<g id="clust8" class="cluster"><title>cluster_\classes\websocket\services</title>
-<path fill="none" stroke="gray" d="M1145.25,-2878C1145.25,-2878 1228.25,-2878 1228.25,-2878 1234.25,-2878 1240.25,-2884 1240.25,-2890 1240.25,-2890 1240.25,-2938 1240.25,-2938 1240.25,-2944 1234.25,-2950 1228.25,-2950 1228.25,-2950 1145.25,-2950 1145.25,-2950 1139.25,-2950 1133.25,-2944 1133.25,-2938 1133.25,-2938 1133.25,-2890 1133.25,-2890 1133.25,-2884 1139.25,-2878 1145.25,-2878"/>
-<text text-anchor="middle" x="1186.75" y="-2937.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">services</text>
-</g>
 <g id="clust10" class="cluster"><title>cluster_\classes\fileManager</title>
 <path fill="none" stroke="gray" d="M1131.75,-2986C1131.75,-2986 1241.75,-2986 1241.75,-2986 1247.75,-2986 1253.75,-2992 1253.75,-2998 1253.75,-2998 1253.75,-3100 1253.75,-3100 1253.75,-3106 1247.75,-3112 1241.75,-3112 1241.75,-3112 1131.75,-3112 1131.75,-3112 1125.75,-3112 1119.75,-3106 1119.75,-3100 1119.75,-3100 1119.75,-2998 1119.75,-2998 1119.75,-2992 1125.75,-2986 1131.75,-2986"/>
 <text text-anchor="middle" x="1186.75" y="-3099.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">fileManager</text>
 </g>
-<g id="clust9" class="cluster"><title>cluster_\classes\console</title>
-<path fill="none" stroke="gray" d="M855.566,-2636C855.566,-2636 1234.75,-2636 1234.75,-2636 1240.75,-2636 1246.75,-2642 1246.75,-2648 1246.75,-2648 1246.75,-2804 1246.75,-2804 1246.75,-2810 1240.75,-2816 1234.75,-2816 1234.75,-2816 855.566,-2816 855.566,-2816 849.566,-2816 843.566,-2810 843.566,-2804 843.566,-2804 843.566,-2648 843.566,-2648 843.566,-2642 849.566,-2636 855.566,-2636"/>
-<text text-anchor="middle" x="1045.16" y="-2803.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">console</text>
-</g>
 <g id="clust11" class="cluster"><title>cluster_\classes\managers</title>
 <path fill="none" stroke="gray" d="M1145.25,-2502C1145.25,-2502 1228.25,-2502 1228.25,-2502 1234.25,-2502 1240.25,-2508 1240.25,-2514 1240.25,-2514 1240.25,-2616 1240.25,-2616 1240.25,-2622 1234.25,-2628 1228.25,-2628 1228.25,-2628 1145.25,-2628 1145.25,-2628 1139.25,-2628 1133.25,-2622 1133.25,-2616 1133.25,-2616 1133.25,-2514 1133.25,-2514 1133.25,-2508 1139.25,-2502 1145.25,-2502"/>
 <text text-anchor="middle" x="1186.75" y="-2615.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">managers</text>
+</g>
+<g id="clust9" class="cluster"><title>cluster_\classes\console</title>
+<path fill="none" stroke="gray" d="M855.566,-2798C855.566,-2798 1234.75,-2798 1234.75,-2798 1240.75,-2798 1246.75,-2804 1246.75,-2810 1246.75,-2810 1246.75,-2966 1246.75,-2966 1246.75,-2972 1240.75,-2978 1234.75,-2978 1234.75,-2978 855.566,-2978 855.566,-2978 849.566,-2978 843.566,-2972 843.566,-2966 843.566,-2966 843.566,-2810 843.566,-2810 843.566,-2804 849.566,-2798 855.566,-2798"/>
+<text text-anchor="middle" x="1045.16" y="-2965.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">console</text>
+</g>
+<g id="clust7" class="cluster"><title>cluster_\classes\websocket</title>
+<path fill="none" stroke="gray" d="M818.566,-2636C818.566,-2636 1258.75,-2636 1258.75,-2636 1264.75,-2636 1270.75,-2642 1270.75,-2648 1270.75,-2648 1270.75,-2778 1270.75,-2778 1270.75,-2784 1264.75,-2790 1258.75,-2790 1258.75,-2790 818.566,-2790 818.566,-2790 812.566,-2790 806.566,-2784 806.566,-2778 806.566,-2778 806.566,-2648 806.566,-2648 806.566,-2642 812.566,-2636 818.566,-2636"/>
+<text text-anchor="middle" x="1038.66" y="-2777.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">websocket</text>
+</g>
+<g id="clust8" class="cluster"><title>cluster_\classes\websocket\services</title>
+<path fill="none" stroke="gray" d="M1145.25,-2690C1145.25,-2690 1228.25,-2690 1228.25,-2690 1234.25,-2690 1240.25,-2696 1240.25,-2702 1240.25,-2702 1240.25,-2750 1240.25,-2750 1240.25,-2756 1234.25,-2762 1228.25,-2762 1228.25,-2762 1145.25,-2762 1145.25,-2762 1139.25,-2762 1133.25,-2756 1133.25,-2750 1133.25,-2750 1133.25,-2702 1133.25,-2702 1133.25,-2696 1139.25,-2690 1145.25,-2690"/>
+<text text-anchor="middle" x="1186.75" y="-2749.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">services</text>
 </g>
 <g id="clust12" class="cluster"><title>cluster_\abstracts</title>
 <path fill="none" stroke="gray" d="M818.566,-374C818.566,-374 948.566,-374 948.566,-374 954.566,-374 960.566,-380 960.566,-386 960.566,-386 960.566,-758 960.566,-758 960.566,-764 954.566,-770 948.566,-770 948.566,-770 818.566,-770 818.566,-770 812.566,-770 806.566,-764 806.566,-758 806.566,-758 806.566,-386 806.566,-386 806.566,-380 812.566,-374 818.566,-374"/>
@@ -65,13 +65,13 @@
 <path fill="none" stroke="gray" d="M36,-2878C36,-2878 632.689,-2878 632.689,-2878 638.689,-2878 644.689,-2884 644.689,-2890 644.689,-2890 644.689,-3100 644.689,-3100 644.689,-3106 638.689,-3112 632.689,-3112 632.689,-3112 36,-3112 36,-3112 30,-3112 24,-3106 24,-3100 24,-3100 24,-2890 24,-2890 24,-2884 30,-2878 36,-2878"/>
 <text text-anchor="middle" x="334.345" y="-3099.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">http</text>
 </g>
-<g id="clust16" class="cluster"><title>cluster_\controllers</title>
-<path fill="none" stroke="gray" d="M1128.25,-644C1128.25,-644 1245.25,-644 1245.25,-644 1251.25,-644 1257.25,-650 1257.25,-656 1257.25,-656 1257.25,-758 1257.25,-758 1257.25,-764 1251.25,-770 1245.25,-770 1245.25,-770 1128.25,-770 1128.25,-770 1122.25,-770 1116.25,-764 1116.25,-758 1116.25,-758 1116.25,-656 1116.25,-656 1116.25,-650 1122.25,-644 1128.25,-644"/>
-<text text-anchor="middle" x="1186.75" y="-757.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">controllers</text>
-</g>
 <g id="clust15" class="cluster"><title>cluster_\traits</title>
-<path fill="none" stroke="gray" d="M1125.25,-348C1125.25,-348 1248.25,-348 1248.25,-348 1254.25,-348 1260.25,-354 1260.25,-360 1260.25,-360 1260.25,-624 1260.25,-624 1260.25,-630 1254.25,-636 1248.25,-636 1248.25,-636 1125.25,-636 1125.25,-636 1119.25,-636 1113.25,-630 1113.25,-624 1113.25,-624 1113.25,-360 1113.25,-360 1113.25,-354 1119.25,-348 1125.25,-348"/>
-<text text-anchor="middle" x="1186.75" y="-623.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">traits</text>
+<path fill="none" stroke="gray" d="M1125.25,-482C1125.25,-482 1248.25,-482 1248.25,-482 1254.25,-482 1260.25,-488 1260.25,-494 1260.25,-494 1260.25,-758 1260.25,-758 1260.25,-764 1254.25,-770 1248.25,-770 1248.25,-770 1125.25,-770 1125.25,-770 1119.25,-770 1113.25,-764 1113.25,-758 1113.25,-758 1113.25,-494 1113.25,-494 1113.25,-488 1119.25,-482 1125.25,-482"/>
+<text text-anchor="middle" x="1186.75" y="-757.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">traits</text>
+</g>
+<g id="clust16" class="cluster"><title>cluster_\controllers</title>
+<path fill="none" stroke="gray" d="M1128.25,-348C1128.25,-348 1245.25,-348 1245.25,-348 1251.25,-348 1257.25,-354 1257.25,-360 1257.25,-360 1257.25,-462 1257.25,-462 1257.25,-468 1251.25,-474 1245.25,-474 1245.25,-474 1128.25,-474 1128.25,-474 1122.25,-474 1116.25,-468 1116.25,-462 1116.25,-462 1116.25,-360 1116.25,-360 1116.25,-354 1122.25,-348 1128.25,-348"/>
+<text text-anchor="middle" x="1186.75" y="-461.2" font-family="Times New Roman,serif" font-size="11.00" fill="gray">controllers</text>
 </g>
 <g id="clust17" class="cluster"><title>cluster_\tests</title>
 <path fill="none" stroke="gray" d="M1162.25,-268C1162.25,-268 1211.25,-268 1211.25,-268 1217.25,-268 1223.25,-274 1223.25,-280 1223.25,-280 1223.25,-328 1223.25,-328 1223.25,-334 1217.25,-340 1211.25,-340 1211.25,-340 1162.25,-340 1162.25,-340 1156.25,-340 1150.25,-334 1150.25,-328 1150.25,-328 1150.25,-280 1150.25,-280 1150.25,-274 1156.25,-268 1162.25,-268"/>
@@ -298,18 +298,18 @@
 </g>
 <!-- \\classes\\websocket\\services\\ChatService -->
 <g id="node21" class="node"><title>\\classes\\websocket\\services\\ChatService</title>
-<polygon fill="none" stroke="black" points="1232.25,-2922 1141.25,-2922 1141.25,-2886 1232.25,-2886 1232.25,-2922"/>
-<text text-anchor="middle" x="1186.75" y="-2901.2" font-family="Courier,monospace" font-size="11.00">ChatService</text>
+<polygon fill="none" stroke="black" points="1232.25,-2734 1141.25,-2734 1141.25,-2698 1232.25,-2698 1232.25,-2734"/>
+<text text-anchor="middle" x="1186.75" y="-2713.2" font-family="Courier,monospace" font-size="11.00">ChatService</text>
 </g>
 <!-- \\classes\\websocket\\ServicesDispatcher -->
 <g id="node23" class="node"><title>\\classes\\websocket\\ServicesDispatcher</title>
-<polygon fill="none" stroke="black" points="952.566,-2876 814.566,-2876 814.566,-2840 952.566,-2840 952.566,-2876"/>
-<text text-anchor="middle" x="883.566" y="-2855.2" font-family="Courier,monospace" font-size="11.00">ServicesDispatcher</text>
+<polygon fill="none" stroke="black" points="952.566,-2707 814.566,-2707 814.566,-2671 952.566,-2671 952.566,-2707"/>
+<text text-anchor="middle" x="883.566" y="-2686.2" font-family="Courier,monospace" font-size="11.00">ServicesDispatcher</text>
 </g>
 <!-- \\classes\\websocket\\services\\ChatService&#45;&gt;\\classes\\websocket\\ServicesDispatcher -->
 <g id="edge5" class="edge"><title>\\classes\\websocket\\services\\ChatService&#45;&gt;\\classes\\websocket\\ServicesDispatcher</title>
-<path fill="none" stroke="black" d="M1140.99,-2897.16C1094.07,-2890 1019.44,-2878.6 962.765,-2869.94"/>
-<polygon fill="none" stroke="black" points="963.174,-2866.47 952.76,-2868.42 962.117,-2873.38 963.174,-2866.47"/>
+<path fill="none" stroke="black" d="M1140.99,-2711.99C1094.07,-2707.78 1019.44,-2701.09 962.765,-2696.01"/>
+<polygon fill="none" stroke="black" points="963.033,-2692.52 952.76,-2695.11 962.408,-2699.49 963.033,-2692.52"/>
 </g>
 <!-- \\interfaces\\ServiceInterface -->
 <g id="node56" class="node"><title>\\interfaces\\ServiceInterface</title>
@@ -318,13 +318,13 @@
 </g>
 <!-- \\classes\\websocket\\services\\ChatService&#45;&gt;\\interfaces\\ServiceInterface -->
 <g id="edge6" class="edge"><title>\\classes\\websocket\\services\\ChatService&#45;&gt;\\interfaces\\ServiceInterface</title>
-<path fill="none" stroke="black" stroke-dasharray="1,5" d="M1141,-2913.39C1059.22,-2928.36 881.787,-2950.5 748.378,-2894 706.995,-2876.47 715.844,-2844.5 676.378,-2823 661.188,-2814.72 643.612,-2808.98 626.639,-2805"/>
-<polygon fill="none" stroke="black" points="627.253,-2801.55 616.738,-2802.86 625.769,-2808.4 627.253,-2801.55"/>
+<path fill="none" stroke="black" stroke-dasharray="1,5" d="M1152.31,-2734.15C1129.8,-2747.9 1101.01,-2768.72 1082.75,-2794 1031.08,-2865.56 1090.52,-2930.62 1018.75,-2982 921.046,-3051.95 849.365,-3047.13 748.378,-2982 683.186,-2939.96 736.581,-2871.92 676.378,-2823 662.264,-2811.53 644.288,-2804.69 626.531,-2800.67"/>
+<polygon fill="none" stroke="black" points="627.204,-2797.23 616.713,-2798.71 625.838,-2804.1 627.204,-2797.23"/>
 </g>
 <!-- \\classes\\websocket\\ServerRequestHandler -->
 <g id="node22" class="node"><title>\\classes\\websocket\\ServerRequestHandler</title>
-<polygon fill="none" stroke="black" points="1262.75,-2868 1110.75,-2868 1110.75,-2832 1262.75,-2832 1262.75,-2868"/>
-<text text-anchor="middle" x="1186.75" y="-2847.2" font-family="Courier,monospace" font-size="11.00">ServerRequestHandler</text>
+<polygon fill="none" stroke="black" points="1262.75,-2680 1110.75,-2680 1110.75,-2644 1262.75,-2644 1262.75,-2680"/>
+<text text-anchor="middle" x="1186.75" y="-2659.2" font-family="Courier,monospace" font-size="11.00">ServerRequestHandler</text>
 </g>
 <!-- \\Icicle\\Http\\Server\\RequestHandler -->
 <g id="node74" class="node"><title>\\Icicle\\Http\\Server\\RequestHandler</title>
@@ -333,8 +333,8 @@
 </g>
 <!-- \\classes\\websocket\\ServerRequestHandler&#45;&gt;\\Icicle\\Http\\Server\\RequestHandler -->
 <g id="edge31" class="edge"><title>\\classes\\websocket\\ServerRequestHandler&#45;&gt;\\Icicle\\Http\\Server\\RequestHandler</title>
-<path fill="none" stroke="black" stroke-dasharray="1,5" d="M1110.61,-2840.4C1099.79,-2835.83 1089.92,-2829.29 1082.75,-2820 999.624,-2712.17 1072.08,-495.282 1018.75,-370 998.363,-322.092 952.526,-281.802 920.116,-257.801"/>
-<polygon fill="none" stroke="black" points="921.929,-254.792 911.776,-251.763 917.824,-260.462 921.929,-254.792"/>
+<path fill="none" stroke="black" stroke-dasharray="1,5" d="M1110.63,-2652.39C1099.81,-2647.82 1089.93,-2641.29 1082.75,-2632 929.027,-2433.04 1117.47,-601.243 1018.75,-370 998.311,-322.114 952.486,-281.819 920.092,-257.811"/>
+<polygon fill="none" stroke="black" points="921.909,-254.805 911.758,-251.771 917.801,-260.473 921.909,-254.805"/>
 </g>
 <!-- \\Icicle\\WebSocket\\Application -->
 <g id="node75" class="node"><title>\\Icicle\\WebSocket\\Application</title>
@@ -343,38 +343,38 @@
 </g>
 <!-- \\classes\\websocket\\ServicesDispatcher&#45;&gt;\\Icicle\\WebSocket\\Application -->
 <g id="edge34" class="edge"><title>\\classes\\websocket\\ServicesDispatcher&#45;&gt;\\Icicle\\WebSocket\\Application</title>
-<path fill="none" stroke="black" stroke-dasharray="1,5" d="M814.365,-2854.49C789.92,-2849.62 764.457,-2839.69 748.378,-2820 577.857,-2611.15 557.304,-528.746 555.367,-262.059"/>
-<polygon fill="none" stroke="black" points="558.867,-262.001 555.297,-252.026 551.867,-262.05 558.867,-262.001"/>
+<path fill="none" stroke="black" stroke-dasharray="1,5" d="M880.165,-2671C852.444,-2463.11 593.358,-520.229 558.956,-262.246"/>
+<polygon fill="none" stroke="black" points="562.405,-261.632 557.614,-252.183 555.466,-262.558 562.405,-261.632"/>
 </g>
 <!-- \\classes\\console\\Deployment -->
 <g id="node24" class="node"><title>\\classes\\console\\Deployment</title>
-<polygon fill="none" stroke="black" points="1228.75,-2788 1144.75,-2788 1144.75,-2752 1228.75,-2752 1228.75,-2788"/>
-<text text-anchor="middle" x="1186.75" y="-2767.2" font-family="Courier,monospace" font-size="11.00">Deployment</text>
+<polygon fill="none" stroke="black" points="1228.75,-2950 1144.75,-2950 1144.75,-2914 1228.75,-2914 1228.75,-2950"/>
+<text text-anchor="middle" x="1186.75" y="-2929.2" font-family="Courier,monospace" font-size="11.00">Deployment</text>
 </g>
 <!-- \\classes\\console\\Console -->
 <g id="node26" class="node"><title>\\classes\\console\\Console</title>
-<polygon fill="none" stroke="black" points="915.566,-2761 851.566,-2761 851.566,-2725 915.566,-2725 915.566,-2761"/>
-<text text-anchor="middle" x="883.566" y="-2740.2" font-family="Courier,monospace" font-size="11.00">Console</text>
+<polygon fill="none" stroke="black" points="915.566,-2923 851.566,-2923 851.566,-2887 915.566,-2887 915.566,-2923"/>
+<text text-anchor="middle" x="883.566" y="-2902.2" font-family="Courier,monospace" font-size="11.00">Console</text>
 </g>
 <!-- \\classes\\console\\Deployment&#45;&gt;\\classes\\console\\Console -->
 <g id="edge8" class="edge"><title>\\classes\\console\\Deployment&#45;&gt;\\classes\\console\\Console</title>
-<path fill="none" stroke="black" d="M1144.51,-2766.3C1087.02,-2761.15 983.425,-2751.86 925.898,-2746.71"/>
-<polygon fill="none" stroke="black" points="925.986,-2743.2 915.714,-2745.79 925.361,-2750.17 925.986,-2743.2"/>
+<path fill="none" stroke="black" d="M1144.51,-2928.3C1087.02,-2923.15 983.425,-2913.86 925.898,-2908.71"/>
+<polygon fill="none" stroke="black" points="925.986,-2905.2 915.714,-2907.79 925.361,-2912.17 925.986,-2905.2"/>
 </g>
 <!-- \\classes\\console\\Orm -->
 <g id="node25" class="node"><title>\\classes\\console\\Orm</title>
-<polygon fill="none" stroke="black" points="1213.75,-2734 1159.75,-2734 1159.75,-2698 1213.75,-2698 1213.75,-2734"/>
-<text text-anchor="middle" x="1186.75" y="-2713.2" font-family="Courier,monospace" font-size="11.00">Orm</text>
+<polygon fill="none" stroke="black" points="1213.75,-2896 1159.75,-2896 1159.75,-2860 1213.75,-2860 1213.75,-2896"/>
+<text text-anchor="middle" x="1186.75" y="-2875.2" font-family="Courier,monospace" font-size="11.00">Orm</text>
 </g>
 <!-- \\classes\\console\\Orm&#45;&gt;\\classes\\console\\Console -->
 <g id="edge11" class="edge"><title>\\classes\\console\\Orm&#45;&gt;\\classes\\console\\Console</title>
-<path fill="none" stroke="black" d="M1159.55,-2718.35C1107.09,-2723.05 988.778,-2733.66 925.811,-2739.3"/>
-<polygon fill="none" stroke="black" points="925.478,-2735.82 915.831,-2740.2 926.103,-2742.79 925.478,-2735.82"/>
+<path fill="none" stroke="black" d="M1159.55,-2880.35C1107.09,-2885.05 988.778,-2895.66 925.811,-2901.3"/>
+<polygon fill="none" stroke="black" points="925.478,-2897.82 915.831,-2902.2 926.103,-2904.79 925.478,-2897.82"/>
 </g>
 <!-- \\classes\\console\\ConsoleColors -->
 <g id="node27" class="node"><title>\\classes\\console\\ConsoleColors</title>
-<polygon fill="none" stroke="black" points="1238.75,-2680 1134.75,-2680 1134.75,-2644 1238.75,-2644 1238.75,-2680"/>
-<text text-anchor="middle" x="1186.75" y="-2659.2" font-family="Courier,monospace" font-size="11.00">ConsoleColors</text>
+<polygon fill="none" stroke="black" points="1238.75,-2842 1134.75,-2842 1134.75,-2806 1238.75,-2806 1238.75,-2842"/>
+<text text-anchor="middle" x="1186.75" y="-2821.2" font-family="Courier,monospace" font-size="11.00">ConsoleColors</text>
 </g>
 <!-- \\classes\\fileManager\\SftpFileManager -->
 <g id="node28" class="node"><title>\\classes\\fileManager\\SftpFileManager</title>
@@ -389,8 +389,8 @@
 <!-- \\classes\\fileManager\\SftpFileManager&#45;&gt;\\interfaces\\FileManagerInterface -->
 <g id="edge13" class="edge"><title>\\classes\\fileManager\\SftpFileManager&#45;&gt;\\interfaces\\FileManagerInterface</title>
 <path fill="none" stroke="black" stroke-dasharray="1,5" d="M1127.56,-3028.97C1066.14,-3044.17 967,-3060.97 884.566,-3039"/>
-<path fill="none" stroke="black" stroke-dasharray="1,5" d="M882.566,-3039C769.156,-3008.77 782.807,-2923.48 676.378,-2874 665.099,-2868.76 652.71,-2864.66 640.293,-2861.45"/>
-<polygon fill="none" stroke="black" points="640.891,-2858 630.35,-2859.07 639.259,-2864.8 640.891,-2858"/>
+<path fill="none" stroke="black" stroke-dasharray="1,5" d="M882.566,-3039C823.784,-3023.33 797.019,-3048.54 748.378,-3012 693.065,-2970.45 731.755,-2915.46 676.378,-2874 665.775,-2866.06 653.235,-2860.56 640.309,-2856.77"/>
+<polygon fill="none" stroke="black" points="640.934,-2853.32 630.376,-2854.2 639.18,-2860.09 640.934,-2853.32"/>
 </g>
 <!-- \\classes\\fileManager\\FtpFileManager -->
 <g id="node29" class="node"><title>\\classes\\fileManager\\FtpFileManager</title>
@@ -621,48 +621,48 @@
 </g>
 <!-- \\traits\\FiltersTrait -->
 <g id="node59" class="node"><title>\\traits\\FiltersTrait</title>
-<polygon fill="none" stroke="black" points="1235.75,-608 1137.75,-608 1137.75,-572 1235.75,-572 1235.75,-608"/>
-<text text-anchor="middle" x="1186.75" y="-587.2" font-family="Courier,monospace" font-size="11.00">FiltersTrait</text>
+<polygon fill="none" stroke="black" points="1235.75,-742 1137.75,-742 1137.75,-706 1235.75,-706 1235.75,-742"/>
+<text text-anchor="middle" x="1186.75" y="-721.2" font-family="Courier,monospace" font-size="11.00">FiltersTrait</text>
 </g>
 <!-- \\traits\\PrettyOutputTrait -->
 <g id="node60" class="node"><title>\\traits\\PrettyOutputTrait</title>
-<polygon fill="none" stroke="black" points="1252.25,-554 1121.25,-554 1121.25,-518 1252.25,-518 1252.25,-554"/>
-<text text-anchor="middle" x="1186.75" y="-533.2" font-family="Courier,monospace" font-size="11.00">PrettyOutputTrait</text>
+<polygon fill="none" stroke="black" points="1252.25,-688 1121.25,-688 1121.25,-652 1252.25,-652 1252.25,-688"/>
+<text text-anchor="middle" x="1186.75" y="-667.2" font-family="Courier,monospace" font-size="11.00">PrettyOutputTrait</text>
 </g>
 <!-- \\traits\\EchoTrait -->
 <g id="node61" class="node"><title>\\traits\\EchoTrait</title>
-<polygon fill="none" stroke="black" points="1225.25,-500 1148.25,-500 1148.25,-464 1225.25,-464 1225.25,-500"/>
-<text text-anchor="middle" x="1186.75" y="-479.2" font-family="Courier,monospace" font-size="11.00">EchoTrait</text>
+<polygon fill="none" stroke="black" points="1225.25,-634 1148.25,-634 1148.25,-598 1225.25,-598 1225.25,-634"/>
+<text text-anchor="middle" x="1186.75" y="-613.2" font-family="Courier,monospace" font-size="11.00">EchoTrait</text>
 </g>
 <!-- \\traits\\DateTrait -->
 <g id="node62" class="node"><title>\\traits\\DateTrait</title>
-<polygon fill="none" stroke="black" points="1225.25,-446 1148.25,-446 1148.25,-410 1225.25,-410 1225.25,-446"/>
-<text text-anchor="middle" x="1186.75" y="-425.2" font-family="Courier,monospace" font-size="11.00">DateTrait</text>
+<polygon fill="none" stroke="black" points="1225.25,-580 1148.25,-580 1148.25,-544 1225.25,-544 1225.25,-580"/>
+<text text-anchor="middle" x="1186.75" y="-559.2" font-family="Courier,monospace" font-size="11.00">DateTrait</text>
 </g>
 <!-- \\traits\\ShortcutsTrait -->
 <g id="node63" class="node"><title>\\traits\\ShortcutsTrait</title>
-<polygon fill="none" stroke="black" points="1242.25,-392 1131.25,-392 1131.25,-356 1242.25,-356 1242.25,-392"/>
-<text text-anchor="middle" x="1186.75" y="-371.2" font-family="Courier,monospace" font-size="11.00">ShortcutsTrait</text>
+<polygon fill="none" stroke="black" points="1242.25,-526 1131.25,-526 1131.25,-490 1242.25,-490 1242.25,-526"/>
+<text text-anchor="middle" x="1186.75" y="-505.2" font-family="Courier,monospace" font-size="11.00">ShortcutsTrait</text>
 </g>
 <!-- \\controllers\\UserController -->
 <g id="node64" class="node"><title>\\controllers\\UserController</title>
-<polygon fill="none" stroke="black" points="1242.25,-688 1131.25,-688 1131.25,-652 1242.25,-652 1242.25,-688"/>
-<text text-anchor="middle" x="1186.75" y="-667.2" font-family="Courier,monospace" font-size="11.00">UserController</text>
+<polygon fill="none" stroke="black" points="1242.25,-392 1131.25,-392 1131.25,-356 1242.25,-356 1242.25,-392"/>
+<text text-anchor="middle" x="1186.75" y="-371.2" font-family="Courier,monospace" font-size="11.00">UserController</text>
 </g>
 <!-- \\controllers\\UserController&#45;&gt;\\abstracts\\AbstractController -->
 <g id="edge10" class="edge"><title>\\controllers\\UserController&#45;&gt;\\abstracts\\AbstractController</title>
-<path fill="none" stroke="black" d="M1131.02,-664.444C1113.66,-660.184 1095.65,-652.786 1082.75,-640 1012.56,-570.401 1091.83,-493.559 1018.75,-427 1003.43,-413.043 982.969,-405.462 962.652,-401.533"/>
-<polygon fill="none" stroke="black" points="963.151,-398.068 952.713,-399.886 962.006,-404.974 963.151,-398.068"/>
+<path fill="none" stroke="black" d="M1131.21,-378.708C1084.15,-382.771 1015.61,-388.687 962.724,-393.253"/>
+<polygon fill="none" stroke="black" points="962.364,-389.771 952.703,-394.118 962.967,-396.745 962.364,-389.771"/>
 </g>
 <!-- \\controllers\\KibanaController -->
 <g id="node65" class="node"><title>\\controllers\\KibanaController</title>
-<polygon fill="none" stroke="black" points="1249.25,-742 1124.25,-742 1124.25,-706 1249.25,-706 1249.25,-742"/>
-<text text-anchor="middle" x="1186.75" y="-721.2" font-family="Courier,monospace" font-size="11.00">KibanaController</text>
+<polygon fill="none" stroke="black" points="1249.25,-446 1124.25,-446 1124.25,-410 1249.25,-410 1249.25,-446"/>
+<text text-anchor="middle" x="1186.75" y="-425.2" font-family="Courier,monospace" font-size="11.00">KibanaController</text>
 </g>
 <!-- \\controllers\\KibanaController&#45;&gt;\\abstracts\\AbstractController -->
 <g id="edge35" class="edge"><title>\\controllers\\KibanaController&#45;&gt;\\abstracts\\AbstractController</title>
-<path fill="none" stroke="black" d="M1124.24,-719.071C1108.95,-715.074 1093.8,-708.308 1082.75,-697 996.587,-608.772 1107.44,-512.701 1018.75,-427 1003.78,-412.525 983.322,-404.797 962.899,-400.893"/>
-<polygon fill="none" stroke="black" points="963.331,-397.417 952.9,-399.27 962.21,-404.327 963.331,-397.417"/>
+<path fill="none" stroke="black" d="M1124.08,-422.266C1077.47,-417.933 1013.15,-411.953 962.896,-407.282"/>
+<polygon fill="none" stroke="black" points="963.003,-403.777 952.722,-406.336 962.355,-410.747 963.003,-403.777"/>
 </g>
 <!-- \\tests\\Traits -->
 <g id="node66" class="node"><title>\\tests\\Traits</title>

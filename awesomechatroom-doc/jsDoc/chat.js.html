@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>WebSocket services / AMD modules Source: chat.js</title>
+	<title>awesomeChatRoom Source: chat.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -20,7 +20,7 @@
 <div class="navbar navbar-default navbar-fixed-top navbar-inverse">
 <div class="container">
 	<div class="navbar-header">
-		<a class="navbar-brand" href="index.html">WebSocket services / AMD modules</a>
+		<a class="navbar-brand" href="index.html">awesomeChatRoom</a>
 		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
 			<span class="icon-bar"></span>
 			<span class="icon-bar"></span>
@@ -33,14 +33,22 @@
 			<li class="dropdown">
 				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
 				<ul class="dropdown-menu inline">
-					<li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="module-lib_forms.html">lib/forms</a></li><li><a href="module-lib_message.html">lib/message</a></li><li><a href="module-lib_user.html">lib/user</a></li><li><a href="module-lib_websocket.html">lib/websocket</a></li>
+					<li><a href="lib_iframe%250A%250AHelper%2520class%2520to%2520integrate%2520iframe%2520in%2520a%2520page%2520without%2520scroll%2520barre%2520and%2520in%2520full%2520width%2520_%2520height%2520well%2520integrated%2520on%2520the%250Apagemodule_.html">lib/iframe
+
+Helper class to integrate iframe in a page without scroll barre and in full width / height well integrated on the
+page</a></li><li><a href="lib_navigation%250A%250AHandle%2520the%2520current%2520page%2520attributes%2520such%2520as%2520the%2520page%2520title%2520or%2520the%2520page%2520parameters.%250AIt%2520loads%2520pages%2520by%2520hide%2520_%2520show%2520pages%2520DOM%2520classes%2520elements%2520to%2520use%2520a%2520Single%2520Page%2520Web%2520pattern%2520and%2520avoiding%2520browser%250Apage%2520reloading%2520to%2520keep%2520the%2520WebSocket%2520connection%2520alive.%250AIt%2520load%2520pages%2520on%2520hashchange%2520event%2520and%2520detect%2520the%2520page%2520to%2520load%2520by%2520parsing%2520the%2520hash.module_.html">lib/navigation
+
+Handle the current page attributes such as the page title or the page parameters.
+It loads pages by hide / show pages DOM classes elements to use a Single Page Web pattern and avoiding browser
+page reloading to keep the WebSocket connection alive.
+It load pages on hashchange event and detect the page to load by parsing the hash.</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="module-lib_forms.html">lib/forms</a></li><li><a href="module-lib_message.html">lib/message</a></li><li><a href="module-lib_user.html">lib/user</a></li><li><a href="module-lib_websocket.html">lib/websocket</a></li>
 				</ul>
 			</li>
 			
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu inline">
-					<li><a href="-_.html">_</a></li>
+					<li><a href="-_.html">_</a></li><li><a href="module-lib_iframe.html">lib/iframe</a></li><li><a href="module-lib_navigation.html">lib/navigation</a></li>
 				</ul>
 			</li>
 			
@@ -109,13 +117,7 @@ define([
      * @param       {FormsManager} Forms     A FormsManager to handle form XHR ajax calls or jsCallbacks
      * @param       {Object}       settings  Overriden settings
      *
-     * @todo check the id value of the followings
-     * this.mouseInRoomChat
-     *
-     * this.isRoomOpened
-     * this.messagesHistory
-     * this.messagesHistoryPointer
-     * this.messagesCurrent
+     * @todo ._assign instead of $.extend ?
      */
     var ChatManager = function (WebSocket, User, Forms, settings) {
             var self = this;
@@ -157,13 +159,6 @@ define([
             "setReason": $.Deferred()
         },
         /**
-         * List of all commands name and regex
-         */
-        "commands": {
-            "kick": module.config().commands.kick,
-            "pm"  : module.config().commands.pm
-        },
-        /**
          * The WebsocketManager instance
          */
         "websocket": {},
@@ -179,6 +174,10 @@ define([
          * Pointer in the array messagesHistory by room
          */
         "messagesHistoryPointer": {},
+        /**
+         * The last loaded message timestamp recieved by room
+         */
+        "lastMessageLoadedTime": {},
         /**
          * Monitor mouse position when it is in or out a room chat div
          */
@@ -204,6 +203,8 @@ define([
 
         /**
          * Initialize all the events
+         *
+         * @method     initEvents
          */
         initEvents: function () {
             // Connect to a room
@@ -482,12 +483,12 @@ define([
          * @param      {event}  e       The fired event
          */
         getHistoricEvent: function (e) {
-            var room           = $(e.currentTarget).closest(this.settings.selectors.global.room),
-                roomId         = room.attr('data-id'),
-                password       = room.attr('data-password'),
-                historicLoaded = room.find(this.settings.selectors.global.roomChat).attr('data-historic-loaded');
+            var room            = $(e.currentTarget).closest(this.settings.selectors.global.room),
+                roomId          = room.attr('data-id'),
+                password        = room.attr('data-password'),
+                lastMessageDate = room.find(this.settings.selectors.global.roomChat).attr('data-last-message-date');
 
-            this.getHistoric(roomId, password, historicLoaded);
+            this.getHistoric(roomId, password, lastMessageDate);
         },
 
         /**
@@ -731,17 +732,17 @@ define([
          * Get room chat historic
          *
          * @method     getHistoric
-         * @param      {Number}  roomId          The room ID
-         * @param      {String}  password        The room password
-         * @param      {Number}  historicLoaded  The number of historic already loaded
+         * @param      {Number}  roomId           The room ID
+         * @param      {String}  password         The room password
+         * @param      {String}  lastMessageDate  The last message loaded timestamp
          */
-        getHistoric: function (roomId, password, historicLoaded) {
+        getHistoric: function (roomId, password, lastMessageDate) {
             this.websocket.send(JSON.stringify({
-                "service"       : [this.settings.serviceName],
-                "action"        : "getHistoric",
-                "roomId"        : roomId,
-                "roomPassword"  : password,
-                "historicLoaded": historicLoaded
+                "service"        : [this.settings.serviceName],
+                "action"         : "getHistoric",
+                "roomId"         : roomId,
+                "password"       : password,
+                "lastMessageDate": lastMessageDate
             }));
         },
 
@@ -1000,7 +1001,10 @@ define([
             var room     = $(this.settings.selectors.global.room + '[data-id="' + data.roomId + '"]'),
                 roomChat = room.find(this.settings.selectors.global.roomChat);
 
-            this.loadHistoric(roomChat, data.historic);
+            if (data.success) {
+                this.loadHistoric(roomChat, data.historic);
+            }
+
             messageManager.add(data.text);
         },
 
@@ -1172,10 +1176,7 @@ define([
                     }
                 });
 
-                newRoomChat.attr('data-historic-loaded', 0);
-
                 this.updateUsersDropdown(newRoom, data.pseudonyms);
-                // @todo historic
                 this.loadHistoric(newRoomChat, data.historic);
                 this.mouseInRoomChat[roomData.id] = false;
                 this.isRoomOpened[roomData.id] = true;
@@ -1215,18 +1216,17 @@ define([
          *
          * @method     loadHistoric
          * @param      {Object}  roomChatDOM  The room chat jQuery DOM element to insert the conversations historic in
-         * @param      {Object}  historic     The conversations historic
+         * @param      {Array}   historic     The conversations historic
          */
         loadHistoric: function (roomChatDOM, historic) {
-            var historicLoaded = roomChatDOM.attr('data-historic-loaded'),
-                i;
+            var historicLength = historic.length;
 
-            if (historic !== undefined) {
-                for (i = historic.length - 1; i >= 0; i--) {
-                    roomChatDOM.prepend(this.formatUserMessage(historic[i]));
-                }
-
-                roomChatDOM.attr('data-historic-loaded', ++historicLoaded);
+            if (historicLength > 0) {
+                roomChatDOM.attr('data-last-message-date', historic[historicLength - 1].date);
+                roomChatDOM.prepend(this.formatUserMessage({"messages": historic}));
+            } else {
+                // @todo button to load or automatic ? Alert user when there are no more message
+                roomChatDOM.find(this.settings.selectors.roomAction.loadHistoric).remove();
             }
         },
 
@@ -1241,26 +1241,26 @@ define([
             var divs = [],
                 self = this;
 
-            if (!_.isArray(data.text)) {
-                data.text = [data.text];
+            if (!_.isArray(data.messages)) {
+                data.messages = [data];
             }
 
-            _.forEach(data.text, function (text) {
+            _.forEachRight(data.messages, function (message) {
                 divs.push(
                     $('&lt;div>', {
-                        "class": self.settings.selectors.chat.message.substr(1) + ' ' + data.type
+                        "class": self.settings.selectors.chat.message.substr(1) + ' ' + message.type
                     }).append(
                         $('&lt;span>', {
                             "class": self.settings.selectors.chat.date.substr(1),
-                            "text" : '[' + data.time + ']'
+                            "text" : '[' + new Date(_.toInteger(message.date)).toLocaleString() + ']'
                         }),
                         $('&lt;span>', {
                             "class": self.settings.selectors.chat.pseudonym.substr(1),
-                            "text" : data.pseudonym
+                            "text" : message.pseudonym
                         }),
                         $('&lt;span>', {
                             "class": self.settings.selectors.chat.text.substr(1),
-                            "text" : text
+                            "text" : message.message
                         })
                     )
                 );
@@ -1427,7 +1427,7 @@ define([
                 self      = this,
                 regexResult;
 
-            _.forEach(this.commands, function (regex, name) {
+            _.forEach(this.settings.commands, function (regex, name) {
                 regexResult = regex.exec(message);
 
                 if (regexResult !== null) {
@@ -1500,7 +1500,7 @@ define([
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
 	
-		on 2016-03-30 23:00:49
+		on 2016-04-09 16:48:17
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

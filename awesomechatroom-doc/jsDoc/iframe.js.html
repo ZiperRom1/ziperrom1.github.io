@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>awesomeChatRoom Source: vendor/domReady.js</title>
+	<title>awesomeChatRoom Source: iframe.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -85,139 +85,189 @@ It load pages on hashchange event and detect the page to load by parsing the has
 		<div id="main">
 			
 
-		<h1 class="page-title">Source: vendor/domReady.js</h1>
+		<h1 class="page-title">Source: iframe.js</h1>
     
 <section>
     <article>
         <pre
             class="sunlight-highlight-javascript linenums">/**
- * @license RequireJS domReady 2.0.1 Copyright (c) 2010-2012, The Dojo Foundation All Rights Reserved.
- * Available via the MIT or new BSD license.
- * see: http://github.com/requirejs/domReady for details
+ * Iframe module
+ *
+ * @module               lib/iframe
+ *
+ * Helper class to integrate iframe in a page without scroll barre and in full width / height well integrated on the
+ * page
  */
-/*jslint */
-/*global require: false, define: false, requirejs: false,
-  window: false, clearInterval: false, document: false,
-  self: false, setInterval: false */
 
-
-define(function () {
+define([
+    'jquery',
+    'module',
+    'lodash',
+    'domReady!'
+], function ($, module, _) {
     'use strict';
 
-    var isTop, testDiv, scrollIntervalId,
-        isBrowser = typeof window !== "undefined" &amp;&amp; window.document,
-        isPageLoaded = !isBrowser,
-        doc = isBrowser ? document : null,
-        readyCalls = [];
-
-    function runCallbacks(callbacks) {
-        var i;
-        for (i = 0; i &lt; callbacks.length; i += 1) {
-            callbacks[i](doc);
-        }
-    }
-
-    function callReady() {
-        var callbacks = readyCalls;
-
-        if (isPageLoaded) {
-            //Call the DOM ready callbacks
-            if (callbacks.length) {
-                readyCalls = [];
-                runCallbacks(callbacks);
-            }
-        }
-    }
-
     /**
-     * Sets the page as loaded.
+     * Iframe object
+     *
+     * @constructor
+     * @alias       module:lib/iframe
+     * @param       {Object}       settings Overriden settings
      */
-    function pageLoaded() {
-        if (!isPageLoaded) {
-            isPageLoaded = true;
-            if (scrollIntervalId) {
-                clearInterval(scrollIntervalId);
-            }
+    var Iframe = function (settings) {
+        var resizeThrottle = _.bind(_.throttle(this.resize, 100), this);
 
-            callReady();
-        }
-    }
+        this.settings       = $.extend(true, {}, this.settings, module.config(), settings);
+        this.page           = $(this.settings.selectors.page);
+        this.iframe         = $(this.settings.selectors.iframe);
+        this.iframeContext  = this.iframe.get(0).contentWindow;
+        this.resizeObserver = new MutationObserver(function (mutations) {
+            mutations.forEach(function () {
+                resizeThrottle();
+            });
+        });
 
-    if (isBrowser) {
-        if (document.addEventListener) {
-            //Standards. Hooray! Assumption here that if standards based,
-            //it knows about DOMContentLoaded.
-            document.addEventListener("DOMContentLoaded", pageLoaded, false);
-            window.addEventListener("load", pageLoaded, false);
-        } else if (window.attachEvent) {
-            window.attachEvent("onload", pageLoaded);
-
-            testDiv = document.createElement('div');
-            try {
-                isTop = window.frameElement === null;
-            } catch (e) {}
-
-            //DOMContentLoaded approximation that uses a doScroll, as found by
-            //Diego Perini: http://javascript.nwbox.com/IEContentLoaded/,
-            //but modified by other contributors, including jdalton
-            if (testDiv.doScroll &amp;&amp; isTop &amp;&amp; window.external) {
-                scrollIntervalId = setInterval(function () {
-                    try {
-                        testDiv.doScroll();
-                        pageLoaded();
-                    } catch (e) {}
-                }, 30);
-            }
-        }
-
-        //Check if document already complete, and if so, just trigger page load
-        //listeners. Latest webkit browsers also use "interactive", and
-        //will fire the onDOMContentLoaded before "interactive" but not after
-        //entering "interactive" or "complete". More details:
-        //http://dev.w3.org/html5/spec/the-end.html#the-end
-        //http://stackoverflow.com/questions/3665561/document-readystate-of-interactive-vs-ondomcontentloaded
-        //Hmm, this is more complicated on further use, see "firing too early"
-        //bug: https://github.com/requirejs/domReady/issues/1
-        //so removing the || document.readyState === "interactive" test.
-        //There is still a window.onload binding that should get fired if
-        //DOMContentLoaded is missed.
-        if (document.readyState === "complete") {
-            pageLoaded();
-        }
-    }
-
-    /** START OF PUBLIC API **/
-
-    /**
-     * Registers a callback for DOM ready. If DOM is already ready, the
-     * callback is called immediately.
-     * @param {Function} callback
-     */
-    function domReady(callback) {
-        if (isPageLoaded) {
-            callback(doc);
-        } else {
-            readyCalls.push(callback);
-        }
-        return domReady;
-    }
-
-    domReady.version = '2.0.1';
-
-    /**
-     * Loader Plugin API method
-     */
-    domReady.load = function (name, req, onLoad, config) {
-        if (config.isBuild) {
-            onLoad(null);
-        } else {
-            domReady(onLoad);
+        if (_.isFunction(this.iframeContext.$)) {
+            this.initEvents();
+            this.updateIframeWidth();
+            this.resize();
         }
     };
 
-    /** END OF PUBLIC API **/
+    Iframe.prototype = {
+        /*====================================================
+        =            Object settings / properties            =
+        ====================================================*/
 
-    return domReady;
+        /**
+         * Default settings
+         */
+        "settings": {},
+        /**
+         * The id of the setInterval function
+         */
+        "setIntervalId": "",
+        /**
+         * The current page displayed jQuery DOM element
+         */
+        "page": {},
+        /**
+         * The iframe jQuery DOM element
+         */
+        "iframe": {},
+        /**
+         * The iframe context "Windows" as pure javascript DOM element
+         */
+        "iframeContext": {},
+        /**
+         * Mutation observer that calls resize method on each mutation observed
+         */
+        "resizeObserver": {},
+        /**
+         * Options for resizeObserver
+         */
+        "resizeObserverConfig": {
+            "childList" : true,
+            "attributes": true,
+            "subtree"   : true
+        },
+
+        /*=====  End of Object settings / properties  ======*/
+
+        /*==============================
+        =            Events            =
+        ==============================*/
+
+        /**
+         * Initialize all the events
+         *
+         * @method     initEvents
+         */
+        initEvents: function () {
+            $(window).on('resize', _.bind(_.throttle(this.updateIframeWidth, 100), this));
+
+            this.resizeObserver.observe(
+                this.iframeContext.$(this.settings.selectors.iframeHeightContainer).get(0),
+                this.resizeObserverConfig
+            );
+        },
+
+        /**
+         * Destroy all the initialized events
+         *
+         * @method     destroyEvents
+         */
+        destroyEvents: function () {
+            $(window).off('resize', _.bind(_.throttle(this.updateIframeWidth, 100), this));
+            this.resizeObserver.disconnect();
+        },
+
+        /*=====  End of Events  ======*/
+
+        /*=========================================
+        =            Utilities methods            =
+        =========================================*/
+
+        /**
+         * Resize the iframe and page height to fit well. If the iframe DOM element is removed, it stops the setIterval
+         * and the page width watcher
+         *
+         * @method     resize
+         */
+        resize: function () {
+            var iframeHeight;
+
+            this.iframe = $(this.settings.selectors.iframe);
+
+            if (this.iframe.length === 0) {
+                this.destroyEvents();
+            } else {
+                iframeHeight = this.getIframeHeight();
+
+                if (iframeHeight !== this.page.outerHeight()) {
+                    console.log('resize');
+                    this.setPageHeight(iframeHeight);
+                }
+            }
+        },
+
+        /**
+         * Set the page height
+         *
+         * @method     setPageHeight
+         * @param      {Number}  height  The page height with margin and padding
+         */
+        setPageHeight: function (height) {
+            this.page.outerHeight(height);
+            this.iframe.outerHeight(height);
+        },
+
+        /**
+         * Get the iframe height
+         *
+         * @method     getIframeHeight
+         * @return     {Number}  The iframe height with margin and padding
+         */
+        getIframeHeight: function () {
+            return this.iframeContext.$(this.settings.selectors.iframeHeightContainer).outerHeight();
+        },
+
+        /**
+         * Update the iframe width relative to page width
+         *
+         * @method     updateIframeWidth
+         */
+        updateIframeWidth: function () {
+            var width = this.page.outerWidth();
+
+            this.iframeContext.$(this.settings.selectors.iframeWidthContainer).outerWidth(width);
+            this.iframe.outerWidth(width);
+        }
+
+        /*=====  End of Utilities methods  ======*/
+    };
+
+    return Iframe;
 });
 </pre>
     </article>
