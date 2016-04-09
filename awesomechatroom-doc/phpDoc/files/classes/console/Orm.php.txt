@@ -23,6 +23,8 @@ use \abstracts\designPatterns\Entity as Entity;
 
 /**
  * ORM in a console mode with simple command syntax to manage the database
+ *
+ * @package    ORM
  */
 class Orm extends Console
 {
