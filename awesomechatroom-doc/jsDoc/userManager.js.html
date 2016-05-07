@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>awesomeChatRoom Source: navigation.js</title>
+	<title>awesomeChatRoom Source: userManager.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -84,262 +84,159 @@ RoomManager object to handle all room Object</a></li><li><a href="module-lib_cha
 		<div id="main">
 			
 
-		<h1 class="page-title">Source: navigation.js</h1>
+		<h1 class="page-title">Source: userManager.js</h1>
     
 <section>
     <article>
         <pre
             class="sunlight-highlight-javascript linenums">/**
- * Navigation module
+ * UserManager module
  *
- * @module               lib/navigation
- *
- * Handle the current page attributes such as the page title or the page parameters.
- * It loads pages by hide / show pages DOM classes elements to use a Single Page Web pattern and avoiding browser
- * page reloading to keep the WebSocket connection alive.
- * It load pages on hashchange event and detect the page to load by parsing the hash.
+ * @module lib/userManager
  */
 
 define([
     'jquery',
+    'lodash',
     'module',
-    'lodash'
-], function ($, module, _) {
+    'message',
+    'user',
+    'bootstrap',
+    'loading-overlay'
+], function ($, _, module, Message, User) {
     'use strict';
 
     /**
-     * Navigation object
+     * UserManager object
      *
-     * @constructor
-     * @alias       module:lib/navigation
-     * @param       {Object}       settings Overriden settings
+     * @class
+     * @param      {FormsManager}  Forms     A FormsManager to handle form XHR ajax calls or jsCallbacks
+     * @param      {Object}        settings  Overriden settings
+     *
+     * @alias      module:lib/userManager
      */
-    var Navigation = function (settings) {
-        this.settings = $.extend(true, {}, this.settings, module.config(), settings);
-        this.initEvents();
-    };
+    var UserManager = function (Forms, settings) {
+            this.settings = $.extend(true, {}, this.settings, module.config(), settings);
+            this.user     = new User();
+            // Bind forms ajax callback
+            Forms.addOnSuccessCallback('user/connect', this.connectSuccess, this);
+            Forms.addOnFailCallback('user/connect', this.connectFail, this);
+            Forms.addOnRequestFailCallback('user/connect', this.connectRequestFail, this);
+            Forms.addBeforeRequestCallback('user/register', this.beforeRegister, this);
+            Forms.addOnSuccessCallback('user/register', this.registerSuccess, this);
+            Forms.addOnFailCallback('user/register', this.registerFail, this);
+            Forms.addOnRequestFailCallback('user/register', this.registerRequestFail, this);
+        },
+        messageManager = new Message();
 
-    Navigation.prototype = {
-        /*====================================================
-        =            Object settings / properties            =
-        ====================================================*/
-
+    UserManager.prototype = {
         /**
-         * Default settings
+         * Callback when the user is successfully connected
          */
-        "settings" : {},
-        /**
-         * Current jQuery DOM element page
-         */
-        "page": {},
-        /**
-         * Current page URL (hash URL)
-         */
-        "pageUrl": "",
-        /**
-         * Current page Title
-         */
-        "pageTitle": "",
-        /**
-         * Current page parameters
-         */
-        "pageParameters": {},
-        /**
-         * Callbacks method to run actions on specific pages on loaded
-         */
-        "callbacks": {},
-
-        /*=====  End of Object settings / properties  ======*/
-
-        /*==============================
-        =            Events            =
-        ==============================*/
+        "connectSuccessCallback": null,
 
         /**
-         * Initialize all the events
+         * Get the current user
          *
-         * @method     initEvents
+         * @method     getCurrent
+         * @return     {User}  The current user
          */
-        initEvents: function () {
-            $(window).on('hashchange', $.proxy(this.loadPageFromHash, this));
-            $('body').on('click', this.settings.selectors.pageLink, $.proxy(this.openLink, this));
+        getCurrent: function () {
+            return this.user;
         },
 
         /**
-         * Load a page when the page hash changes
+         * Callback when the user connection attempt succeed
          *
-         * @method     loadPageFromHash
-         * @return     {Boolean}  True if a page was loaded else false
+         * @method     connectSuccess
+         * @param      {Object}  form    The jQuery DOM form element
+         * @param      {Object}  data    The server JSON reponse
          */
-        loadPageFromHash: function () {
-            var hash       = location.hash,
-                pageUrl    = _.trimStart(_.head(_.split(hash, '?')), this.settings.urlPrefix),
-                pageLoaded = false;
+        connectSuccess: function (form, data) {
+            this.user.setAttributes(data);
+            this.user.setConnected(true);
 
-            if (_.startsWith(hash, this.settings.urlPrefix) &amp;&amp; this.pageUrl !== pageUrl) {
-                this.loadPageParameters(hash);
-                this.loadPage(pageUrl);
-                pageLoaded = true;
-            }
+            $(this.settings.selectors.modals.connect).modal('hide');
+            messageManager.add('Connect success !');
 
-            return pageLoaded;
-        },
-
-        /**
-         * Display the page called on a page-link click
-         *
-         * @method     openLink
-         * @param      {Event}  e       The event fired
-         */
-        openLink: function (e) {
-            var url = $(e.currentTarget).attr('href') || $(e.currentTarget).attr('data-url');
-
-            e.preventDefault();
-
-            if (location.hash !== url) {
-                this.loadPage(url);
-            }
-        },
-
-        /*=====  End of Events  ======*/
-
-        /*===============================
-        =            Getters            =
-        ===============================*/
-
-        getPage: function () {
-            return this.page;
-        },
-
-        /**
-         * Get the current page URL (hash URL)
-         *
-         * @method     getPageUrl
-         * @return     {String}  The current page URL (hash URL)
-         */
-        getPageUrl: function () {
-            return this.pageUrl;
-        },
-
-        /**
-         * Get the current page title
-         *
-         * @method     getPageTitle
-         * @return     {String}  The current page title
-         */
-        getPageTitle: function () {
-            return this.pageTitle;
-        },
-
-        /**
-         * Get the current page parameters
-         *
-         * @method     getPageParameters
-         * @return     {Object}  The current page parameters
-         */
-        getPageParameters: function () {
-            return this.pageParameters;
-        },
-
-        /*=====  End of Getters  ======*/
-
-        /*=========================================
-        =            Utilities methods            =
-        =========================================*/
-
-        /**
-         * Display a page by hide / show DOM elements and set pages attributes
-         *
-         * @method     loadPage
-         * @param      {String}  pageUrl  The page URL to load
-         */
-        loadPage: function (pageUrl) {
-            var currentPage = $(this.settings.selectors.currentPage),
-                newPage     = $(this.settings.selectors.page + '[data-url="' + pageUrl + '"]'),
-                pageTitle   = newPage.attr('data-title');
-            // Check if the page exists
-            if (!newPage || newPage.length &lt; 1) {
-                // @todo display error with message ?
-                console.log('Page not found');
-            } else {
-                // Set page title
-                $('title').html(pageTitle);
-                // Hide the current page if exists
-                if (currentPage.length > 0) {
-                    currentPage.hide();
-                    currentPage.removeClass(this.settings.selectors.currentPage.substr(1));
-                }
-                // Display the page
-                newPage.show();
-                newPage.addClass(this.settings.selectors.currentPage.substr(1));
-                // Set the URL hash
-                if (location.hash !== this.settings.urlPrefix + pageUrl) {
-                    location.hash = this.settings.urlPrefix + pageUrl;
-                }
-                // Set self attributes
-                this.page      = newPage;
-                this.pageUrl   = pageUrl;
-                this.pageTitle = pageTitle;
-                // Run the callback if it is set
-                if (this.callbacks[pageUrl]) {
-                    this.callbacks[pageUrl].callback.call(this.callbacks[pageUrl].context);
-                }
+            if (typeof this.connectSuccessCallback === 'function') {
+                this.connectSuccessCallback.call(this);
             }
         },
 
         /**
-         * Load current page parameters in parsing the given URL hash
+         * Callback when the user connection attempt failed
          *
-         * @method     loadPageParameters
-         * @param      {String}  hash    The URL hash
+         * @method     connectFail
+         * @param      {Object}  form    The jQuery DOM form element
+         * @param      {Object}  data    The server JSON reponse
          */
-        loadPageParameters: function (hash) {
-            var parametersRaw = _.split(hash, '?'),
-                parameters    = {},
-                split;
-
-            if (_.size(parametersRaw[1]) > 0) {
-                parametersRaw = _.split(parametersRaw[1], '&amp;');
-
-                _.forEach(parametersRaw, function (parameter) {
-                    split                = _.split(parameter, '=');
-                    parameters[split[0]] = split[1];
-                });
-
-                this.parameters = parameters;
-            }
+        connectFail: function (form, data) {
+            console.log('Fail !', data);
         },
 
         /**
-         * Load the landing page
+         * Callback when the user connection request failed
          *
-         * @method     loadLandingPage
+         * @method     connectRequestFail
+         * @param      {Object}  form    The jQuery DOM form element
+         * @param      {Object}  jqXHR   The jQuery jqXHR object
          */
-        loadLandingPage: function () {
-            if (!this.loadPageFromHash()) {
-                this.loadPage(this.settings.landingPage);
-            }
+        connectRequestFail: function (form, jqXHR) {
+            console.log(jqXHR);
         },
 
         /**
-         * Add a callback to process data recieved from the WebSocket server
+         * Callback before the register form has been sent
          *
-         * @method     addCallback
-         * @param      {String}    pageUrl   The callback page
-         * @param      {Function}  callback  The callback function
-         * @param      {Object}    context   The callback context (null to use the navigation this context)
+         * @method     beforeRegister
+         * @param      {Object}  form    The jQuery DOM form element
          */
-        addCallback: function (pageUrl, callback, context) {
-            this.callbacks[pageUrl] = {
-                "callback": callback,
-                "context" : context || this
-            };
+        beforeRegister: function (form) {
+            form.loadingOverlay();
+        },
+
+        /**
+         * Callback when the user connection attempt succeed
+         *
+         * @method     registerSuccess
+         * @param      {Object}  form    The jQuery DOM form element
+         * @param      {Object}  data    The server JSON reponse
+         */
+        registerSuccess: function (form, data) {
+            form.loadingOverlay('remove');
+            this.user.setAttributes(data);
+            this.user.setConnected(true);
+            messageManager.add('Register success !');
+            // @todo close the modal
+        },
+
+        /**
+         * Callback when the user connection attempt failed
+         *
+         * @method     registerFail
+         * @param      {Object}  form    The jQuery DOM form element
+         * @param      {Object}  data    The server JSON reponse
+         */
+        registerFail: function (form, data) {
+            form.loadingOverlay('remove');
+            console.log('Fail !', data);
+        },
+
+        /**
+         * Callback when the user connection request failed
+         *
+         * @method     registerRequestFail
+         * @param      {Object}  form    The jQuery DOM form element
+         * @param      {Object}  jqXHR   The jQuery jqXHR object
+         */
+        registerRequestFail: function (form, jqXHR) {
+            form.loadingOverlay('remove');
+            console.log(jqXHR);
         }
-
-        /*=====  End of Utilities methods  ======*/
     };
 
-    return Navigation;
+    return UserManager;
 });
 </pre>
     </article>

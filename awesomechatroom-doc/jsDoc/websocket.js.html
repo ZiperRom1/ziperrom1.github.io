@@ -33,7 +33,9 @@
 			<li class="dropdown">
 				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
 				<ul class="dropdown-menu inline">
-					<li><a href="lib_iframe%250A%250AHelper%2520class%2520to%2520integrate%2520iframe%2520in%2520a%2520page%2520without%2520scroll%2520barre%2520and%2520in%2520full%2520width%2520_%2520height%2520well%2520integrated%2520on%2520the%250Apagemodule_.html">lib/iframe
+					<li><a href="lib_client%250A%250AClient%2520object%2520to%2520handle%2520all%2520client%2520attributesmodule_.html">lib/client
+
+Client object to handle all client attributes</a></li><li><a href="lib_iframe%250A%250AHelper%2520class%2520to%2520integrate%2520iframe%2520in%2520a%2520page%2520without%2520scroll%2520barre%2520and%2520in%2520full%2520width%2520_%2520height%2520well%2520integrated%2520on%2520the%250Apagemodule_.html">lib/iframe
 
 Helper class to integrate iframe in a page without scroll barre and in full width / height well integrated on the
 page</a></li><li><a href="lib_navigation%250A%250AHandle%2520the%2520current%2520page%2520attributes%2520such%2520as%2520the%2520page%2520title%2520or%2520the%2520page%2520parameters.%250AIt%2520loads%2520pages%2520by%2520hide%2520_%2520show%2520pages%2520DOM%2520classes%2520elements%2520to%2520use%2520a%2520Single%2520Page%2520Web%2520pattern%2520and%2520avoiding%2520browser%250Apage%2520reloading%2520to%2520keep%2520the%2520WebSocket%2520connection%2520alive.%250AIt%2520load%2520pages%2520on%2520hashchange%2520event%2520and%2520detect%2520the%2520page%2520to%2520load%2520by%2520parsing%2520the%2520hash.module_.html">lib/navigation
@@ -41,21 +43,18 @@ page</a></li><li><a href="lib_navigation%250A%250AHandle%2520the%2520current%252
 Handle the current page attributes such as the page title or the page parameters.
 It loads pages by hide / show pages DOM classes elements to use a Single Page Web pattern and avoiding browser
 page reloading to keep the WebSocket connection alive.
-It load pages on hashchange event and detect the page to load by parsing the hash.</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="module-lib_forms.html">lib/forms</a></li><li><a href="module-lib_message.html">lib/message</a></li><li><a href="module-lib_user.html">lib/user</a></li><li><a href="module-lib_websocket.html">lib/websocket</a></li>
+It load pages on hashchange event and detect the page to load by parsing the hash.</a></li><li><a href="lib_room%250A%250ARoom%2520object%2520to%2520handle%2520all%2520room%2520attributesmodule_.html">lib/room
+
+Room object to handle all room attributes</a></li><li><a href="lib_roomManager%250A%250ARoomManager%2520object%2520to%2520handle%2520all%2520room%2520Objectmodule_.html">lib/roomManager
+
+RoomManager object to handle all room Object</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="module-lib_clientManager.html">lib/clientManager</a></li><li><a href="module-lib_forms.html">lib/forms</a></li><li><a href="module-lib_message.html">lib/message</a></li><li><a href="module-lib_user.html">lib/user</a></li><li><a href="module-lib_userManager.html">lib/userManager</a></li><li><a href="module-lib_websocket.html">lib/websocket</a></li>
 				</ul>
 			</li>
 			
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu inline">
-					<li><a href="-_.html">_</a></li><li><a href="module-lib_iframe.html">lib/iframe</a></li><li><a href="module-lib_navigation.html">lib/navigation</a></li>
-				</ul>
-			</li>
-			
-			<li class="dropdown">
-				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
-				<ul class="dropdown-menu inline">
-					<li><a href="global.html#requirejs">requirejs</a></li><li><a href="global.html#toUrl">toUrl</a></li>
+					<li><a href="module-lib_client.html">lib/client</a></li><li><a href="module-lib_iframe.html">lib/iframe</a></li><li><a href="module-lib_navigation.html">lib/navigation</a></li><li><a href="module-lib_room.html">lib/room</a></li><li><a href="module-lib_roomManager.html">lib/roomManager</a></li>
 				</ul>
 			</li>
 			
@@ -148,6 +147,8 @@ define([
 
         /**
          * Connect the client to the WebSocket server
+         *
+         * @method     connect
          */
         connect: function () {
             var self = this;
@@ -157,10 +158,6 @@ define([
 
                 this.socket.onopen = function () {
                     console.log('socket opened');
-
-                    if (self.user.connected) {
-                        self.send(JSON.stringify({"action": "register", "user": self.user.settings.attributes}));
-                    }
                 };
 
                 this.socket.onclose = function () {
@@ -182,7 +179,8 @@ define([
         /**
          * Shorthand method to send data to the WebSocket server or delay until the websocket is ready
          *
-         * @param {String} data Data to send to the WebSocket server
+         * @method     send
+         * @param      {String}  data    Data to send to the WebSocket server
          */
         send: function (data) {
             var self = this;
@@ -198,6 +196,8 @@ define([
 
         /**
          * Disconnect the client from the WebSocket server
+         *
+         * @method     disconnect
          */
         disconnect: function () {
             this.socket.send(JSON.stringify({
@@ -208,7 +208,8 @@ define([
         /**
          * Treat data recieved from the WebSocket server
          *
-         * @param {String} data The text data recieved from the WebSocket server
+         * @method     treatData
+         * @param      {String}  data    The text data recieved from the WebSocket server
          */
         treatData: function (data) {
             data = JSON.parse(data);
@@ -227,9 +228,10 @@ define([
         /**
          * Add a callback to process data recieved from the WebSocket server
          *
-         * @param {String}   serviceName The callback service name
-         * @param {Function} callback    The callback function
-         * @param {Object}   context     The callback context
+         * @method     addCallback
+         * @param      {String}    serviceName  The callback service name
+         * @param      {Function}  callback     The callback function
+         * @param      {Object}    context      The callback context
          */
         addCallback: function (serviceName, callback, context) {
             this.callbacks[serviceName] = {
@@ -241,7 +243,8 @@ define([
         /**
          * Add a service to the WebSocket server
          *
-         * @param {String} serviceName The service name to add to the WebSocket server
+         * @method     addService
+         * @param      {String}  serviceName  The service name to add to the WebSocket server
          */
         addService: function (serviceName) {
             this.socket.send(JSON.stringify({
@@ -255,7 +258,8 @@ define([
         /**
          * Remove a service from the WebSocket server
          *
-         * @param {String} serviceName The service name to remove from the WebSocket server
+         * @method     removeService
+         * @param      {String}  serviceName  The service name to remove from the WebSocket server
          */
         removeService: function (serviceName) {
             this.socket.send(JSON.stringify({
@@ -268,6 +272,8 @@ define([
 
         /**
          * Query the currents running services from the WebSocket server
+         *
+         * @method     listServices
          */
         listServices: function () {
             this.socket.send(JSON.stringify({
@@ -281,7 +287,8 @@ define([
         /**
          * Parse the WebSocket server response to retrieve the services list
          *
-         * @param {Object} data JSON encoded data recieved from the WebSocket server
+         * @method     listServiceCallback
+         * @param      {Object}  data    JSON encoded data recieved from the WebSocket server
          */
         listServiceCallback: function (data) {
             console.log(data.services);
@@ -333,7 +340,7 @@ define([
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
 	
-		on 2016-04-09 16:48:17
+		on 2016-05-07 11:17:56
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

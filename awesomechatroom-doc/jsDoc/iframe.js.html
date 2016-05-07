@@ -33,7 +33,9 @@
 			<li class="dropdown">
 				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
 				<ul class="dropdown-menu inline">
-					<li><a href="lib_iframe%250A%250AHelper%2520class%2520to%2520integrate%2520iframe%2520in%2520a%2520page%2520without%2520scroll%2520barre%2520and%2520in%2520full%2520width%2520_%2520height%2520well%2520integrated%2520on%2520the%250Apagemodule_.html">lib/iframe
+					<li><a href="lib_client%250A%250AClient%2520object%2520to%2520handle%2520all%2520client%2520attributesmodule_.html">lib/client
+
+Client object to handle all client attributes</a></li><li><a href="lib_iframe%250A%250AHelper%2520class%2520to%2520integrate%2520iframe%2520in%2520a%2520page%2520without%2520scroll%2520barre%2520and%2520in%2520full%2520width%2520_%2520height%2520well%2520integrated%2520on%2520the%250Apagemodule_.html">lib/iframe
 
 Helper class to integrate iframe in a page without scroll barre and in full width / height well integrated on the
 page</a></li><li><a href="lib_navigation%250A%250AHandle%2520the%2520current%2520page%2520attributes%2520such%2520as%2520the%2520page%2520title%2520or%2520the%2520page%2520parameters.%250AIt%2520loads%2520pages%2520by%2520hide%2520_%2520show%2520pages%2520DOM%2520classes%2520elements%2520to%2520use%2520a%2520Single%2520Page%2520Web%2520pattern%2520and%2520avoiding%2520browser%250Apage%2520reloading%2520to%2520keep%2520the%2520WebSocket%2520connection%2520alive.%250AIt%2520load%2520pages%2520on%2520hashchange%2520event%2520and%2520detect%2520the%2520page%2520to%2520load%2520by%2520parsing%2520the%2520hash.module_.html">lib/navigation
@@ -41,21 +43,18 @@ page</a></li><li><a href="lib_navigation%250A%250AHandle%2520the%2520current%252
 Handle the current page attributes such as the page title or the page parameters.
 It loads pages by hide / show pages DOM classes elements to use a Single Page Web pattern and avoiding browser
 page reloading to keep the WebSocket connection alive.
-It load pages on hashchange event and detect the page to load by parsing the hash.</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="module-lib_forms.html">lib/forms</a></li><li><a href="module-lib_message.html">lib/message</a></li><li><a href="module-lib_user.html">lib/user</a></li><li><a href="module-lib_websocket.html">lib/websocket</a></li>
+It load pages on hashchange event and detect the page to load by parsing the hash.</a></li><li><a href="lib_room%250A%250ARoom%2520object%2520to%2520handle%2520all%2520room%2520attributesmodule_.html">lib/room
+
+Room object to handle all room attributes</a></li><li><a href="lib_roomManager%250A%250ARoomManager%2520object%2520to%2520handle%2520all%2520room%2520Objectmodule_.html">lib/roomManager
+
+RoomManager object to handle all room Object</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="module-lib_clientManager.html">lib/clientManager</a></li><li><a href="module-lib_forms.html">lib/forms</a></li><li><a href="module-lib_message.html">lib/message</a></li><li><a href="module-lib_user.html">lib/user</a></li><li><a href="module-lib_userManager.html">lib/userManager</a></li><li><a href="module-lib_websocket.html">lib/websocket</a></li>
 				</ul>
 			</li>
 			
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu inline">
-					<li><a href="-_.html">_</a></li><li><a href="module-lib_iframe.html">lib/iframe</a></li><li><a href="module-lib_navigation.html">lib/navigation</a></li>
-				</ul>
-			</li>
-			
-			<li class="dropdown">
-				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
-				<ul class="dropdown-menu inline">
-					<li><a href="global.html#requirejs">requirejs</a></li><li><a href="global.html#toUrl">toUrl</a></li>
+					<li><a href="module-lib_client.html">lib/client</a></li><li><a href="module-lib_iframe.html">lib/iframe</a></li><li><a href="module-lib_navigation.html">lib/navigation</a></li><li><a href="module-lib_room.html">lib/room</a></li><li><a href="module-lib_roomManager.html">lib/roomManager</a></li>
 				</ul>
 			</li>
 			
@@ -110,28 +109,16 @@ define([
     /**
      * Iframe object
      *
-     * @constructor
-     * @alias       module:lib/iframe
-     * @param       {Object}       settings Overriden settings
+     * @class
+     * @alias      module:lib/iframe
+     * @param      {Object}  Navigation  A Navigation Object
+     * @param      {Object}  settings    Overriden settings
+     * @todo       Put iframe, iframeContext, resizeObserver, resizeObserverConfig out of the protype to handle multiple
+     *             iframes at the same time
      */
-    var Iframe = function (settings) {
-        var resizeThrottle = _.bind(_.throttle(this.resize, 100), this);
-
-        this.settings       = $.extend(true, {}, this.settings, module.config(), settings);
-        this.page           = $(this.settings.selectors.page);
-        this.iframe         = $(this.settings.selectors.iframe);
-        this.iframeContext  = this.iframe.get(0).contentWindow;
-        this.resizeObserver = new MutationObserver(function (mutations) {
-            mutations.forEach(function () {
-                resizeThrottle();
-            });
-        });
-
-        if (_.isFunction(this.iframeContext.$)) {
-            this.initEvents();
-            this.updateIframeWidth();
-            this.resize();
-        }
+    var Iframe = function (Navigation, settings) {
+        this.settings   = $.extend(true, {}, this.settings, module.config(), settings);
+        this.navigation = Navigation;
     };
 
     Iframe.prototype = {
@@ -144,13 +131,9 @@ define([
          */
         "settings": {},
         /**
-         * The id of the setInterval function
+         * The navigation object
          */
-        "setIntervalId": "",
-        /**
-         * The current page displayed jQuery DOM element
-         */
-        "page": {},
+        "navigation": {},
         /**
          * The iframe jQuery DOM element
          */
@@ -160,17 +143,9 @@ define([
          */
         "iframeContext": {},
         /**
-         * Mutation observer that calls resize method on each mutation observed
+         * The resize setIntervall ID
          */
-        "resizeObserver": {},
-        /**
-         * Options for resizeObserver
-         */
-        "resizeObserverConfig": {
-            "childList" : true,
-            "attributes": true,
-            "subtree"   : true
-        },
+        "resizeSetInterval": null,
 
         /*=====  End of Object settings / properties  ======*/
 
@@ -179,17 +154,35 @@ define([
         ==============================*/
 
         /**
+         * Init an iframe
+         *
+         * @method     init
+         * @param      {String}  iframeId  The iframe ID DOM selector
+         */
+        init: function (iframeId) {
+            this.iframe         = $(iframeId);
+            this.iframeContext  = this.iframe.get(0).contentDocument;
+
+            $('body', this.iframeContext).css({
+                "margin" : 0,
+                "padding": 0,
+                "height" : "100%"
+            });
+
+            this.setPageHeight($('body').innerHeight);
+            this.destroyEvents();
+            this.initEvents();
+            this.updateIframeWidth();
+        },
+
+        /**
          * Initialize all the events
          *
          * @method     initEvents
          */
         initEvents: function () {
             $(window).on('resize', _.bind(_.throttle(this.updateIframeWidth, 100), this));
-
-            this.resizeObserver.observe(
-                this.iframeContext.$(this.settings.selectors.iframeHeightContainer).get(0),
-                this.resizeObserverConfig
-            );
+            this.resizeSetInterval = setInterval(_.bind(this.resize, this), this.settings.resizeInterval);
         },
 
         /**
@@ -199,7 +192,7 @@ define([
          */
         destroyEvents: function () {
             $(window).off('resize', _.bind(_.throttle(this.updateIframeWidth, 100), this));
-            this.resizeObserver.disconnect();
+            clearInterval(this.resizeSetInterval);
         },
 
         /*=====  End of Events  ======*/
@@ -217,17 +210,16 @@ define([
         resize: function () {
             var iframeHeight;
 
-            this.iframe = $(this.settings.selectors.iframe);
-
             if (this.iframe.length === 0) {
                 this.destroyEvents();
             } else {
                 iframeHeight = this.getIframeHeight();
 
-                if (iframeHeight !== this.page.outerHeight()) {
-                    console.log('resize');
+                if (iframeHeight !== this.navigation.getPage().outerHeight()) {
                     this.setPageHeight(iframeHeight);
                 }
+
+                this.updateIframeWidth();
             }
         },
 
@@ -238,7 +230,7 @@ define([
          * @param      {Number}  height  The page height with margin and padding
          */
         setPageHeight: function (height) {
-            this.page.outerHeight(height);
+            this.navigation.getPage().outerHeight(height);
             this.iframe.outerHeight(height);
         },
 
@@ -249,7 +241,7 @@ define([
          * @return     {Number}  The iframe height with margin and padding
          */
         getIframeHeight: function () {
-            return this.iframeContext.$(this.settings.selectors.iframeHeightContainer).outerHeight();
+            return $(this.settings.selectors.iframeHeightContainer, this.iframeContext).outerHeight();
         },
 
         /**
@@ -258,10 +250,34 @@ define([
          * @method     updateIframeWidth
          */
         updateIframeWidth: function () {
-            var width = this.page.outerWidth();
+            var width = this.navigation.getPage().outerWidth();
 
-            this.iframeContext.$(this.settings.selectors.iframeWidthContainer).outerWidth(width);
+            $(this.settings.selectors.iframeWidthContainer, this.iframeContext).outerWidth(width);
             this.iframe.outerWidth(width);
+        },
+
+        /**
+         * Append the kibana iframe if it is not already present on the page
+         *
+         * @method     loadKibanaIframe
+         */
+        loadKibanaIframe: function () {
+            var self = this,
+                iframe;
+
+            if ($(this.settings.selectors.kibanaIframe).length === 0) {
+                $.getJSON('kibana/getIframe', function (data) {
+                    iframe = $('&lt;iframe/>', {
+                        "src"        : data.src,
+                        "id"         : self.settings.selectors.kibanaIframe.substr(1),
+                        "frameBorder": 0,
+                        "seamless"   : "seamless",
+                        "load"       : _.bind(self.init, self, self.settings.selectors.kibanaIframe)
+                    });
+
+                    $('.page[data-url="kibana"]').append(iframe);
+                });
+            }
         }
 
         /*=====  End of Utilities methods  ======*/
@@ -312,7 +328,7 @@ define([
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
 	
-		on 2016-04-09 16:48:17
+		on 2016-05-07 11:17:56
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

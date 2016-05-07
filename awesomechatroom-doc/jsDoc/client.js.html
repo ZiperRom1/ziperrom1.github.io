@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>awesomeChatRoom Source: navigation.js</title>
+	<title>awesomeChatRoom Source: client.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -84,20 +84,17 @@ RoomManager object to handle all room Object</a></li><li><a href="module-lib_cha
 		<div id="main">
 			
 
-		<h1 class="page-title">Source: navigation.js</h1>
+		<h1 class="page-title">Source: client.js</h1>
     
 <section>
     <article>
         <pre
             class="sunlight-highlight-javascript linenums">/**
- * Navigation module
+ * Client module
  *
- * @module               lib/navigation
+ * @module               lib/client
  *
- * Handle the current page attributes such as the page title or the page parameters.
- * It loads pages by hide / show pages DOM classes elements to use a Single Page Web pattern and avoiding browser
- * page reloading to keep the WebSocket connection alive.
- * It load pages on hashchange event and detect the page to load by parsing the hash.
+ * Client object to handle all client attributes
  */
 
 define([
@@ -108,238 +105,150 @@ define([
     'use strict';
 
     /**
-     * Navigation object
+     * Client object
      *
-     * @constructor
-     * @alias       module:lib/navigation
-     * @param       {Object}       settings Overriden settings
+     * @class
+     * @param      {Object}  attributes  JSON data representing the client attributes
+     * @param      {Object}  settings    Overriden settings
+     *
+     * @alias      module:lib/client
      */
-    var Navigation = function (settings) {
-        this.settings = $.extend(true, {}, this.settings, module.config(), settings);
-        this.initEvents();
+    var Client = function (attributes, settings) {
+        this.settings   = $.extend(true, {}, this.settings, module.config(), settings);
+        this.attributes = {};
+
+        if (!_.isEmpty(attributes)) {
+            this.setAttributes(attributes);
+        }
     };
 
-    Navigation.prototype = {
-        /*====================================================
-        =            Object settings / properties            =
-        ====================================================*/
-
-        /**
-         * Default settings
-         */
-        "settings" : {},
-        /**
-         * Current jQuery DOM element page
-         */
-        "page": {},
-        /**
-         * Current page URL (hash URL)
-         */
-        "pageUrl": "",
-        /**
-         * Current page Title
-         */
-        "pageTitle": "",
-        /**
-         * Current page parameters
-         */
-        "pageParameters": {},
-        /**
-         * Callbacks method to run actions on specific pages on loaded
-         */
-        "callbacks": {},
-
-        /*=====  End of Object settings / properties  ======*/
-
-        /*==============================
-        =            Events            =
-        ==============================*/
-
-        /**
-         * Initialize all the events
-         *
-         * @method     initEvents
-         */
-        initEvents: function () {
-            $(window).on('hashchange', $.proxy(this.loadPageFromHash, this));
-            $('body').on('click', this.settings.selectors.pageLink, $.proxy(this.openLink, this));
-        },
-
-        /**
-         * Load a page when the page hash changes
-         *
-         * @method     loadPageFromHash
-         * @return     {Boolean}  True if a page was loaded else false
-         */
-        loadPageFromHash: function () {
-            var hash       = location.hash,
-                pageUrl    = _.trimStart(_.head(_.split(hash, '?')), this.settings.urlPrefix),
-                pageLoaded = false;
-
-            if (_.startsWith(hash, this.settings.urlPrefix) &amp;&amp; this.pageUrl !== pageUrl) {
-                this.loadPageParameters(hash);
-                this.loadPage(pageUrl);
-                pageLoaded = true;
-            }
-
-            return pageLoaded;
-        },
-
-        /**
-         * Display the page called on a page-link click
-         *
-         * @method     openLink
-         * @param      {Event}  e       The event fired
-         */
-        openLink: function (e) {
-            var url = $(e.currentTarget).attr('href') || $(e.currentTarget).attr('data-url');
-
-            e.preventDefault();
-
-            if (location.hash !== url) {
-                this.loadPage(url);
-            }
-        },
-
-        /*=====  End of Events  ======*/
-
-        /*===============================
-        =            Getters            =
-        ===============================*/
-
-        getPage: function () {
-            return this.page;
-        },
-
-        /**
-         * Get the current page URL (hash URL)
-         *
-         * @method     getPageUrl
-         * @return     {String}  The current page URL (hash URL)
-         */
-        getPageUrl: function () {
-            return this.pageUrl;
-        },
-
-        /**
-         * Get the current page title
-         *
-         * @method     getPageTitle
-         * @return     {String}  The current page title
-         */
-        getPageTitle: function () {
-            return this.pageTitle;
-        },
-
-        /**
-         * Get the current page parameters
-         *
-         * @method     getPageParameters
-         * @return     {Object}  The current page parameters
-         */
-        getPageParameters: function () {
-            return this.pageParameters;
-        },
-
-        /*=====  End of Getters  ======*/
-
+    Client.prototype = {
         /*=========================================
-        =            Utilities methods            =
+        =            Getters / setters            =
         =========================================*/
 
         /**
-         * Display a page by hide / show DOM elements and set pages attributes
+         * Get the client attributes
          *
-         * @method     loadPage
-         * @param      {String}  pageUrl  The page URL to load
+         * @method     getAttributes
+         * @return     {Object}  The client attributes as JSON
          */
-        loadPage: function (pageUrl) {
-            var currentPage = $(this.settings.selectors.currentPage),
-                newPage     = $(this.settings.selectors.page + '[data-url="' + pageUrl + '"]'),
-                pageTitle   = newPage.attr('data-title');
-            // Check if the page exists
-            if (!newPage || newPage.length &lt; 1) {
-                // @todo display error with message ?
-                console.log('Page not found');
-            } else {
-                // Set page title
-                $('title').html(pageTitle);
-                // Hide the current page if exists
-                if (currentPage.length > 0) {
-                    currentPage.hide();
-                    currentPage.removeClass(this.settings.selectors.currentPage.substr(1));
-                }
-                // Display the page
-                newPage.show();
-                newPage.addClass(this.settings.selectors.currentPage.substr(1));
-                // Set the URL hash
-                if (location.hash !== this.settings.urlPrefix + pageUrl) {
-                    location.hash = this.settings.urlPrefix + pageUrl;
-                }
-                // Set self attributes
-                this.page      = newPage;
-                this.pageUrl   = pageUrl;
-                this.pageTitle = pageTitle;
-                // Run the callback if it is set
-                if (this.callbacks[pageUrl]) {
-                    this.callbacks[pageUrl].callback.call(this.callbacks[pageUrl].context);
-                }
-            }
+        getAttributes: function () {
+            return this.attributes;
         },
 
         /**
-         * Load current page parameters in parsing the given URL hash
+         * Set the Client object with a JSON parameter
          *
-         * @method     loadPageParameters
-         * @param      {String}  hash    The URL hash
+         * @method     setAttributes
+         * @param      {Object}  data    JSON data
          */
-        loadPageParameters: function (hash) {
-            var parametersRaw = _.split(hash, '?'),
-                parameters    = {},
-                split;
-
-            if (_.size(parametersRaw[1]) > 0) {
-                parametersRaw = _.split(parametersRaw[1], '&amp;');
-
-                _.forEach(parametersRaw, function (parameter) {
-                    split                = _.split(parameter, '=');
-                    parameters[split[0]] = split[1];
-                });
-
-                this.parameters = parameters;
-            }
+        setAttributes: function (data) {
+            this.attributes = $.extend(true, {}, this.attributes, data);
         },
 
         /**
-         * Load the landing page
+         * Get the client connection
          *
-         * @method     loadLandingPage
+         * @method     getConnection
+         * @return     {Object}  The client connection
          */
-        loadLandingPage: function () {
-            if (!this.loadPageFromHash()) {
-                this.loadPage(this.settings.landingPage);
-            }
+        getConnection: function () {
+            return this.attributes.connection;
         },
 
         /**
-         * Add a callback to process data recieved from the WebSocket server
+         * Set the client connection
          *
-         * @method     addCallback
-         * @param      {String}    pageUrl   The callback page
-         * @param      {Function}  callback  The callback function
-         * @param      {Object}    context   The callback context (null to use the navigation this context)
+         * @method     setConnection
+         * @param      {Object}  connection  The client connection
          */
-        addCallback: function (pageUrl, callback, context) {
-            this.callbacks[pageUrl] = {
-                "callback": callback,
-                "context" : context || this
+        setConnection: function (connection) {
+            this.attributes.connection = connection;
+        },
+
+        /**
+         * Get the client ID
+         *
+         * @method     getId
+         * @return     {String}  The client ID
+         */
+        getId: function () {
+            return this.attributes.id;
+        },
+
+        /**
+         * Set the client ID
+         *
+         * @method     setId
+         * @param      {String}  Id      The client ID
+         */
+        setId: function (Id) {
+            this.attributes.id = Id;
+        },
+
+        /**
+         * Get the client user object
+         *
+         * @method     getUser
+         * @return     {User}  The client user object
+         */
+        getUser: function () {
+            return this.attributes.user;
+        },
+
+        /**
+         * Set the client user object
+         *
+         * @method     setUser
+         * @param      {User}  user    The client user object
+         */
+        setUser: function (user) {
+            this.attributes.user = user;
+        },
+
+        /**
+         * Get the client location
+         *
+         * @method     getLocation
+         * @return     {Object}  The location in {"lat": "latitude", "lon": "longitude"} format
+         */
+        getLocation: function () {
+            return this.attributes.location;
+        },
+
+        /**
+         * Set the location based on navigator.geolocation.getCurrentPosition returned object
+         *
+         * @method     setLocation
+         * @param      {Object}  coordinates  The navigator.geolocation.getCurrentPosition returned object
+         */
+        setLocation: function (coordinates) {
+            this.attributes.location = {
+                'lat': coordinates.coords.latitude,
+                'lon': coordinates.coords.longitude
             };
+        },
+
+        /**
+         * Set location based on MaxMind geoip database and the client IP address
+         *
+         * @method     setLocationWithGeoip
+         */
+        setLocationWithGeoip: function () {
+            var self = this;
+
+            if (_.isEmpty(this.attributes.location)) {
+                $.getJSON('GeoIp/getLocation', function (location) {
+                    self.attributes.location = location;
+                });
+            }
         }
 
-        /*=====  End of Utilities methods  ======*/
+        /*=====  End of Getters / setters  ======*/
     };
 
-    return Navigation;
+    return Client;
 });
 </pre>
     </article>

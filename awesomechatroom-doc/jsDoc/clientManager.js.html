@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>awesomeChatRoom Source: navigation.js</title>
+	<title>awesomeChatRoom Source: clientManager.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -84,262 +84,160 @@ RoomManager object to handle all room Object</a></li><li><a href="module-lib_cha
 		<div id="main">
 			
 
-		<h1 class="page-title">Source: navigation.js</h1>
+		<h1 class="page-title">Source: clientManager.js</h1>
     
 <section>
     <article>
         <pre
             class="sunlight-highlight-javascript linenums">/**
- * Navigation module
+ * ClientManager module
  *
- * @module               lib/navigation
- *
- * Handle the current page attributes such as the page title or the page parameters.
- * It loads pages by hide / show pages DOM classes elements to use a Single Page Web pattern and avoiding browser
- * page reloading to keep the WebSocket connection alive.
- * It load pages on hashchange event and detect the page to load by parsing the hash.
+ * @module lib/clientManager
  */
 
 define([
     'jquery',
+    'lodash',
     'module',
-    'lodash'
-], function ($, module, _) {
+    'client'
+], function ($, _, module, Client) {
     'use strict';
 
     /**
-     * Navigation object
+     * ClientManager object
      *
-     * @constructor
-     * @alias       module:lib/navigation
-     * @param       {Object}       settings Overriden settings
+     * @class
+     * @param      {WebSocket}  WebSocket  The websocket manager
+     * @param      {User}       user       A User object to bind to teh client
+     * @param      {Object}     settings   Overriden settings
+     *
+     * @alias      module:lib/clientManager
      */
-    var Navigation = function (settings) {
-        this.settings = $.extend(true, {}, this.settings, module.config(), settings);
-        this.initEvents();
+    var ClientManager = function (WebSocket, user, settings) {
+        var self = this;
+
+        this.settings  = $.extend(true, {}, this.settings, module.config(), settings);
+        this.websocket = WebSocket;
+        this.client    = new Client();
+        this.client.setUser(user);
+        // Set client geoloc
+        // @todo seems that maximumAge value is not evaluated and the watch constant refresh every few seconds
+        if (navigator.geolocation) {
+            navigator.geolocation.watchPosition(
+                _.bind(this.setLocation, this),
+                _.bind(this.setLocationWithGeoip, this),
+                {
+                    "maximumAge"        : self.settings.locationRefreshInterval,
+                    "timeout"           : self.settings.locationTimeout,
+                    "enableHighAccuracy": true
+                }
+            );
+        }
+        // If the location is not set after 5 sec, sets it with geoIp service
+        _.delay(_.bind(this.setLocationWithGeoip, this), 5000);
     };
 
-    Navigation.prototype = {
-        /*====================================================
-        =            Object settings / properties            =
-        ====================================================*/
-
+    ClientManager.prototype = {
         /**
-         * Default settings
-         */
-        "settings" : {},
-        /**
-         * Current jQuery DOM element page
-         */
-        "page": {},
-        /**
-         * Current page URL (hash URL)
-         */
-        "pageUrl": "",
-        /**
-         * Current page Title
-         */
-        "pageTitle": "",
-        /**
-         * Current page parameters
-         */
-        "pageParameters": {},
-        /**
-         * Callbacks method to run actions on specific pages on loaded
-         */
-        "callbacks": {},
-
-        /*=====  End of Object settings / properties  ======*/
-
-        /*==============================
-        =            Events            =
-        ==============================*/
-
-        /**
-         * Initialize all the events
+         * Get the current client
          *
-         * @method     initEvents
+         * @method     getCurrent
+         * @return     {Client}  The current client
          */
-        initEvents: function () {
-            $(window).on('hashchange', $.proxy(this.loadPageFromHash, this));
-            $('body').on('click', this.settings.selectors.pageLink, $.proxy(this.openLink, this));
+        getCurrent: function () {
+            return this.client;
+        },
+
+        /*==================================================================
+        =            Actions that query to the WebSocket server            =
+        ==================================================================*/
+
+        /**
+         * Update the client location
+         *
+         * @method     updateLocation
+         */
+        updateLocation: function () {
+            this.websocket.send(JSON.stringify({
+                "service" : [this.settings.serviceName],
+                "action"  : "updateLocation",
+                "location": this.client.getLocation() || []
+            }));
         },
 
         /**
-         * Load a page when the page hash changes
+         * Update the client user
          *
-         * @method     loadPageFromHash
-         * @return     {Boolean}  True if a page was loaded else false
+         * @method     updateUser
          */
-        loadPageFromHash: function () {
-            var hash       = location.hash,
-                pageUrl    = _.trimStart(_.head(_.split(hash, '?')), this.settings.urlPrefix),
-                pageLoaded = false;
-
-            if (_.startsWith(hash, this.settings.urlPrefix) &amp;&amp; this.pageUrl !== pageUrl) {
-                this.loadPageParameters(hash);
-                this.loadPage(pageUrl);
-                pageLoaded = true;
-            }
-
-            return pageLoaded;
+        updateUser: function () {
+            this.websocket.send(JSON.stringify({
+                "service": [this.settings.serviceName],
+                "action" : "updateUser",
+                "user"   : this.client.getUser().getAttributes()
+            }));
         },
 
+        /*=====  End of Actions that query to the WebSocket server  ======*/
+
+        /*==================================================================
+        =            Callbacks after WebSocket server responses            =
+        ==================================================================*/
+
         /**
-         * Display the page called on a page-link click
+         * Handle the WebSocker server response and process action with the right callback
          *
-         * @method     openLink
-         * @param      {Event}  e       The event fired
+         * @method     wsCallbackDispatcher
+         * @param      {Object}  data    The server JSON reponse
          */
-        openLink: function (e) {
-            var url = $(e.currentTarget).attr('href') || $(e.currentTarget).attr('data-url');
-
-            e.preventDefault();
-
-            if (location.hash !== url) {
-                this.loadPage(url);
+        wsCallbackDispatcher: function (data) {
+            if (typeof this[data.action + 'Callback'] === 'function') {
+                this[data.action + 'Callback'](data);
             }
         },
 
-        /*=====  End of Events  ======*/
-
-        /*===============================
-        =            Getters            =
-        ===============================*/
-
-        getPage: function () {
-            return this.page;
-        },
-
         /**
-         * Get the current page URL (hash URL)
+         * Add client information to the client object
          *
-         * @method     getPageUrl
-         * @return     {String}  The current page URL (hash URL)
+         * @method     connectCallback
+         * @param      {Object}  data    The server JSON reponse
          */
-        getPageUrl: function () {
-            return this.pageUrl;
+        connectCallback: function (data) {
+            this.client.setId(data.id);
+            this.client.setConnection(data.connection);
         },
 
-        /**
-         * Get the current page title
-         *
-         * @method     getPageTitle
-         * @return     {String}  The current page title
-         */
-        getPageTitle: function () {
-            return this.pageTitle;
-        },
-
-        /**
-         * Get the current page parameters
-         *
-         * @method     getPageParameters
-         * @return     {Object}  The current page parameters
-         */
-        getPageParameters: function () {
-            return this.pageParameters;
-        },
-
-        /*=====  End of Getters  ======*/
+        /*=====  End of Callbacks after WebSocket server responses  ======*/
 
         /*=========================================
         =            Utilities methods            =
         =========================================*/
 
         /**
-         * Display a page by hide / show DOM elements and set pages attributes
+         * Set the location based on navigator.geolocation.getCurrentPosition returned object
          *
-         * @method     loadPage
-         * @param      {String}  pageUrl  The page URL to load
+         * @method     setLocation
+         * @param      {Object}  coordinates  The navigator.geolocation.getCurrentPosition returned object
          */
-        loadPage: function (pageUrl) {
-            var currentPage = $(this.settings.selectors.currentPage),
-                newPage     = $(this.settings.selectors.page + '[data-url="' + pageUrl + '"]'),
-                pageTitle   = newPage.attr('data-title');
-            // Check if the page exists
-            if (!newPage || newPage.length &lt; 1) {
-                // @todo display error with message ?
-                console.log('Page not found');
-            } else {
-                // Set page title
-                $('title').html(pageTitle);
-                // Hide the current page if exists
-                if (currentPage.length > 0) {
-                    currentPage.hide();
-                    currentPage.removeClass(this.settings.selectors.currentPage.substr(1));
-                }
-                // Display the page
-                newPage.show();
-                newPage.addClass(this.settings.selectors.currentPage.substr(1));
-                // Set the URL hash
-                if (location.hash !== this.settings.urlPrefix + pageUrl) {
-                    location.hash = this.settings.urlPrefix + pageUrl;
-                }
-                // Set self attributes
-                this.page      = newPage;
-                this.pageUrl   = pageUrl;
-                this.pageTitle = pageTitle;
-                // Run the callback if it is set
-                if (this.callbacks[pageUrl]) {
-                    this.callbacks[pageUrl].callback.call(this.callbacks[pageUrl].context);
-                }
-            }
+        setLocation: function (coordinates) {
+            this.client.setLocation(coordinates);
+            this.updateLocation();
         },
 
         /**
-         * Load current page parameters in parsing the given URL hash
+         * Set location based on MaxMind geoip database and the client IP address
          *
-         * @method     loadPageParameters
-         * @param      {String}  hash    The URL hash
+         * @method     setLocationWithGeoip
          */
-        loadPageParameters: function (hash) {
-            var parametersRaw = _.split(hash, '?'),
-                parameters    = {},
-                split;
-
-            if (_.size(parametersRaw[1]) > 0) {
-                parametersRaw = _.split(parametersRaw[1], '&amp;');
-
-                _.forEach(parametersRaw, function (parameter) {
-                    split                = _.split(parameter, '=');
-                    parameters[split[0]] = split[1];
-                });
-
-                this.parameters = parameters;
-            }
-        },
-
-        /**
-         * Load the landing page
-         *
-         * @method     loadLandingPage
-         */
-        loadLandingPage: function () {
-            if (!this.loadPageFromHash()) {
-                this.loadPage(this.settings.landingPage);
-            }
-        },
-
-        /**
-         * Add a callback to process data recieved from the WebSocket server
-         *
-         * @method     addCallback
-         * @param      {String}    pageUrl   The callback page
-         * @param      {Function}  callback  The callback function
-         * @param      {Object}    context   The callback context (null to use the navigation this context)
-         */
-        addCallback: function (pageUrl, callback, context) {
-            this.callbacks[pageUrl] = {
-                "callback": callback,
-                "context" : context || this
-            };
+        setLocationWithGeoip: function () {
+            this.client.setLocationWithGeoip();
+            this.updateLocation();
         }
 
         /*=====  End of Utilities methods  ======*/
     };
 
-    return Navigation;
+    return ClientManager;
 });
 </pre>
     </article>

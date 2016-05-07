@@ -33,7 +33,9 @@
 			<li class="dropdown">
 				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
 				<ul class="dropdown-menu inline">
-					<li><a href="lib_iframe%250A%250AHelper%2520class%2520to%2520integrate%2520iframe%2520in%2520a%2520page%2520without%2520scroll%2520barre%2520and%2520in%2520full%2520width%2520_%2520height%2520well%2520integrated%2520on%2520the%250Apagemodule_.html">lib/iframe
+					<li><a href="lib_client%250A%250AClient%2520object%2520to%2520handle%2520all%2520client%2520attributesmodule_.html">lib/client
+
+Client object to handle all client attributes</a></li><li><a href="lib_iframe%250A%250AHelper%2520class%2520to%2520integrate%2520iframe%2520in%2520a%2520page%2520without%2520scroll%2520barre%2520and%2520in%2520full%2520width%2520_%2520height%2520well%2520integrated%2520on%2520the%250Apagemodule_.html">lib/iframe
 
 Helper class to integrate iframe in a page without scroll barre and in full width / height well integrated on the
 page</a></li><li><a href="lib_navigation%250A%250AHandle%2520the%2520current%2520page%2520attributes%2520such%2520as%2520the%2520page%2520title%2520or%2520the%2520page%2520parameters.%250AIt%2520loads%2520pages%2520by%2520hide%2520_%2520show%2520pages%2520DOM%2520classes%2520elements%2520to%2520use%2520a%2520Single%2520Page%2520Web%2520pattern%2520and%2520avoiding%2520browser%250Apage%2520reloading%2520to%2520keep%2520the%2520WebSocket%2520connection%2520alive.%250AIt%2520load%2520pages%2520on%2520hashchange%2520event%2520and%2520detect%2520the%2520page%2520to%2520load%2520by%2520parsing%2520the%2520hash.module_.html">lib/navigation
@@ -41,21 +43,18 @@ page</a></li><li><a href="lib_navigation%250A%250AHandle%2520the%2520current%252
 Handle the current page attributes such as the page title or the page parameters.
 It loads pages by hide / show pages DOM classes elements to use a Single Page Web pattern and avoiding browser
 page reloading to keep the WebSocket connection alive.
-It load pages on hashchange event and detect the page to load by parsing the hash.</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="module-lib_forms.html">lib/forms</a></li><li><a href="module-lib_message.html">lib/message</a></li><li><a href="module-lib_user.html">lib/user</a></li><li><a href="module-lib_websocket.html">lib/websocket</a></li>
+It load pages on hashchange event and detect the page to load by parsing the hash.</a></li><li><a href="lib_room%250A%250ARoom%2520object%2520to%2520handle%2520all%2520room%2520attributesmodule_.html">lib/room
+
+Room object to handle all room attributes</a></li><li><a href="lib_roomManager%250A%250ARoomManager%2520object%2520to%2520handle%2520all%2520room%2520Objectmodule_.html">lib/roomManager
+
+RoomManager object to handle all room Object</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="module-lib_clientManager.html">lib/clientManager</a></li><li><a href="module-lib_forms.html">lib/forms</a></li><li><a href="module-lib_message.html">lib/message</a></li><li><a href="module-lib_user.html">lib/user</a></li><li><a href="module-lib_userManager.html">lib/userManager</a></li><li><a href="module-lib_websocket.html">lib/websocket</a></li>
 				</ul>
 			</li>
 			
 			<li class="dropdown">
 				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
 				<ul class="dropdown-menu inline">
-					<li><a href="-_.html">_</a></li><li><a href="module-lib_iframe.html">lib/iframe</a></li><li><a href="module-lib_navigation.html">lib/navigation</a></li>
-				</ul>
-			</li>
-			
-			<li class="dropdown">
-				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
-				<ul class="dropdown-menu inline">
-					<li><a href="global.html#requirejs">requirejs</a></li><li><a href="global.html#toUrl">toUrl</a></li>
+					<li><a href="module-lib_client.html">lib/client</a></li><li><a href="module-lib_iframe.html">lib/iframe</a></li><li><a href="module-lib_navigation.html">lib/navigation</a></li><li><a href="module-lib_room.html">lib/room</a></li><li><a href="module-lib_roomManager.html">lib/roomManager</a></li>
 				</ul>
 			</li>
 			
@@ -126,8 +125,6 @@ define([
             this.websocket = WebSocket;
             this.user      = User;
             this.initEvents();
-            // Add websocket callbacks
-            this.websocket.addCallback(this.settings.serviceName, this.chatCallback, this);
             // Add forms callback
             Forms.addJsCallback('setReasonCallbackEvent', this.setReasonCallbackEvent, this);
             Forms.addJsCallback('setRoomInfoCallbackEvent', this.setRoomInfoCallbackEvent, this);
@@ -136,22 +133,17 @@ define([
                 $(self.settings.selectors.roomConnect.div + ' ' + self.settings.selectors.roomConnect.name)
                     .selectpicker();
             });
-
-            this.getRoomsInfo();
         },
         messageManager = new Message();
-
     ChatManager.prototype = {
         /*====================================================
         =            Object settings / properties            =
         ====================================================*/
 
         /**
-         * Default settings will get overriden if they are set when the WebsocketManager will be instanciated
+         * Default settings
          */
-        "settings": {
-            "users": []
-        },
+        "settings": {},
         /**
          * Global promises handler
          */
@@ -282,12 +274,6 @@ define([
                 'mouseleave',
                 this.settings.selectors.global.roomChat,
                 $.proxy(this.mouseLeaveRoomChatEvent, this)
-            );
-            // Set the modal admin contents before it is opened
-            $('body').on(
-                'show.bs.modal',
-                this.settings.selectors.administrationPanel.div,
-                $.proxy(this.setAministrationPanelEvent, this)
             );
             // Toggle the user right in the administration panel
             $('body').on(
@@ -533,19 +519,6 @@ define([
         },
 
         /**
-         * Event fired when the user wants to display the administration room panel
-         *
-         * @method     setAministrationPanelEvent
-         * @param      {event}  e       The fired event
-         */
-        setAministrationPanelEvent: function (e) {
-            var modal = $(e.currentTarget);
-
-            modal.find(this.settings.selectors.administrationPanel.rights + ' input[type="checkbox"]')
-                .bootstrapSwitch();
-        },
-
-        /**
          * Event fired when the user wants to display a user rights in administration modal
          *
          * @method     toggleAdministrationRights
@@ -632,7 +605,7 @@ define([
                 newRoomPassword = _.find(inputs, {"name": "roomPassword"}).value;
 
             if (oldRoomName !== newRoomName || oldRoomPassword !== newRoomPassword) {
-                this.setRoomInfo(roomId, oldRoomName, newRoomName, oldRoomPassword, newRoomPassword);
+                this.setRoomInfo(roomId, newRoomName, newRoomPassword);
             }
         },
 
@@ -670,7 +643,8 @@ define([
                 "action"   : "connectRoom",
                 "pseudonym": pseudonym || "",
                 "roomId"   : roomId,
-                "password" : password
+                "password" : password,
+                "location" : this.user.getLocation()
             }));
         },
 
@@ -724,7 +698,8 @@ define([
                 "roomName"    : roomName,
                 "roomPassword": password,
                 "type"        : type,
-                "maxUsers"    : maxUsers
+                "maxUsers"    : maxUsers,
+                "location"    : this.user.getLocation()
             }));
         },
 
@@ -807,20 +782,18 @@ define([
          *
          * @method     setRoomInfo
          * @param      {Number}  roomId           The room ID
-         * @param      {String}  oldRoomName      The old room name
          * @param      {String}  newRoomName      The new room name
-         * @param      {String}  oldRoomPassword  The old room password
          * @param      {String}  newRoomPassword  The new room password
          */
-        setRoomInfo: function (roomId, oldRoomName, newRoomName, oldRoomPassword, newRoomPassword) {
+        setRoomInfo: function (roomId, newRoomName, newRoomPassword) {
             this.websocket.send(JSON.stringify({
-                "service"        : [this.settings.serviceName],
-                "action"         : "setRoomInfo",
-                "roomId"         : roomId,
-                "oldRoomName"    : oldRoomName,
-                "newRoomName"    : newRoomName,
-                "oldRoomPassword": oldRoomPassword,
-                "newRoomPassword": newRoomPassword
+                "service" : [this.settings.serviceName],
+                "action"  : "setRoomInfo",
+                "roomId"  : roomId,
+                "roomInfo": {
+                    "name"    : newRoomName,
+                    "password": newRoomPassword
+                }
             }));
         },
 
@@ -843,12 +816,12 @@ define([
         ==================================================================*/
 
         /**
-         * Handle the WebSocker server response and process action then
+         * Handle the WebSocker server response and process action with the right callback
          *
-         * @method     chatCallback
+         * @method     wsCallbackDispatcher
          * @param      {Object}  data    The server JSON reponse
          */
-        chatCallback: function (data) {
+        wsCallbackDispatcher: function (data) {
             if (typeof this[data.action + 'Callback'] === 'function') {
                 this[data.action + 'Callback'](data);
             } else if (data.text) {
@@ -904,7 +877,7 @@ define([
 
                     _.forEach(newPseudonyms, function (pseudonym) {
                         users.append(
-                            self.getUserRightLine(modal, pseudonym, data.right)
+                            self.getUserRightLine(modal, pseudonym, data.rights[pseudonym])
                         );
                     });
 
@@ -922,9 +895,9 @@ define([
          * @param      {Object}  data    The server JSON reponse
          */
         updateRoomUsersRightsCallback: function (data) {
-            var modal = $('.modal[data-room-id="' + data.room.id + '"]');
+            var modal = $('.modal[data-room-id="' + data.roomId + '"]');
 
-            this.updateRoomUsersRights(modal, data.usersRights);
+            this.updateRoomUsersRights(modal, data.usersRights, data.roomId);
         },
 
         /**
@@ -934,7 +907,7 @@ define([
          * @param      {Object}  data    The server JSON reponse
          */
         updateRoomUsersBannedCallback: function (data) {
-            var modal = $('.modal[data-room-id="' + data.room.id + '"]');
+            var modal = $('.modal[data-room-id="' + data.roomId + '"]');
 
             this.updateRoomUsersBanned(modal, data.usersBanned);
         },
@@ -1015,7 +988,8 @@ define([
          * @param      {Object}  data    The server JSON reponse
          */
         getKickedCallback: function (data) {
-            messageManager.add(data.text);
+            $(this.settings.selectors.global.room + '[data-id="' + data.roomId + '"]').remove();
+            messageManager.add(data.text, 'alert', 'info', 'Kicked from the room `' + data.roomName + '`', 10);
         },
 
         /**
@@ -1035,7 +1009,8 @@ define([
          * @param      {Object}  data    The server JSON reponse
          */
         getBannedCallback: function (data) {
-            messageManager.add(data.text);
+            $(this.settings.selectors.global.room + '[data-id="' + data.roomId + '"]').remove();
+            messageManager.add(data.text, 'alert', 'danger', 'Banned from the room `' + data.roomName + '`', 20);
         },
 
         /**
@@ -1059,74 +1034,41 @@ define([
         },
 
         /**
-         * Callback after a room name / password has been changed
+         * Callback after a room information has been changed
          *
          * @method     changeRoomInfoCallback
          * @param      {Object}  data    The server JSON reponse
          */
         changeRoomInfoCallback: function (data) {
-            var room = $(this.settings.selectors.global.room + '[data-id="' + data.id + '"]'),
-                modal;
-
-            if (data.oldRoomName !== data.newRoomName) {
-                room.attr('data-name', data.newRoomName);
-                room.find(this.settings.selectors.global.roomName).text(data.newRoomName);
-            }
-
-            if (data.oldRoomPassword !== data.newRoomPassword) {
-                room.attr('data-password', data.newRoomPassword);
-            }
-
-            if (this.user.connected) {
-                modal = $(this.settings.selectors.administrationPanel.modal + '[data-room-id="' + data.id + '"]');
-
-                if (data.oldRoomName !== data.newRoomName) {
-                    modal.attr('data-room-name', data.newRoomName);
-                    modal.find(this.settings.selectors.administrationPanel.roomName).text(data.newRoomName);
-                    modal.find(this.settings.selectors.administrationPanel.inputRoomName).val(data.newRoomName);
-                }
-
-                if (data.oldRoomPassword !== data.newRoomPassword) {
-                    modal.attr('data-room-password', data.newRoomPassword);
-                    modal.find(this.settings.selectors.administrationPanel.inputRoomPassword).val(data.newRoomPassword);
-                }
-            }
-
-            this.recieveMessageCallback(data);
+            messageManager.add(data.text);
         },
 
         /**
-         * Callback after getting the new rooms info
+         * Callback after a room information has been updated
          *
-         * @method     getRoomsInfoCallback
+         * @method     changeRoomInfoCallback
          * @param      {Object}  data    The server JSON reponse
          */
-        getRoomsInfoCallback: function (data) {
-            var publicRooms  = [],
-                privateRooms = [],
-                select       = $(
-                    this.settings.selectors.roomConnect.div + ' ' + this.settings.selectors.roomConnect.name
-                ),
-                option;
+        updateRoomInformation: function (data) {
+            var room     = $(this.settings.selectors.global.room + '[data-id="' + data.roomId + '"]'),
+                roomInfo = data.roomInfo,
+                modal;
 
-            _.forEach(data.roomsInfo, function (roomInfo) {
-                option = $('&lt;option>', {
-                    "value"       : roomInfo.room.id,
-                    "data-subtext": '(' + roomInfo.usersConnected + '/' + roomInfo.room.maxUsers + ')',
-                    "data-type"   : roomInfo.room.password ? 'private' : 'public',
-                    "text"        : roomInfo.room.name
-                });
+            room.attr('data-name', roomInfo.name);
+            room.find(this.settings.selectors.global.roomName).text(roomInfo.name);
+            room.attr('data-password', roomInfo.password);
 
-                if (roomInfo.room.password) {
-                    privateRooms.push(option);
-                } else {
-                    publicRooms.push(option);
-                }
-            });
+            if (this.user.connected) {
+                modal = $(this.settings.selectors.administrationPanel.modal + '[data-room-id="' + data.roomId + '"]');
 
-            select.find(this.settings.selectors.roomConnect.publicRooms).html(publicRooms);
-            select.find(this.settings.selectors.roomConnect.privateRooms).html(privateRooms);
-            select.selectpicker('refresh');
+                modal.attr('data-room-name', roomInfo.name);
+                modal.find(this.settings.selectors.administrationPanel.roomName).text(roomInfo.name);
+                modal.find(this.settings.selectors.administrationPanel.inputRoomName).val(roomInfo.name);
+                modal.attr('data-room-password', roomInfo.password);
+                modal.find(this.settings.selectors.administrationPanel.inputRoomPassword).val(roomInfo.password);
+            }
+
+            this.recieveMessageCallback(data.messageInfo);
         },
 
         /*=====  End of Callbacks after WebSocket server responses  ======*/
@@ -1202,7 +1144,7 @@ define([
                     newModal.find(this.settings.selectors.administrationPanel.inputRoomName).val(roomData.name);
                     newModal.find(this.settings.selectors.administrationPanel.inputRoomPassword).val(roomData.password);
                     newRoom.find(this.settings.selectors.roomAction.administration).attr('data-target', '#' + id);
-                    this.updateRoomUsersRights(newModal, data.chatRights);
+                    this.updateRoomUsersRights(newModal, data.usersRights, roomData.id);
 
                     modalSample.after(newModal);
                 }
@@ -1304,27 +1246,113 @@ define([
         },
 
         /**
-         * Update the users list in the administration modal
+         * Update the ip banned list in the administration modal
+         *
+         * @method     updateRoomUsersBanned
+         * @param      {Object}  modal        The modal jQuery DOM element
+         * @param      {Object}  usersBanned  The users banned object returned by the server
+         */
+        updateRoomUsersBanned: function (modal, usersBanned) {
+            var bannedList = modal.find(this.settings.selectors.administrationPanel.bannedList),
+                trSample   = bannedList.find(this.settings.selectors.administrationPanel.trSample),
+                newLines   = [],
+                self       = this;
+
+            _.forEach(usersBanned, function (bannedInfo) {
+                var newLine = trSample.clone();
+
+                newLine.removeClass('hide sample');
+                newLine.find(self.settings.selectors.administrationPanel.ip).text(bannedInfo.ip);
+                newLine.find(self.settings.selectors.administrationPanel.pseudonymBanned).text(bannedInfo.pseudonym);
+                newLine.find(self.settings.selectors.administrationPanel.pseudonymAdmin).text(bannedInfo.admin);
+                newLine.find(self.settings.selectors.administrationPanel.reason).text(bannedInfo.reason);
+                newLine.find(self.settings.selectors.administrationPanel.date).text(bannedInfo.date);
+                newLines.push(newLine);
+            });
+            // Clean and insert lines
+            bannedList.find('tr').not(trSample).remove();
+            trSample.last().after(newLines);
+        },
+
+        /**
+         * Update the users rights list in the administration modal
          *
          * @method     updateRoomUsersRights
          * @param      {Object}  modal        The modal jQuery DOM element
          * @param      {Object}  usersRights  The users rights object returned by the server
+         * @param      {Number}  roomId       The room id
          */
-        updateRoomUsersRights: function (modal, usersRights) {
-            var usersList = modal.find(this.settings.selectors.administrationPanel.usersList),
-                trSample  = usersList.find(this.settings.selectors.administrationPanel.trSample),
-                roomId    = modal.attr('data-room-id'),
-                room      = $(this.settings.selectors.global.room + '[data-id="' + roomId + '"]'),
-                newLines  = [],
-                self = this;
+        updateRoomUsersRights: function (modal, usersRights, roomId) {
+            var self = this;
+            // Self update user chat room right
+            if (_.isObject(usersRights[this.user.getPseudonym()])) {
+                this.user.setChatRoomRight(roomId, usersRights[this.user.getPseudonym()]);
+            }
 
-            if (room.length > 0) {
-                _.forEach(room.attr('data-users').split(','), function (pseudonym) {
-                    newLines.push(self.getUserRightLine(modal, pseudonym, usersRights[pseudonym]));
+            _.forEach(usersRights, function (rights, pseudonym) {
+                self.updateUserRightLine(modal, pseudonym, rights);
+            });
+        },
+
+        /**
+         * Update a user right line in the administration panel
+         *
+         * @method     updateUserRightLine
+         * @param      {Object}  modal          The modal jQuery DOM element
+         * @param      {String}  pseudonym      The new user pseudonym
+         * @param      {Object}  userChatRight  The new user chat right
+         */
+        updateUserRightLine: function (modal, pseudonym, userChatRight) {
+            var usersList = modal.find(this.settings.selectors.administrationPanel.usersList),
+                roomId    = modal.attr('data-room-id'),
+                self      = this,
+                rights    = usersList.find(
+                    this.settings.selectors.administrationPanel.rights + '[data-pseudonym="' + pseudonym + '"]'
+                ),
+                input, rightName;
+
+            if (rights.length > 0) {
+                rights.each(function () {
+                    input     = $(this).find('input');
+                    rightName = input.attr('name');
+                    // @fixme bootstrapSwitch issue on readonly and disabled state
+                    // @see https://github.com/nostalgiaz/bootstrap-switch/issues/494
+                    // Fix &lt;&lt;&lt;
+                    if (input.bootstrapSwitch('readonly')) {
+                        input.bootstrapSwitch('readonly', false);
+                    }
+                    // Fix >>>
+                    input.bootstrapSwitch(
+                        'state',
+                        userChatRight ? userChatRight[rightName] : false,
+                        true
+                    );
+
+                    if (!userChatRight) {
+                        // Disabled rights on unregistered users
+                        input.bootstrapSwitch('state', false, true);
+                        input.bootstrapSwitch('readonly', true);
+                    } else {
+                        // Set the current user rights
+                        input.bootstrapSwitch(
+                            'state', userChatRight[rightName], true
+                        );
+
+                        if (!self.user.getChatRoomRight(roomId).grant &amp;&amp; !self.user.getRight().chatAdmin) {
+                            // Disabled rights if the admin have no "grant" right
+                            input.bootstrapSwitch('readonly', true);
+                        } else {
+                            // @fixme need to reset the event on update because readonly inputs lost the event binding
+                            input.off('switchChange.bootstrapSwitch');
+                            // Bind event on right change event to update the right instantly
+                            input.on('switchChange.bootstrapSwitch', function (ignore, rightValue) {
+                                self.updateRoomUserRight(roomId, pseudonym, $(this).attr('name'), rightValue);
+                            });
+                        }
+                    }
                 });
-                // Clean and insert lines
-                usersList.find('tr').not(trSample).remove();
-                trSample.last().after(newLines);
+            } else {
+                usersList.append(this.getUserRightLine(modal, pseudonym, userChatRight));
             }
         },
 
@@ -1353,22 +1381,22 @@ define([
 
             newLine.each(function () {
                 if ($(this).hasClass(self.settings.selectors.administrationPanel.rights.substr(1))) {
-                    input = $(this).find('input');
+                    input     = $(this).find('input');
                     rightName = input.attr('name');
 
                     $(this).addClass(refer);
                     // Unregistered user
                     if (!userChatRight) {
                         // Disabled rights on unregistered users
+                        input.bootstrapSwitch('state', false, true);
                         input.bootstrapSwitch('readonly', true);
-                        input.bootstrapSwitch('state', false);
                     } else {
                         // Set the current user rights
                         input.bootstrapSwitch(
-                            'state', userChatRight[roomId] ? userChatRight[roomId][rightName] : false
+                            'state', userChatRight[rightName], true
                         );
 
-                        if (!self.user.getChatRoomRight(roomId) || !self.user.getChatRoomRight(roomId).grant) {
+                        if (!self.user.getChatRoomRight(roomId).grant &amp;&amp; !self.user.getRight().chatAdmin) {
                             // Disabled rights if the admin have no "grant" right
                             input.bootstrapSwitch('readonly', true);
                         } else {
@@ -1382,35 +1410,6 @@ define([
             });
 
             return newLine;
-        },
-
-        /**
-         * Update the ip banned list in the administration modal
-         *
-         * @method     updateRoomUsersBanned
-         * @param      {Object}  modal        The modal jQuery DOM element
-         * @param      {Object}  usersBanned  The users banned object returned by the server
-         */
-        updateRoomUsersBanned: function (modal, usersBanned) {
-            var bannedList = modal.find(this.settings.selectors.administrationPanel.bannedList),
-                trSample   = bannedList.find(this.settings.selectors.administrationPanel.trSample),
-                newLines   = [],
-                self       = this;
-
-            _.forEach(usersBanned, function (bannedInfo) {
-                var newLine = trSample.clone();
-
-                newLine.removeClass('hide sample');
-                newLine.find(self.settings.selectors.administrationPanel.ip).text(bannedInfo.ip);
-                newLine.find(self.settings.selectors.administrationPanel.pseudonymBanned).text(bannedInfo.pseudonym);
-                newLine.find(self.settings.selectors.administrationPanel.pseudonymAdmin).text(bannedInfo.admin);
-                newLine.find(self.settings.selectors.administrationPanel.reason).text(bannedInfo.reason);
-                newLine.find(self.settings.selectors.administrationPanel.date).text(bannedInfo.date);
-                newLines.push(newLine);
-            });
-            // Clean and insert lines
-            bannedList.find('tr').not(trSample).remove();
-            trSample.last().after(newLines);
         },
 
         /**
@@ -1500,7 +1499,7 @@ define([
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
 	
-		on 2016-04-09 16:48:17
+		on 2016-05-07 11:17:56
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>awesomeChatRoom Source: navigation.js</title>
+	<title>awesomeChatRoom Source: roomManager.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -84,262 +84,147 @@ RoomManager object to handle all room Object</a></li><li><a href="module-lib_cha
 		<div id="main">
 			
 
-		<h1 class="page-title">Source: navigation.js</h1>
+		<h1 class="page-title">Source: roomManager.js</h1>
     
 <section>
     <article>
         <pre
             class="sunlight-highlight-javascript linenums">/**
- * Navigation module
+ * RoomManager module
  *
- * @module               lib/navigation
+ * @module               lib/roomManager
  *
- * Handle the current page attributes such as the page title or the page parameters.
- * It loads pages by hide / show pages DOM classes elements to use a Single Page Web pattern and avoiding browser
- * page reloading to keep the WebSocket connection alive.
- * It load pages on hashchange event and detect the page to load by parsing the hash.
+ * RoomManager object to handle all room Object
  */
 
 define([
     'jquery',
     'module',
-    'lodash'
-], function ($, module, _) {
+    'lodash',
+    'room'
+], function ($, module, _, Room) {
     'use strict';
 
     /**
-     * Navigation object
+     * RoomManager object
      *
-     * @constructor
-     * @alias       module:lib/navigation
-     * @param       {Object}       settings Overriden settings
+     * @class
+     * @param      {WebSocket}  WebSocket  The websocket manager
+     * @param      {Object}     settings   Overriden settings
+     *
+     * @alias      module:lib/roomManager
      */
-    var Navigation = function (settings) {
-        this.settings = $.extend(true, {}, this.settings, module.config(), settings);
-        this.initEvents();
+    var RoomManager = function (WebSocket, settings) {
+        this.settings  = $.extend(true, {}, this.settings, module.config(), settings);
+        this.websocket = WebSocket;
+        this.rooms     = {};
     };
 
-    Navigation.prototype = {
-        /*====================================================
-        =            Object settings / properties            =
-        ====================================================*/
+    RoomManager.prototype = {
+        /*==================================================================
+        =            Actions that query to the WebSocket server            =
+        ==================================================================*/
 
         /**
-         * Default settings
-         */
-        "settings" : {},
-        /**
-         * Current jQuery DOM element page
-         */
-        "page": {},
-        /**
-         * Current page URL (hash URL)
-         */
-        "pageUrl": "",
-        /**
-         * Current page Title
-         */
-        "pageTitle": "",
-        /**
-         * Current page parameters
-         */
-        "pageParameters": {},
-        /**
-         * Callbacks method to run actions on specific pages on loaded
-         */
-        "callbacks": {},
-
-        /*=====  End of Object settings / properties  ======*/
-
-        /*==============================
-        =            Events            =
-        ==============================*/
-
-        /**
-         * Initialize all the events
+         * Get the all rooms
          *
-         * @method     initEvents
+         * @method     getAllRooms
          */
-        initEvents: function () {
-            $(window).on('hashchange', $.proxy(this.loadPageFromHash, this));
-            $('body').on('click', this.settings.selectors.pageLink, $.proxy(this.openLink, this));
+        getAllRooms: function () {
+            this.websocket.send(JSON.stringify({
+                "service": [this.settings.serviceName],
+                "action" : "getAllRooms"
+            }));
         },
 
-        /**
-         * Load a page when the page hash changes
-         *
-         * @method     loadPageFromHash
-         * @return     {Boolean}  True if a page was loaded else false
-         */
-        loadPageFromHash: function () {
-            var hash       = location.hash,
-                pageUrl    = _.trimStart(_.head(_.split(hash, '?')), this.settings.urlPrefix),
-                pageLoaded = false;
+        /*=====  End of Actions that query to the WebSocket server  ======*/
 
-            if (_.startsWith(hash, this.settings.urlPrefix) &amp;&amp; this.pageUrl !== pageUrl) {
-                this.loadPageParameters(hash);
-                this.loadPage(pageUrl);
-                pageLoaded = true;
-            }
-
-            return pageLoaded;
-        },
+        /*==================================================================
+        =            Callbacks after WebSocket server responses            =
+        ==================================================================*/
 
         /**
-         * Display the page called on a page-link click
+         * Handle the WebSocker server response and process action with the right callback
          *
-         * @method     openLink
-         * @param      {Event}  e       The event fired
+         * @method     wsCallbackDispatcher
+         * @param      {Object}  data    The server JSON reponse
          */
-        openLink: function (e) {
-            var url = $(e.currentTarget).attr('href') || $(e.currentTarget).attr('data-url');
-
-            e.preventDefault();
-
-            if (location.hash !== url) {
-                this.loadPage(url);
+        wsCallbackDispatcher: function (data) {
+            if (typeof this[data.action + 'Callback'] === 'function') {
+                this[data.action + 'Callback'](data);
             }
         },
 
-        /*=====  End of Events  ======*/
-
-        /*===============================
-        =            Getters            =
-        ===============================*/
-
-        getPage: function () {
-            return this.page;
-        },
-
         /**
-         * Get the current page URL (hash URL)
+         * Add all rooms to the rooms collection
          *
-         * @method     getPageUrl
-         * @return     {String}  The current page URL (hash URL)
+         * @method     getAllRoomsCallback
+         * @param      {Object}  data    The server JSON reponse
          */
-        getPageUrl: function () {
-            return this.pageUrl;
+        getAllRoomsCallback: function (data) {
+            _.map(data.rooms, _.bind(this.addRoom, this));
         },
 
-        /**
-         * Get the current page title
-         *
-         * @method     getPageTitle
-         * @return     {String}  The current page title
-         */
-        getPageTitle: function () {
-            return this.pageTitle;
-        },
-
-        /**
-         * Get the current page parameters
-         *
-         * @method     getPageParameters
-         * @return     {Object}  The current page parameters
-         */
-        getPageParameters: function () {
-            return this.pageParameters;
-        },
-
-        /*=====  End of Getters  ======*/
+        /*=====  End of Callbacks after WebSocket server responses  ======*/
 
         /*=========================================
         =            Utilities methods            =
         =========================================*/
 
         /**
-         * Display a page by hide / show DOM elements and set pages attributes
+         * Add a room to the rooms collection
          *
-         * @method     loadPage
-         * @param      {String}  pageUrl  The page URL to load
+         * @method     addRoom
+         * @param      {Object}  roomAttributes  The room attributes as JSON
          */
-        loadPage: function (pageUrl) {
-            var currentPage = $(this.settings.selectors.currentPage),
-                newPage     = $(this.settings.selectors.page + '[data-url="' + pageUrl + '"]'),
-                pageTitle   = newPage.attr('data-title');
-            // Check if the page exists
-            if (!newPage || newPage.length &lt; 1) {
-                // @todo display error with message ?
-                console.log('Page not found');
-            } else {
-                // Set page title
-                $('title').html(pageTitle);
-                // Hide the current page if exists
-                if (currentPage.length > 0) {
-                    currentPage.hide();
-                    currentPage.removeClass(this.settings.selectors.currentPage.substr(1));
-                }
-                // Display the page
-                newPage.show();
-                newPage.addClass(this.settings.selectors.currentPage.substr(1));
-                // Set the URL hash
-                if (location.hash !== this.settings.urlPrefix + pageUrl) {
-                    location.hash = this.settings.urlPrefix + pageUrl;
-                }
-                // Set self attributes
-                this.page      = newPage;
-                this.pageUrl   = pageUrl;
-                this.pageTitle = pageTitle;
-                // Run the callback if it is set
-                if (this.callbacks[pageUrl]) {
-                    this.callbacks[pageUrl].callback.call(this.callbacks[pageUrl].context);
-                }
+        addRoom: function (roomAttributes) {
+            var room = new Room(roomAttributes);
+
+            if (_.isUndefined(this.rooms[room.getId()])) {
+                this.rooms[room.getId()] = room;
             }
+
+            this.updateRoomList();
         },
 
         /**
-         * Load current page parameters in parsing the given URL hash
+         * Update the room list in the select picker
          *
-         * @method     loadPageParameters
-         * @param      {String}  hash    The URL hash
+         * @method     updateRoomList
          */
-        loadPageParameters: function (hash) {
-            var parametersRaw = _.split(hash, '?'),
-                parameters    = {},
-                split;
+        updateRoomList: function () {
+            var publicRooms  = [],
+                privateRooms = [],
+                select       = $(
+                    this.settings.selectors.roomConnect.div + ' ' + this.settings.selectors.roomConnect.name
+                ),
+                option;
 
-            if (_.size(parametersRaw[1]) > 0) {
-                parametersRaw = _.split(parametersRaw[1], '&amp;');
-
-                _.forEach(parametersRaw, function (parameter) {
-                    split                = _.split(parameter, '=');
-                    parameters[split[0]] = split[1];
+            _.forEach(this.rooms, function (room) {
+                option = $('&lt;option>', {
+                    "value"       : room.getId(),
+                    "data-subtext": '(' + room.getNumberOfConnectedClients() + '/' + room.getMaxUsers() + ')',
+                    "data-type"   : room.isPublic() ? 'public' : 'private',
+                    "text"        : room.getName()
                 });
 
-                this.parameters = parameters;
-            }
-        },
+                if (room.isPublic()) {
+                    publicRooms.push(option);
+                } else {
+                    privateRooms.push(option);
+                }
+            });
 
-        /**
-         * Load the landing page
-         *
-         * @method     loadLandingPage
-         */
-        loadLandingPage: function () {
-            if (!this.loadPageFromHash()) {
-                this.loadPage(this.settings.landingPage);
-            }
-        },
-
-        /**
-         * Add a callback to process data recieved from the WebSocket server
-         *
-         * @method     addCallback
-         * @param      {String}    pageUrl   The callback page
-         * @param      {Function}  callback  The callback function
-         * @param      {Object}    context   The callback context (null to use the navigation this context)
-         */
-        addCallback: function (pageUrl, callback, context) {
-            this.callbacks[pageUrl] = {
-                "callback": callback,
-                "context" : context || this
-            };
+            select.find(this.settings.selectors.roomConnect.publicRooms).html(publicRooms);
+            select.find(this.settings.selectors.roomConnect.privateRooms).html(privateRooms);
+            select.selectpicker('refresh');
         }
 
         /*=====  End of Utilities methods  ======*/
+
     };
 
-    return Navigation;
+    return RoomManager;
 });
 </pre>
     </article>
