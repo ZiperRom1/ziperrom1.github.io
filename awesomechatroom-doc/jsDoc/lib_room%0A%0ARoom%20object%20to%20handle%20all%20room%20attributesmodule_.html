@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: lib/client
+    <title>JSDoc: Module: lib/room
 
-Client object to handle all client attributes</title>
+Room object to handle all room attributes</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -19,9 +19,9 @@ Client object to handle all client attributes</title>
 
 <div id="main">
 
-    <h1 class="page-title">Module: lib/client
+    <h1 class="page-title">Module: lib/room
 
-Client object to handle all client attributes</h1>
+Room object to handle all room attributes</h1>
 
     
 
@@ -38,7 +38,7 @@ Client object to handle all client attributes</h1>
     <div class="container-overview">
     
         
-            <div class="description">Client module</div>
+            <div class="description">Room module</div>
         
 
         
@@ -73,7 +73,7 @@ Client object to handle all client attributes</h1>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="client.js.html">client.js</a>, <a href="client.js.html#line1">line 1</a>
+        <a href="room.js.html">room.js</a>, <a href="room.js.html#line1">line 1</a>
     </li></ul></dd>
     
 
@@ -109,14 +109,14 @@ Client object to handle all client attributes</h1>
 
     
 
-    <h4 class="name" id="~getAttributes"><span class="type-signature">(inner) </span>getAttributes<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id="~getClients"><span class="type-signature">(inner) </span>getClients<span class="signature">()</span><span class="type-signature"> &rarr; {Array}</span></h4>
 
     
 
 
 
 <div class="description">
-    Get the client attributes
+    Get the connected clients
 </div>
 
 
@@ -160,7 +160,7 @@ Client object to handle all client attributes</h1>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="client.js.html">client.js</a>, <a href="client.js.html#line39">line 39</a>
+        <a href="room.js.html">room.js</a>, <a href="room.js.html#line156">line 156</a>
     </li></ul></dd>
     
 
@@ -187,7 +187,7 @@ Client object to handle all client attributes</h1>
 
         
 <div class="param-desc">
-    The client attributes as JSON
+    Array of clients object
 </div>
 
 
@@ -198,7 +198,7 @@ Client object to handle all client attributes</h1>
     </dt>
     <dd>
         
-<span class="param-type">Object</span>
+<span class="param-type">Array</span>
 
 
     </dd>
@@ -213,14 +213,14 @@ Client object to handle all client attributes</h1>
 
     
 
-    <h4 class="name" id="~getConnection"><span class="type-signature">(inner) </span>getConnection<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id="~getCreationDate"><span class="type-signature">(inner) </span>getCreationDate<span class="signature">()</span><span class="type-signature"> &rarr; {Date}</span></h4>
 
     
 
 
 
 <div class="description">
-    Get the client connection
+    Get the creation date
 </div>
 
 
@@ -264,7 +264,7 @@ Client object to handle all client attributes</h1>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="client.js.html">client.js</a>, <a href="client.js.html#line59">line 59</a>
+        <a href="room.js.html">room.js</a>, <a href="room.js.html#line124">line 124</a>
     </li></ul></dd>
     
 
@@ -272,6 +272,13 @@ Client object to handle all client attributes</h1>
 
     
 
+    
+    <dt class="tag-todo">To Do:</dt>
+    <dd class="tag-todo">
+        <ul>
+            <li>Parse the type</li>
+        </ul>
+    </dd>
     
 </dl>
 
@@ -291,7 +298,7 @@ Client object to handle all client attributes</h1>
 
         
 <div class="param-desc">
-    The client connection
+    The Creation date
 </div>
 
 
@@ -302,7 +309,7 @@ Client object to handle all client attributes</h1>
     </dt>
     <dd>
         
-<span class="param-type">Object</span>
+<span class="param-type">Date</span>
 
 
     </dd>
@@ -317,14 +324,14 @@ Client object to handle all client attributes</h1>
 
     
 
-    <h4 class="name" id="~getId"><span class="type-signature">(inner) </span>getId<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span></h4>
+    <h4 class="name" id="~getCreator"><span class="type-signature">(inner) </span>getCreator<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span></h4>
 
     
 
 
 
 <div class="description">
-    Get the client ID
+    Get the creator user ID
 </div>
 
 
@@ -368,7 +375,7 @@ Client object to handle all client attributes</h1>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="client.js.html">client.js</a>, <a href="client.js.html#line79">line 79</a>
+        <a href="room.js.html">room.js</a>, <a href="room.js.html#line94">line 94</a>
     </li></ul></dd>
     
 
@@ -395,7 +402,319 @@ Client object to handle all client attributes</h1>
 
         
 <div class="param-desc">
-    The client ID
+    The creator user ID
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Number</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~getId"><span class="type-signature">(inner) </span>getId<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Get the room id
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="room.js.html">room.js</a>, <a href="room.js.html#line64">line 64</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    The room ID
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Number</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~getMaxUsers"><span class="type-signature">(inner) </span>getMaxUsers<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Get the max number of users
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="room.js.html">room.js</a>, <a href="room.js.html#line136">line 136</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    The max number of users
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Number</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~getName"><span class="type-signature">(inner) </span>getName<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Get the room name
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="room.js.html">room.js</a>, <a href="room.js.html#line74">line 74</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    The room Name
 </div>
 
 
@@ -421,14 +740,14 @@ Client object to handle all client attributes</h1>
 
     
 
-    <h4 class="name" id="~getLocation"><span class="type-signature">(inner) </span>getLocation<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span></h4>
+    <h4 class="name" id="~getNumberOfConnectedClients"><span class="type-signature">(inner) </span>getNumberOfConnectedClients<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span></h4>
 
     
 
 
 
 <div class="description">
-    Get the client location
+    Get the number of connected clients
 </div>
 
 
@@ -472,7 +791,7 @@ Client object to handle all client attributes</h1>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="client.js.html">client.js</a>, <a href="client.js.html#line119">line 119</a>
+        <a href="room.js.html">room.js</a>, <a href="room.js.html#line166">line 166</a>
     </li></ul></dd>
     
 
@@ -499,7 +818,215 @@ Client object to handle all client attributes</h1>
 
         
 <div class="param-desc">
-    The location in {"lat": "latitude", "lon": "longitude"} format
+    The number of connected clients
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Number</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~getPassword"><span class="type-signature">(inner) </span>getPassword<span class="signature">()</span><span class="type-signature"> &rarr; {String}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Get the room password
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="room.js.html">room.js</a>, <a href="room.js.html#line104">line 104</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    The room password
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">String</span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~getRoom"><span class="type-signature">(inner) </span>getRoom<span class="signature">()</span><span class="type-signature"> &rarr; {Object}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Get the room attributes
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="room.js.html">room.js</a>, <a href="room.js.html#line44">line 44</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    The room attributes as JSON
 </div>
 
 
@@ -525,14 +1052,14 @@ Client object to handle all client attributes</h1>
 
     
 
-    <h4 class="name" id="~getUser"><span class="type-signature">(inner) </span>getUser<span class="signature">()</span><span class="type-signature"> &rarr; {User}</span></h4>
+    <h4 class="name" id="~isPublic"><span class="type-signature">(inner) </span>isPublic<span class="signature">()</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
 
     
 
 
 
 <div class="description">
-    Get the client user object
+    Determine if the room is public.
 </div>
 
 
@@ -576,7 +1103,7 @@ Client object to handle all client attributes</h1>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="client.js.html">client.js</a>, <a href="client.js.html#line99">line 99</a>
+        <a href="room.js.html">room.js</a>, <a href="room.js.html#line178">line 178</a>
     </li></ul></dd>
     
 
@@ -603,7 +1130,7 @@ Client object to handle all client attributes</h1>
 
         
 <div class="param-desc">
-    The client user object
+    True if the room is public, False otherwise.
 </div>
 
 
@@ -614,7 +1141,7 @@ Client object to handle all client attributes</h1>
     </dt>
     <dd>
         
-<span class="param-type">User</span>
+<span class="param-type">Boolean</span>
 
 
     </dd>
@@ -636,7 +1163,7 @@ Client object to handle all client attributes</h1>
 
 
 <div class="description">
-    Set the Client object with a JSON parameter
+    Set the Room object with a JSON parameter
 </div>
 
 
@@ -729,7 +1256,7 @@ Client object to handle all client attributes</h1>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="client.js.html">client.js</a>, <a href="client.js.html#line49">line 49</a>
+        <a href="room.js.html">room.js</a>, <a href="room.js.html#line54">line 54</a>
     </li></ul></dd>
     
 
@@ -760,14 +1287,14 @@ Client object to handle all client attributes</h1>
 
     
 
-    <h4 class="name" id="~setConnection"><span class="type-signature">(inner) </span>setConnection<span class="signature">(connection)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~setMaxUsers"><span class="type-signature">(inner) </span>setMaxUsers<span class="signature">(maxUsers)</span><span class="type-signature"></span></h4>
 
     
 
 
 
 <div class="description">
-    Set the client connection
+    Set the max number of users
 </div>
 
 
@@ -803,13 +1330,13 @@ Client object to handle all client attributes</h1>
 
         <tr>
             
-                <td class="name"><code>connection</code></td>
+                <td class="name"><code>maxUsers</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type">Number</span>
 
 
             
@@ -819,7 +1346,7 @@ Client object to handle all client attributes</h1>
 
             
 
-            <td class="description last">The client connection</td>
+            <td class="description last">The max number of users</td>
         </tr>
 
     
@@ -860,7 +1387,7 @@ Client object to handle all client attributes</h1>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="client.js.html">client.js</a>, <a href="client.js.html#line69">line 69</a>
+        <a href="room.js.html">room.js</a>, <a href="room.js.html#line146">line 146</a>
     </li></ul></dd>
     
 
@@ -891,14 +1418,14 @@ Client object to handle all client attributes</h1>
 
     
 
-    <h4 class="name" id="~setId"><span class="type-signature">(inner) </span>setId<span class="signature">(Id)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~setName"><span class="type-signature">(inner) </span>setName<span class="signature">(name)</span><span class="type-signature"></span></h4>
 
     
 
 
 
 <div class="description">
-    Set the client ID
+    Set the room name
 </div>
 
 
@@ -934,7 +1461,7 @@ Client object to handle all client attributes</h1>
 
         <tr>
             
-                <td class="name"><code>Id</code></td>
+                <td class="name"><code>name</code></td>
             
 
             <td class="type">
@@ -950,7 +1477,7 @@ Client object to handle all client attributes</h1>
 
             
 
-            <td class="description last">The client ID</td>
+            <td class="description last">The new room name</td>
         </tr>
 
     
@@ -991,7 +1518,7 @@ Client object to handle all client attributes</h1>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="client.js.html">client.js</a>, <a href="client.js.html#line89">line 89</a>
+        <a href="room.js.html">room.js</a>, <a href="room.js.html#line84">line 84</a>
     </li></ul></dd>
     
 
@@ -1022,14 +1549,14 @@ Client object to handle all client attributes</h1>
 
     
 
-    <h4 class="name" id="~setLocation"><span class="type-signature">(inner) </span>setLocation<span class="signature">(coordinates)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~setPassword"><span class="type-signature">(inner) </span>setPassword<span class="signature">(password)</span><span class="type-signature"></span></h4>
 
     
 
 
 
 <div class="description">
-    Set the location based on navigator.geolocation.getCurrentPosition returned object
+    Set the room password.
 </div>
 
 
@@ -1065,13 +1592,13 @@ Client object to handle all client attributes</h1>
 
         <tr>
             
-                <td class="name"><code>coordinates</code></td>
+                <td class="name"><code>password</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type">String</span>
 
 
             
@@ -1081,7 +1608,7 @@ Client object to handle all client attributes</h1>
 
             
 
-            <td class="description last">The navigator.geolocation.getCurrentPosition returned object</td>
+            <td class="description last">The new room password</td>
         </tr>
 
     
@@ -1122,220 +1649,7 @@ Client object to handle all client attributes</h1>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="client.js.html">client.js</a>, <a href="client.js.html#line129">line 129</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="~setLocationWithGeoip"><span class="type-signature">(inner) </span>setLocationWithGeoip<span class="signature">()</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-<div class="description">
-    Set location based on MaxMind geoip database and the client IP address
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="client.js.html">client.js</a>, <a href="client.js.html#line142">line 142</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="~setUser"><span class="type-signature">(inner) </span>setUser<span class="signature">(user)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-<div class="description">
-    Set the client user object
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>user</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">User</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The client user object</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="client.js.html">client.js</a>, <a href="client.js.html#line109">line 109</a>
+        <a href="room.js.html">room.js</a>, <a href="room.js.html#line114">line 114</a>
     </li></ul></dd>
     
 

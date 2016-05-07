@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Module: lib/iframe
+    <title>JSDoc: Module: lib/roomManager
 
-Helper class to integrate iframe in a page without scroll barre and in full width / height well integrated on the
-page</title>
+RoomManager object to handle all room Object</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -20,10 +19,9 @@ page</title>
 
 <div id="main">
 
-    <h1 class="page-title">Module: lib/iframe
+    <h1 class="page-title">Module: lib/roomManager
 
-Helper class to integrate iframe in a page without scroll barre and in full width / height well integrated on the
-page</h1>
+RoomManager object to handle all room Object</h1>
 
     
 
@@ -40,7 +38,7 @@ page</h1>
     <div class="container-overview">
     
         
-            <div class="description">Iframe module</div>
+            <div class="description">RoomManager module</div>
         
 
         
@@ -75,7 +73,7 @@ page</h1>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="iframe.js.html">iframe.js</a>, <a href="iframe.js.html#line1">line 1</a>
+        <a href="roomManager.js.html">roomManager.js</a>, <a href="roomManager.js.html#line1">line 1</a>
     </li></ul></dd>
     
 
@@ -111,200 +109,14 @@ page</h1>
 
     
 
-    <h4 class="name" id="~destroyEvents"><span class="type-signature">(inner) </span>destroyEvents<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~addRoom"><span class="type-signature">(inner) </span>addRoom<span class="signature">(roomAttributes)</span><span class="type-signature"></span></h4>
 
     
 
 
 
 <div class="description">
-    Destroy all the initialized events
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="iframe.js.html">iframe.js</a>, <a href="iframe.js.html#line97">line 97</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="~getIframeHeight"><span class="type-signature">(inner) </span>getIframeHeight<span class="signature">()</span><span class="type-signature"> &rarr; {Number}</span></h4>
-
-    
-
-
-
-<div class="description">
-    Get the iframe height
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="iframe.js.html">iframe.js</a>, <a href="iframe.js.html#line146">line 146</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    The iframe height with margin and padding
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Number</span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="~init"><span class="type-signature">(inner) </span>init<span class="signature">(iframeId)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-<div class="description">
-    Init an iframe
+    Add a room to the rooms collection
 </div>
 
 
@@ -340,13 +152,13 @@ page</h1>
 
         <tr>
             
-                <td class="name"><code>iframeId</code></td>
+                <td class="name"><code>roomAttributes</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">String</span>
+<span class="param-type">Object</span>
 
 
             
@@ -356,7 +168,7 @@ page</h1>
 
             
 
-            <td class="description last">The iframe ID DOM selector</td>
+            <td class="description last">The room attributes as JSON</td>
         </tr>
 
     
@@ -397,7 +209,7 @@ page</h1>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="iframe.js.html">iframe.js</a>, <a href="iframe.js.html#line65">line 65</a>
+        <a href="roomManager.js.html">roomManager.js</a>, <a href="roomManager.js.html#line83">line 83</a>
     </li></ul></dd>
     
 
@@ -428,14 +240,14 @@ page</h1>
 
     
 
-    <h4 class="name" id="~initEvents"><span class="type-signature">(inner) </span>initEvents<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~getAllRooms"><span class="type-signature">(inner) </span>getAllRooms<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
 
 
 
 <div class="description">
-    Initialize all the events
+    Get the all rooms
 </div>
 
 
@@ -479,7 +291,7 @@ page</h1>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="iframe.js.html">iframe.js</a>, <a href="iframe.js.html#line87">line 87</a>
+        <a href="roomManager.js.html">roomManager.js</a>, <a href="roomManager.js.html#line37">line 37</a>
     </li></ul></dd>
     
 
@@ -510,179 +322,14 @@ page</h1>
 
     
 
-    <h4 class="name" id="~loadKibanaIframe"><span class="type-signature">(inner) </span>loadKibanaIframe<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~getAllRoomsCallback"><span class="type-signature">(inner) </span>getAllRoomsCallback<span class="signature">(data)</span><span class="type-signature"></span></h4>
 
     
 
 
 
 <div class="description">
-    Append the kibana iframe if it is not already present on the page
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="iframe.js.html">iframe.js</a>, <a href="iframe.js.html#line168">line 168</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="~resize"><span class="type-signature">(inner) </span>resize<span class="signature">()</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-<div class="description">
-    Resize the iframe and page height to fit well. If the iframe DOM element is removed, it stops the setIterval
-and the page width watcher
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="iframe.js.html">iframe.js</a>, <a href="iframe.js.html#line113">line 113</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id="~setPageHeight"><span class="type-signature">(inner) </span>setPageHeight<span class="signature">(height)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-<div class="description">
-    Set the page height
+    Add all rooms to the rooms collection
 </div>
 
 
@@ -718,13 +365,13 @@ and the page width watcher
 
         <tr>
             
-                <td class="name"><code>height</code></td>
+                <td class="name"><code>data</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Number</span>
+<span class="param-type">Object</span>
 
 
             
@@ -734,7 +381,7 @@ and the page width watcher
 
             
 
-            <td class="description last">The page height with margin and padding</td>
+            <td class="description last">The server JSON reponse</td>
         </tr>
 
     
@@ -775,7 +422,7 @@ and the page width watcher
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="iframe.js.html">iframe.js</a>, <a href="iframe.js.html#line135">line 135</a>
+        <a href="roomManager.js.html">roomManager.js</a>, <a href="roomManager.js.html#line67">line 67</a>
     </li></ul></dd>
     
 
@@ -806,14 +453,14 @@ and the page width watcher
 
     
 
-    <h4 class="name" id="~updateIframeWidth"><span class="type-signature">(inner) </span>updateIframeWidth<span class="signature">()</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="~updateRoomList"><span class="type-signature">(inner) </span>updateRoomList<span class="signature">()</span><span class="type-signature"></span></h4>
 
     
 
 
 
 <div class="description">
-    Update the iframe width relative to page width
+    Update the room list in the select picker
 </div>
 
 
@@ -857,7 +504,138 @@ and the page width watcher
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="iframe.js.html">iframe.js</a>, <a href="iframe.js.html#line156">line 156</a>
+        <a href="roomManager.js.html">roomManager.js</a>, <a href="roomManager.js.html#line99">line 99</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    <h4 class="name" id="~wsCallbackDispatcher"><span class="type-signature">(inner) </span>wsCallbackDispatcher<span class="signature">(data)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+<div class="description">
+    Handle the WebSocker server response and process action with the right callback
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The server JSON reponse</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="roomManager.js.html">roomManager.js</a>, <a href="roomManager.js.html#line55">line 55</a>
     </li></ul></dd>
     
 
