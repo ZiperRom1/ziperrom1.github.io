@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>awesomeChatRoom Index</title>
+	<title>awesomeChatRoom Class: lodash</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -84,70 +84,452 @@ RoomManager object to handle all room Object</a></li><li><a href="module-lib_cha
 		<div id="main">
 			
 
+	<h1 class="page-title">Class: lodash</h1>
+<section>
+
+<header>
+    
+        <h2>
+        lodash
+        </h2>
+        
+    
+</header>
+
+
+<article>
+    <div class="container-overview">
+    
+        
+<hr>
+<dt>
+    <h4 class="name" id="lodash"><span class="type-signature"></span>new lodash(attributes, settings)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Room module to handle all room attributes
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>attributes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">JSON data representing the room attributes</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>settings</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Overriden settings</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>attributes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The room attributes
+                <h6>Properties</h6>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The room ID</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The room name</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>creator</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The room creator user ID</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>password</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The room password</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>creationDate</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The room creation date</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>maxUsers</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The room maximum number of users</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>clients</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The room connected clients</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
 	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
 	
 
 
 
-
-
-
-
-
-
-
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="room.js.html">room.js</a>,
+				 <a href="room.js.html#sunlight-1-line-36">line 36</a>
+			</li>
+		</ul>
+	</dd>
+	
 
 	
+
 	
 
+	
+</dl>
 
 
+    
 
+    
 
-    <section class="readme-section">
-        <article><h1>awesomeChatRoom</h1><h3>websocket / webrtc chat video and audio service</h3><h2>Technical documentation</h2><p><a href="http://ziperrom1.github.io/awesomechatroom-doc/">documentation</a></p>
-<h2>Features</h2><ul>
-<li>No flash, only html 5 native technology</li>
-<li>Shortcut copy / paste URL in a room to authorize a guest to join this room in one click</li>
-<li>Random room to connect automatically with another user randomly with / without microphone and webcam</li>
-<li>Thematic rooms</li>
-<li>User account interface</li>
-<li>Administraction interface</li>
-<li>Small devices support for smartphones and tablet</li>
-</ul>
-<p><strong>As a guest user (pseudonym required only)</strong></p>
-<ul>
-<li>Join public or private room</li>
-<li>View all the users in a public room</li>
-<li>View all the users in a private room with the right password</li>
-<li>Mute a user</li>
-<li>Display a user webcam</li>
-<li>Disable the webcam</li>
-<li>Become invisible in a room (not being shown in a public users list)</li>
-</ul>
-<p><strong>As a registered user</strong></p>
-<ul>
-<li>All guest user rights</li>
-<li>Create a public or private room</li>
-<li>View all users in a room (even invisible ones)</li>
-<li>Manage a room if the user has the room's admin right<ul>
-<li>Kick / ban users</li>
-<li>Rename the room</li>
-<li>Change the password (or delete it)</li>
-<li>Change automatic voice / video activation on a room</li>
-<li>Change the maximum user authorized number in a room</li>
-<li>Mute a user globally in a room</li>
-<li>Disable a user webcam globally in a room</li>
-</ul>
-</li>
-</ul>
-<h3>Evolution</h3><ul>
-<li>Chat messages end to end encryption</li>
-</ul></article>
-    </section>
+    
 
+    
 
+    
 
+    
+
+    
+</dd>
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 
