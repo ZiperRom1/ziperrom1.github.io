@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>awesomeChatRoom Module: websocketManager</title>
+	<title>awesomeChatRoom Module: userManager</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -77,7 +77,7 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Module: websocketManager</h1>
+	<h1 class="page-title">Module: userManager</h1>
 <section>
 
 <header>
@@ -93,14 +93,14 @@
     <div class="container-overview">
     
         
-            <div class="description">WebsocketManager module</div>
+            <div class="description">UserManager module</div>
         
 
         
             
 <hr>
 <dt>
-    <h4 class="name" id="module:websocketManager"><span class="type-signature"></span>new (require("websocketManager"))(User, settings)</h4>
+    <h4 class="name" id="module:userManager"><span class="type-signature"></span>new (require("userManager"))(Forms, settings)</h4>
     
     
 </dt>
@@ -108,7 +108,7 @@
 
     
     <div class="description">
-        WebsocketManager module
+        UserManager module
     </div>
     
 
@@ -143,13 +143,13 @@
 
         <tr>
             
-                <td class="name"><code>User</code></td>
+                <td class="name"><code>Forms</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">User</span>
+<span class="param-type">FormsManager</span>
 
 
 
@@ -160,7 +160,7 @@
 
             
 
-            <td class="description last">The current User</td>
+            <td class="description last">A FormsManager to handle form XHR ajax calls or jsCallbacks</td>
         </tr>
 
     
@@ -240,14 +240,14 @@
 
             
 
-            <td class="description last">The websocketManager global settings</td>
+            <td class="description last">The userManager global settings</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>User</code></td>
+                <td class="name"><code>user</code></td>
             
 
             <td class="type">
@@ -264,20 +264,23 @@
 
             
 
-            <td class="description last">The curent user</td>
+            <td class="description last">The current user object</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>socket</code></td>
+                <td class="name"><code>connectSuccessCallback</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">WebSocket</span>
+<span class="param-type">function</span>
+|
+
+<span class="param-type">null</span>
 
 
 
@@ -288,31 +291,7 @@
 
             
 
-            <td class="description last">The websocket ressource</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>callbacks</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Callbacks method to process data recieved from the WebSocket server</td>
+            <td class="description last">Callback when the user is successfully connected</td>
         </tr>
 
     
@@ -353,8 +332,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="websocketManager.js.html">websocketManager.js</a>,
-				 <a href="websocketManager.js.html#sunlight-1-line-28">line 28</a>
+				<a href="userManager.js.html">userManager.js</a>,
+				 <a href="userManager.js.html#sunlight-1-line-35">line 35</a>
 			</li>
 		</ul>
 	</dd>
@@ -362,6 +341,15 @@
 
 	
 
+	
+	<dt class="tag-see method-doc-label method-doc-details-label">See:</dt>
+	<dd class="tag-see">
+		<ul>
+			<li><a href="module-user.html">module:user</a></li>
+			
+			<li>module:form</li>
+			</ul>
+	</dd>
 	
 
 	
@@ -406,7 +394,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="init"><span class="type-signature"></span>init()</h4>
+    <h4 class="name" id="~beforeRegister"><span class="type-signature">&lt;inner> </span>beforeRegister(form)</h4>
     
     
 </dt>
@@ -414,95 +402,7 @@
 
     
     <div class="description">
-        Launch the WebSocket server and add the WebSocket server callbacks
-    </div>
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="websocketManager.js.html">websocketManager.js</a>,
-				 <a href="websocketManager.js.html#sunlight-1-line-40">line 40</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="~addCallback"><span class="type-signature">&lt;inner> </span>addCallback(serviceName, callback, context)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Add a callback to process data recieved from the WebSocket server
+        Callback before the register form has been sent
     </div>
     
 
@@ -537,55 +437,7 @@
 
         <tr>
             
-                <td class="name"><code>serviceName</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The callback service name</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>callback</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The callback function</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>context</code></td>
+                <td class="name"><code>form</code></td>
             
 
             <td class="type">
@@ -602,7 +454,7 @@
 
             
 
-            <td class="description last">The callback context</td>
+            <td class="description last">The jQuery DOM form element</td>
         </tr>
 
     
@@ -646,8 +498,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="websocketManager.js.html">websocketManager.js</a>,
-				 <a href="websocketManager.js.html#sunlight-1-line-125">line 125</a>
+				<a href="userManager.js.html">userManager.js</a>,
+				 <a href="userManager.js.html#sunlight-1-line-103">line 103</a>
 			</li>
 		</ul>
 	</dd>
@@ -680,7 +532,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="~addService"><span class="type-signature">&lt;inner> </span>addService(serviceName)</h4>
+    <h4 class="name" id="~connectFail"><span class="type-signature">&lt;inner> </span>connectFail(form, data)</h4>
     
     
 </dt>
@@ -688,7 +540,7 @@
 
     
     <div class="description">
-        Add a service to the WebSocket server
+        Callback when the user connection attempt failed
     </div>
     
 
@@ -723,13 +575,13 @@
 
         <tr>
             
-                <td class="name"><code>serviceName</code></td>
+                <td class="name"><code>form</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">String</span>
+<span class="param-type">Object</span>
 
 
 
@@ -740,299 +592,9 @@
 
             
 
-            <td class="description last">The service name to add to the WebSocket server</td>
+            <td class="description last">The jQuery DOM form element</td>
         </tr>
 
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="websocketManager.js.html">websocketManager.js</a>,
-				 <a href="websocketManager.js.html#sunlight-1-line-140">line 140</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="~connect"><span class="type-signature">&lt;inner> </span>connect()</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Connect the client to the WebSocket server
-    </div>
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="websocketManager.js.html">websocketManager.js</a>,
-				 <a href="websocketManager.js.html#sunlight-1-line-45">line 45</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="~disconnect"><span class="type-signature">&lt;inner> </span>disconnect()</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Disconnect the client from the WebSocket server
-    </div>
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="websocketManager.js.html">websocketManager.js</a>,
-				 <a href="websocketManager.js.html#sunlight-1-line-94">line 94</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="~listServiceCallback"><span class="type-signature">&lt;inner> </span>listServiceCallback(data)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Parse the WebSocket server response to retrieve the services list
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
     
 
         <tr>
@@ -1054,7 +616,7 @@
 
             
 
-            <td class="description last">JSON encoded data recieved from the WebSocket server</td>
+            <td class="description last">The server JSON reponse</td>
         </tr>
 
     
@@ -1098,8 +660,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="websocketManager.js.html">websocketManager.js</a>,
-				 <a href="websocketManager.js.html#sunlight-1-line-184">line 184</a>
+				<a href="userManager.js.html">userManager.js</a>,
+				 <a href="userManager.js.html#sunlight-1-line-81">line 81</a>
 			</li>
 		</ul>
 	</dd>
@@ -1132,7 +694,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="~listServices"><span class="type-signature">&lt;inner> </span>listServices()</h4>
+    <h4 class="name" id="~connectRequestFail"><span class="type-signature">&lt;inner> </span>connectRequestFail(form, jqXHR)</h4>
     
     
 </dt>
@@ -1140,95 +702,7 @@
 
     
     <div class="description">
-        Query the currents running services from the WebSocket server
-    </div>
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="websocketManager.js.html">websocketManager.js</a>,
-				 <a href="websocketManager.js.html#sunlight-1-line-170">line 170</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="~removeService"><span class="type-signature">&lt;inner> </span>removeService(serviceName)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Remove a service from the WebSocket server
+        Callback when the user connection request failed
     </div>
     
 
@@ -1263,13 +737,13 @@
 
         <tr>
             
-                <td class="name"><code>serviceName</code></td>
+                <td class="name"><code>form</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">String</span>
+<span class="param-type">Object</span>
 
 
 
@@ -1280,7 +754,31 @@
 
             
 
-            <td class="description last">The service name to remove from the WebSocket server</td>
+            <td class="description last">The jQuery DOM form element</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>jqXHR</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The jQuery jqXHR object</td>
         </tr>
 
     
@@ -1324,8 +822,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="websocketManager.js.html">websocketManager.js</a>,
-				 <a href="websocketManager.js.html#sunlight-1-line-155">line 155</a>
+				<a href="userManager.js.html">userManager.js</a>,
+				 <a href="userManager.js.html#sunlight-1-line-92">line 92</a>
 			</li>
 		</ul>
 	</dd>
@@ -1358,7 +856,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="~send"><span class="type-signature">&lt;inner> </span>send(data)</h4>
+    <h4 class="name" id="~connectSuccess"><span class="type-signature">&lt;inner> </span>connectSuccess(form, data)</h4>
     
     
 </dt>
@@ -1366,7 +864,7 @@
 
     
     <div class="description">
-        Shorthand method to send data to the WebSocket server or delay until the websocket is ready
+        Callback when the user connection attempt succeed
     </div>
     
 
@@ -1397,6 +895,30 @@
     </thead>
 
     <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>form</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The jQuery DOM form element</td>
+        </tr>
+
     
 
         <tr>
@@ -1407,7 +929,7 @@
             <td class="type">
             
                 
-<span class="param-type">String</span>
+<span class="param-type">Object</span>
 
 
 
@@ -1418,7 +940,7 @@
 
             
 
-            <td class="description last">Data to send to the WebSocket server</td>
+            <td class="description last">The server JSON reponse</td>
         </tr>
 
     
@@ -1462,8 +984,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="websocketManager.js.html">websocketManager.js</a>,
-				 <a href="websocketManager.js.html#sunlight-1-line-76">line 76</a>
+				<a href="userManager.js.html">userManager.js</a>,
+				 <a href="userManager.js.html#sunlight-1-line-62">line 62</a>
 			</li>
 		</ul>
 	</dd>
@@ -1496,7 +1018,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="~treatData"><span class="type-signature">&lt;inner> </span>treatData(data)</h4>
+    <h4 class="name" id="~getCurrent"><span class="type-signature">&lt;inner> </span>getCurrent()</h4>
     
     
 </dt>
@@ -1504,7 +1026,119 @@
 
     
     <div class="description">
-        Treat data recieved from the WebSocket server
+        Get the current user
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="userManager.js.html">userManager.js</a>,
+				 <a href="userManager.js.html#sunlight-1-line-52">line 52</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    The current user
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">User</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="~registerFail"><span class="type-signature">&lt;inner> </span>registerFail(form, data)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Callback when the user connection attempt failed
     </div>
     
 
@@ -1539,13 +1173,13 @@
 
         <tr>
             
-                <td class="name"><code>data</code></td>
+                <td class="name"><code>form</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">String</span>
+<span class="param-type">Object</span>
 
 
 
@@ -1556,7 +1190,31 @@
 
             
 
-            <td class="description last">The text data recieved from the WebSocket server</td>
+            <td class="description last">The jQuery DOM form element</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The server JSON reponse</td>
         </tr>
 
     
@@ -1600,8 +1258,332 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="websocketManager.js.html">websocketManager.js</a>,
-				 <a href="websocketManager.js.html#sunlight-1-line-105">line 105</a>
+				<a href="userManager.js.html">userManager.js</a>,
+				 <a href="userManager.js.html#sunlight-1-line-128">line 128</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="~registerRequestFail"><span class="type-signature">&lt;inner> </span>registerRequestFail(form, jqXHR)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Callback when the user connection request failed
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>form</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The jQuery DOM form element</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>jqXHR</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The jQuery jqXHR object</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="userManager.js.html">userManager.js</a>,
+				 <a href="userManager.js.html#sunlight-1-line-140">line 140</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="~registerSuccess"><span class="type-signature">&lt;inner> </span>registerSuccess(form, data)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Callback when the user connection attempt succeed
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>form</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The jQuery DOM form element</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The server JSON reponse</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="userManager.js.html">userManager.js</a>,
+				 <a href="userManager.js.html#sunlight-1-line-113">line 113</a>
 			</li>
 		</ul>
 	</dd>

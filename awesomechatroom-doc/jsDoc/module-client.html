@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>awesomeChatRoom Module: websocketManager</title>
+	<title>awesomeChatRoom Module: client</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -77,7 +77,7 @@
 		<div id="main">
 			
 
-	<h1 class="page-title">Module: websocketManager</h1>
+	<h1 class="page-title">Module: client</h1>
 <section>
 
 <header>
@@ -93,14 +93,14 @@
     <div class="container-overview">
     
         
-            <div class="description">WebsocketManager module</div>
+            <div class="description">Client module to handle all client attributes</div>
         
 
         
             
 <hr>
 <dt>
-    <h4 class="name" id="module:websocketManager"><span class="type-signature"></span>new (require("websocketManager"))(User, settings)</h4>
+    <h4 class="name" id="module:client"><span class="type-signature"></span>new (require("client"))(attributes, settings)</h4>
     
     
 </dt>
@@ -108,7 +108,7 @@
 
     
     <div class="description">
-        WebsocketManager module
+        Client module to handle all client attributes
     </div>
     
 
@@ -143,13 +143,13 @@
 
         <tr>
             
-                <td class="name"><code>User</code></td>
+                <td class="name"><code>attributes</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">User</span>
+<span class="param-type">Object</span>
 
 
 
@@ -160,7 +160,7 @@
 
             
 
-            <td class="description last">The current User</td>
+            <td class="description last">JSON data representing the client attributes</td>
         </tr>
 
     
@@ -240,62 +240,14 @@
 
             
 
-            <td class="description last">The websocketManager global settings</td>
+            <td class="description last">The client global settings</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>User</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">User</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The curent user</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>socket</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">WebSocket</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The websocket ressource</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>callbacks</code></td>
+                <td class="name"><code>attributes</code></td>
             
 
             <td class="type">
@@ -312,7 +264,201 @@
 
             
 
-            <td class="description last">Callbacks method to process data recieved from the WebSocket server</td>
+            <td class="description last">The client attributes
+                <h6>Properties</h6>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>connection</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The client connection</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The client ID</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>user</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">User</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The client user object</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>location</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The location in {"lat": "latitude", "lon": "longitude"} format
+                <h6>Properties</h6>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>lat</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The location latitude</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>lon</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The location longitude</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
         </tr>
 
     
@@ -353,8 +499,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="websocketManager.js.html">websocketManager.js</a>,
-				 <a href="websocketManager.js.html#sunlight-1-line-28">line 28</a>
+				<a href="client.js.html">client.js</a>,
+				 <a href="client.js.html#sunlight-1-line-34">line 34</a>
 			</li>
 		</ul>
 	</dd>
@@ -362,6 +508,13 @@
 
 	
 
+	
+	<dt class="tag-see method-doc-label method-doc-details-label">See:</dt>
+	<dd class="tag-see">
+		<ul>
+			<li><a href="module-user.html">module:user</a></li>
+			</ul>
+	</dd>
 	
 
 	
@@ -406,7 +559,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="init"><span class="type-signature"></span>init()</h4>
+    <h4 class="name" id="~getAttributes"><span class="type-signature">&lt;inner> </span>getAttributes()</h4>
     
     
 </dt>
@@ -414,7 +567,7 @@
 
     
     <div class="description">
-        Launch the WebSocket server and add the WebSocket server callbacks
+        Get the client attributes
     </div>
     
 
@@ -460,8 +613,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="websocketManager.js.html">websocketManager.js</a>,
-				 <a href="websocketManager.js.html#sunlight-1-line-40">line 40</a>
+				<a href="client.js.html">client.js</a>,
+				 <a href="client.js.html#sunlight-1-line-48">line 48</a>
 			</li>
 		</ul>
 	</dd>
@@ -486,129 +639,55 @@
     
 
     
-
+    <h5>Returns:</h5>
     
-</dd>
+            
+<div class="param-desc">
+    The client attributes as JSON
+</div>
 
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
         
-            
-<hr>
-<dt>
-    <h4 class="name" id="~addCallback"><span class="type-signature">&lt;inner> </span>addCallback(serviceName, callback, context)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Add a callback to process data recieved from the WebSocket server
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>serviceName</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The callback service name</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>callback</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">function</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The callback function</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>context</code></td>
-            
-
-            <td class="type">
-            
-                
 <span class="param-type">Object</span>
 
 
 
-            
-            </td>
+    </dd>
+</dl>
 
-            
 
-            
-
-            <td class="description last">The callback context</td>
-        </tr>
+        
 
     
-    </tbody>
-</table>
+</dd>
 
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="~getConnection"><span class="type-signature">&lt;inner> </span>getConnection()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Get the client connection
+    </div>
+    
+
+    
+
+    
+
+    
     
 
     
@@ -646,8 +725,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="websocketManager.js.html">websocketManager.js</a>,
-				 <a href="websocketManager.js.html#sunlight-1-line-125">line 125</a>
+				<a href="client.js.html">client.js</a>,
+				 <a href="client.js.html#sunlight-1-line-68">line 68</a>
 			</li>
 		</ul>
 	</dd>
@@ -672,6 +751,30 @@
     
 
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    The client connection
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
 
     
 </dd>
@@ -680,7 +783,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="~addService"><span class="type-signature">&lt;inner> </span>addService(serviceName)</h4>
+    <h4 class="name" id="~getId"><span class="type-signature">&lt;inner> </span>getId()</h4>
     
     
 </dt>
@@ -688,7 +791,7 @@
 
     
     <div class="description">
-        Add a service to the WebSocket server
+        Get the client ID
     </div>
     
 
@@ -698,118 +801,92 @@
 
     
     
-        <h5>Parameters:</h5>
-        
 
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
+    
+<dl class="details">
     
 
-        <tr>
-            
-                <td class="name"><code>serviceName</code></td>
-            
+	
 
-            <td class="type">
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="client.js.html">client.js</a>,
+				 <a href="client.js.html#sunlight-1-line-88">line 88</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
             
-                
+<div class="param-desc">
+    The client ID
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">String</span>
 
 
 
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The service name to add to the WebSocket server</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="websocketManager.js.html">websocketManager.js</a>,
-				 <a href="websocketManager.js.html#sunlight-1-line-140">line 140</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
+    </dd>
 </dl>
 
 
-    
-
-    
-
-    
-
-    
-
-    
-
-    
+        
 
     
 </dd>
@@ -818,7 +895,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="~connect"><span class="type-signature">&lt;inner> </span>connect()</h4>
+    <h4 class="name" id="~getLocation"><span class="type-signature">&lt;inner> </span>getLocation()</h4>
     
     
 </dt>
@@ -826,7 +903,7 @@
 
     
     <div class="description">
-        Connect the client to the WebSocket server
+        Get the client location
     </div>
     
 
@@ -872,8 +949,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="websocketManager.js.html">websocketManager.js</a>,
-				 <a href="websocketManager.js.html#sunlight-1-line-45">line 45</a>
+				<a href="client.js.html">client.js</a>,
+				 <a href="client.js.html#sunlight-1-line-128">line 128</a>
 			</li>
 		</ul>
 	</dd>
@@ -898,6 +975,30 @@
     
 
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    The location in {"lat": "latitude", "lon": "longitude"} format
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
 
     
 </dd>
@@ -906,7 +1007,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="~disconnect"><span class="type-signature">&lt;inner> </span>disconnect()</h4>
+    <h4 class="name" id="~getUser"><span class="type-signature">&lt;inner> </span>getUser()</h4>
     
     
 </dt>
@@ -914,7 +1015,7 @@
 
     
     <div class="description">
-        Disconnect the client from the WebSocket server
+        Get the client user object
     </div>
     
 
@@ -960,8 +1061,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="websocketManager.js.html">websocketManager.js</a>,
-				 <a href="websocketManager.js.html#sunlight-1-line-94">line 94</a>
+				<a href="client.js.html">client.js</a>,
+				 <a href="client.js.html#sunlight-1-line-108">line 108</a>
 			</li>
 		</ul>
 	</dd>
@@ -986,6 +1087,30 @@
     
 
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    The client user object
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">User</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
 
     
 </dd>
@@ -994,7 +1119,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="~listServiceCallback"><span class="type-signature">&lt;inner> </span>listServiceCallback(data)</h4>
+    <h4 class="name" id="~setAttributes"><span class="type-signature">&lt;inner> </span>setAttributes(data)</h4>
     
     
 </dt>
@@ -1002,7 +1127,7 @@
 
     
     <div class="description">
-        Parse the WebSocket server response to retrieve the services list
+        Set the Client object with a JSON parameter
     </div>
     
 
@@ -1054,7 +1179,7 @@
 
             
 
-            <td class="description last">JSON encoded data recieved from the WebSocket server</td>
+            <td class="description last">JSON data</td>
         </tr>
 
     
@@ -1098,8 +1223,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="websocketManager.js.html">websocketManager.js</a>,
-				 <a href="websocketManager.js.html#sunlight-1-line-184">line 184</a>
+				<a href="client.js.html">client.js</a>,
+				 <a href="client.js.html#sunlight-1-line-58">line 58</a>
 			</li>
 		</ul>
 	</dd>
@@ -1132,7 +1257,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="~listServices"><span class="type-signature">&lt;inner> </span>listServices()</h4>
+    <h4 class="name" id="~setConnection"><span class="type-signature">&lt;inner> </span>setConnection(connection)</h4>
     
     
 </dt>
@@ -1140,95 +1265,7 @@
 
     
     <div class="description">
-        Query the currents running services from the WebSocket server
-    </div>
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="websocketManager.js.html">websocketManager.js</a>,
-				 <a href="websocketManager.js.html#sunlight-1-line-170">line 170</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="~removeService"><span class="type-signature">&lt;inner> </span>removeService(serviceName)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Remove a service from the WebSocket server
+        Set the client connection
     </div>
     
 
@@ -1263,13 +1300,13 @@
 
         <tr>
             
-                <td class="name"><code>serviceName</code></td>
+                <td class="name"><code>connection</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">String</span>
+<span class="param-type">Object</span>
 
 
 
@@ -1280,7 +1317,7 @@
 
             
 
-            <td class="description last">The service name to remove from the WebSocket server</td>
+            <td class="description last">The client connection</td>
         </tr>
 
     
@@ -1324,8 +1361,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="websocketManager.js.html">websocketManager.js</a>,
-				 <a href="websocketManager.js.html#sunlight-1-line-155">line 155</a>
+				<a href="client.js.html">client.js</a>,
+				 <a href="client.js.html#sunlight-1-line-78">line 78</a>
 			</li>
 		</ul>
 	</dd>
@@ -1358,7 +1395,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="~send"><span class="type-signature">&lt;inner> </span>send(data)</h4>
+    <h4 class="name" id="~setId"><span class="type-signature">&lt;inner> </span>setId(Id)</h4>
     
     
 </dt>
@@ -1366,7 +1403,7 @@
 
     
     <div class="description">
-        Shorthand method to send data to the WebSocket server or delay until the websocket is ready
+        Set the client ID
     </div>
     
 
@@ -1401,7 +1438,7 @@
 
         <tr>
             
-                <td class="name"><code>data</code></td>
+                <td class="name"><code>Id</code></td>
             
 
             <td class="type">
@@ -1418,7 +1455,7 @@
 
             
 
-            <td class="description last">Data to send to the WebSocket server</td>
+            <td class="description last">The client ID</td>
         </tr>
 
     
@@ -1462,8 +1499,8 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="websocketManager.js.html">websocketManager.js</a>,
-				 <a href="websocketManager.js.html#sunlight-1-line-76">line 76</a>
+				<a href="client.js.html">client.js</a>,
+				 <a href="client.js.html#sunlight-1-line-98">line 98</a>
 			</li>
 		</ul>
 	</dd>
@@ -1496,7 +1533,7 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="~treatData"><span class="type-signature">&lt;inner> </span>treatData(data)</h4>
+    <h4 class="name" id="~setLocation"><span class="type-signature">&lt;inner> </span>setLocation(coordinates)</h4>
     
     
 </dt>
@@ -1504,7 +1541,7 @@
 
     
     <div class="description">
-        Treat data recieved from the WebSocket server
+        Set the location based on navigator.geolocation.getCurrentPosition returned object
     </div>
     
 
@@ -1539,13 +1576,13 @@
 
         <tr>
             
-                <td class="name"><code>data</code></td>
+                <td class="name"><code>coordinates</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">String</span>
+<span class="param-type">Object</span>
 
 
 
@@ -1556,7 +1593,7 @@
 
             
 
-            <td class="description last">The text data recieved from the WebSocket server</td>
+            <td class="description last">The navigator.geolocation.getCurrentPosition returned object</td>
         </tr>
 
     
@@ -1600,8 +1637,234 @@
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="websocketManager.js.html">websocketManager.js</a>,
-				 <a href="websocketManager.js.html#sunlight-1-line-105">line 105</a>
+				<a href="client.js.html">client.js</a>,
+				 <a href="client.js.html#sunlight-1-line-138">line 138</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="~setLocationWithGeoip"><span class="type-signature">&lt;inner> </span>setLocationWithGeoip()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Set location based on MaxMind geoip database and the client IP address
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="client.js.html">client.js</a>,
+				 <a href="client.js.html#sunlight-1-line-151">line 151</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="~setUser"><span class="type-signature">&lt;inner> </span>setUser(user)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Set the client user object
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>user</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">User</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The client user object</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="client.js.html">client.js</a>,
+				 <a href="client.js.html#sunlight-1-line-118">line 118</a>
 			</li>
 		</ul>
 	</dd>
@@ -1682,7 +1945,7 @@
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
 	
-		on 2016-05-08 1:20:26
+		on 2016-05-08 1:20:25
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

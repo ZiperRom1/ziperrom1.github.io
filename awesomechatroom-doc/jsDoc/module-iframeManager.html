@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>awesomeChatRoom Index</title>
+	<title>awesomeChatRoom Class: module:iframeManager</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -77,70 +77,571 @@
 		<div id="main">
 			
 
+	<h1 class="page-title">Class: module:iframeManager</h1>
+<section>
+
+<header>
+    
+        <h2>
+        module:iframeManager
+        </h2>
+        
+    
+</header>
+
+
+<article>
+    <div class="container-overview">
+    
+        
+<hr>
+<dt>
+    <h4 class="name" id="module:iframeManager"><span class="type-signature"></span>new module:iframeManager(Navigation, settings)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        IframeManager module
+
+Helper class to integrate iframe in a page without scroll barre and in full width / height well integrated on the
+page
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>Navigation</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Navigation</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">A Navigation Object</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>settings</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Overriden settings</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
 	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
 	
 
 
 
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="iframe.js.html">iframe.js</a>,
+				 <a href="iframe.js.html#sunlight-1-line-34">line 34</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+	<dt class="tag-todo method-doc-label method-doc-details-label">To Do:</dt>
+	<dd class="tag-todo">
+		<ul>
+			<li>Put iframe, iframeContext, resizeObserver, resizeObserverConfig out of the protype to handle multiple
+            iframes at the same time</li>
+			</ul>
+	</dd>
+	
+</dl>
 
 
+    
 
+    
 
+    
 
+    
+
+    
+
+    
+
+    
+</dd>
+
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        <dl>
+            
+<hr>
+<dt class="name" id="iframe">
+    <h4><span class="type-signature"></span>iframe<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The iframe jQuery DOM element
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
 
 
 
 	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="iframe.js.html">iframe.js</a>,
+				 <a href="iframe.js.html#sunlight-1-line-55">line 55</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="iframeContext">
+    <h4><span class="type-signature"></span>iframeContext<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The iframe context "Windows" as pure javascript DOM element
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
 	
 
 
 
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="iframe.js.html">iframe.js</a>,
+				 <a href="iframe.js.html#sunlight-1-line-59">line 59</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
 
 
-    <section class="readme-section">
-        <article><h1>awesomeChatRoom</h1><h3>websocket / webrtc chat video and audio service</h3><h2>Technical documentation</h2><p><a href="http://ziperrom1.github.io/awesomechatroom-doc/">documentation</a></p>
-<h2>Features</h2><ul>
-<li>No flash, only html 5 native technology</li>
-<li>Shortcut copy / paste URL in a room to authorize a guest to join this room in one click</li>
-<li>Random room to connect automatically with another user randomly with / without microphone and webcam</li>
-<li>Thematic rooms</li>
-<li>User account interface</li>
-<li>Administraction interface</li>
-<li>Small devices support for smartphones and tablet</li>
-</ul>
-<p><strong>As a guest user (pseudonym required only)</strong></p>
-<ul>
-<li>Join public or private room</li>
-<li>View all the users in a public room</li>
-<li>View all the users in a private room with the right password</li>
-<li>Mute a user</li>
-<li>Display a user webcam</li>
-<li>Disable the webcam</li>
-<li>Become invisible in a room (not being shown in a public users list)</li>
-</ul>
-<p><strong>As a registered user</strong></p>
-<ul>
-<li>All guest user rights</li>
-<li>Create a public or private room</li>
-<li>View all users in a room (even invisible ones)</li>
-<li>Manage a room if the user has the room's admin right<ul>
-<li>Kick / ban users</li>
-<li>Rename the room</li>
-<li>Change the password (or delete it)</li>
-<li>Change automatic voice / video activation on a room</li>
-<li>Change the maximum user authorized number in a room</li>
-<li>Mute a user globally in a room</li>
-<li>Disable a user webcam globally in a room</li>
-</ul>
-</li>
-</ul>
-<h3>Evolution</h3><ul>
-<li>Chat messages end to end encryption</li>
-</ul></article>
-    </section>
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="navigation">
+    <h4><span class="type-signature"></span>navigation<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The navigation object
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
 
 
 
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="iframe.js.html">iframe.js</a>,
+				 <a href="iframe.js.html#sunlight-1-line-51">line 51</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="resizeSetInterval">
+    <h4><span class="type-signature"></span>resizeSetInterval<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        The resize setIntervall ID
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="iframe.js.html">iframe.js</a>,
+				 <a href="iframe.js.html#sunlight-1-line-63">line 63</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id="settings">
+    <h4><span class="type-signature"></span>settings<span class="type-signature"></span></h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Default settings
+    </div>
+    
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="iframe.js.html">iframe.js</a>,
+				 <a href="iframe.js.html#sunlight-1-line-47">line 47</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        </dl>
+    
+
+    
+
+    
+
+    
+</article>
+
+</section>
 
 
 
@@ -184,7 +685,7 @@
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.4.0</a>
 	
-		on 2016-05-08 1:20:24
+		on 2016-05-08 1:20:25
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>
