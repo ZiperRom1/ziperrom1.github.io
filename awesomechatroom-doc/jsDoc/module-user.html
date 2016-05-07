@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>awesomeChatRoom Module: lib/websocket</title>
+	<title>awesomeChatRoom Module: user</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -82,7 +82,7 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
 		<div id="main">
 			
 
-	<h1 class="page-title">Module: lib/websocket</h1>
+	<h1 class="page-title">Module: user</h1>
 <section>
 
 <header>
@@ -98,14 +98,14 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
     <div class="container-overview">
     
         
-            <div class="description">Websocket module</div>
+            <div class="description">User module</div>
         
 
         
             
 <hr>
 <dt>
-    <h4 class="name" id="module:lib/websocket"><span class="type-signature"></span>new (require("lib/websocket"))(User, settings)</h4>
+    <h4 class="name" id="module:user"><span class="type-signature"></span>new (require("user"))(attributes, settings)</h4>
     
     
 </dt>
@@ -113,7 +113,7 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
 
     
     <div class="description">
-        Websocket manager class
+        User module
     </div>
     
 
@@ -148,13 +148,13 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
 
         <tr>
             
-                <td class="name"><code>User</code></td>
+                <td class="name"><code>attributes</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">User</span>
+<span class="param-type">Object</span>
 
 
 
@@ -165,7 +165,7 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
 
             
 
-            <td class="description last">The current User</td>
+            <td class="description last">JSON data representing the user attributes</td>
         </tr>
 
     
@@ -202,6 +202,276 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
 <dl class="details">
     
 
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>connected</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Boolean</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">True if the user is connected, false otherwise</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>attributes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The user attributes
+                <h6>Properties</h6>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>firstName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The user first name</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>lastName</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The user last name</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>pseudonym</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The user pseudonym</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>email</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The user email</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>password</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">String</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The user password</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>right</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The user right</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>chatRight</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The user chatRight</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
 	
 
 	
@@ -233,8 +503,8 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="websocket.js.html">websocket.js</a>,
-				 <a href="websocket.js.html#sunlight-1-line-21">line 21</a>
+				<a href="user.js.html">user.js</a>,
+				 <a href="user.js.html#sunlight-1-line-35">line 35</a>
 			</li>
 		</ul>
 	</dd>
@@ -277,290 +547,6 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
 
     
 
-    
-        <h3 class="subsection-title">Members</h3>
-
-        <dl>
-            
-<hr>
-<dt class="name" id="callbacks">
-    <h4><span class="type-signature"></span>callbacks<span class="type-signature"></span></h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        Callbacks method to process data recieved from the WebSocket server
-    </div>
-    
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="websocket.js.html">websocket.js</a>,
-				 <a href="websocket.js.html#sunlight-1-line-47">line 47</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt class="name" id="settings">
-    <h4><span class="type-signature"></span>settings<span class="type-signature"></span></h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        Default settings will get overriden if they are set when the WebsocketManager will be instanciated
-    </div>
-    
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="websocket.js.html">websocket.js</a>,
-				 <a href="websocket.js.html#sunlight-1-line-31">line 31</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt class="name" id="socket">
-    <h4><span class="type-signature"></span>socket<span class="type-signature"></span></h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        The websocket ressource
-    </div>
-    
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="websocket.js.html">websocket.js</a>,
-				 <a href="websocket.js.html#sunlight-1-line-39">line 39</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt class="name" id="user">
-    <h4><span class="type-signature"></span>user<span class="type-signature"></span></h4>
-
-    
-</dt>
-<dd>
-    
-    <div class="description">
-        The current User instance
-    </div>
-    
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="websocket.js.html">websocket.js</a>,
-				 <a href="websocket.js.html#sunlight-1-line-43">line 43</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-</dd>
-
-        </dl>
     
 
     
@@ -570,7 +556,7 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
             
 <hr>
 <dt>
-    <h4 class="name" id="init"><span class="type-signature"></span>init()</h4>
+    <h4 class="name" id="getPassword"><span class="type-signature"></span>getPassword()</h4>
     
     
 </dt>
@@ -578,7 +564,7 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
 
     
     <div class="description">
-        Launch the WebSocket server and add the WebSocket server callbacks
+        Get password
     </div>
     
 
@@ -624,8 +610,8 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="websocket.js.html">websocket.js</a>,
-				 <a href="websocket.js.html#sunlight-1-line-52">line 52</a>
+				<a href="user.js.html">user.js</a>,
+				 <a href="user.js.html#sunlight-1-line-121">line 121</a>
 			</li>
 		</ul>
 	</dd>
@@ -650,6 +636,30 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
     
 
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    The user password
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">String</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
 
     
 </dd>
@@ -658,7 +668,7 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
             
 <hr>
 <dt>
-    <h4 class="name" id="~addCallback"><span class="type-signature">&lt;inner> </span>addCallback(serviceName, callback, context)</h4>
+    <h4 class="name" id="~getAttributes"><span class="type-signature">&lt;inner> </span>getAttributes()</h4>
     
     
 </dt>
@@ -666,7 +676,119 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
 
     
     <div class="description">
-        Add a callback to process data recieved from the WebSocket server
+        Get the User attributes
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="user.js.html">user.js</a>,
+				 <a href="user.js.html#sunlight-1-line-50">line 50</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    The User attributes
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="~getChatRoomRight"><span class="type-signature">&lt;inner> </span>getChatRoomRight(roomId)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Get the given chat room right
     </div>
     
 
@@ -701,13 +823,13 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
 
         <tr>
             
-                <td class="name"><code>serviceName</code></td>
+                <td class="name"><code>roomId</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">String</span>
+<span class="param-type">Number</span>
 
 
 
@@ -718,20 +840,158 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
 
             
 
-            <td class="description last">The callback service name</td>
+            <td class="description last">The room ID</td>
         </tr>
 
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="user.js.html">user.js</a>,
+				 <a href="user.js.html#sunlight-1-line-135">line 135</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    The user chat rights for the room or empty object if he does not have right
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="~getChatRoomRight"><span class="type-signature">&lt;inner> </span>getChatRoomRight(roomId, chatRight)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Set the given chat room right
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
     
 
         <tr>
             
-                <td class="name"><code>callback</code></td>
+                <td class="name"><code>roomId</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">function</span>
+<span class="param-type">Number</span>
 
 
 
@@ -742,14 +1002,14 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
 
             
 
-            <td class="description last">The callback function</td>
+            <td class="description last">The room ID</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>context</code></td>
+                <td class="name"><code>chatRight</code></td>
             
 
             <td class="type">
@@ -766,7 +1026,7 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
 
             
 
-            <td class="description last">The callback context</td>
+            <td class="description last">The new chat right</td>
         </tr>
 
     
@@ -810,8 +1070,8 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="websocket.js.html">websocket.js</a>,
-				 <a href="websocket.js.html#sunlight-1-line-137">line 137</a>
+				<a href="user.js.html">user.js</a>,
+				 <a href="user.js.html#sunlight-1-line-146">line 146</a>
 			</li>
 		</ul>
 	</dd>
@@ -844,7 +1104,7 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
             
 <hr>
 <dt>
-    <h4 class="name" id="~addService"><span class="type-signature">&lt;inner> </span>addService(serviceName)</h4>
+    <h4 class="name" id="~getEmail"><span class="type-signature">&lt;inner> </span>getEmail()</h4>
     
     
 </dt>
@@ -852,7 +1112,7 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
 
     
     <div class="description">
-        Add a service to the WebSocket server
+        Get email
     </div>
     
 
@@ -862,118 +1122,92 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
 
     
     
-        <h5>Parameters:</h5>
-        
 
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
+    
+<dl class="details">
     
 
-        <tr>
-            
-                <td class="name"><code>serviceName</code></td>
-            
+	
 
-            <td class="type">
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="user.js.html">user.js</a>,
+				 <a href="user.js.html#sunlight-1-line-106">line 106</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
             
-                
+<div class="param-desc">
+    The user email
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
 <span class="param-type">String</span>
 
 
 
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The service name to add to the WebSocket server</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="websocket.js.html">websocket.js</a>,
-				 <a href="websocket.js.html#sunlight-1-line-152">line 152</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
+    </dd>
 </dl>
 
 
-    
-
-    
-
-    
-
-    
-
-    
-
-    
+        
 
     
 </dd>
@@ -982,7 +1216,7 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
             
 <hr>
 <dt>
-    <h4 class="name" id="~connect"><span class="type-signature">&lt;inner> </span>connect()</h4>
+    <h4 class="name" id="~getFirstName"><span class="type-signature">&lt;inner> </span>getFirstName()</h4>
     
     
 </dt>
@@ -990,7 +1224,7 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
 
     
     <div class="description">
-        Connect the client to the WebSocket server
+        Get first name
     </div>
     
 
@@ -1036,8 +1270,8 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="websocket.js.html">websocket.js</a>,
-				 <a href="websocket.js.html#sunlight-1-line-57">line 57</a>
+				<a href="user.js.html">user.js</a>,
+				 <a href="user.js.html#sunlight-1-line-70">line 70</a>
 			</li>
 		</ul>
 	</dd>
@@ -1062,6 +1296,30 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
     
 
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    The user first name
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">String</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
 
     
 </dd>
@@ -1070,7 +1328,7 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
             
 <hr>
 <dt>
-    <h4 class="name" id="~disconnect"><span class="type-signature">&lt;inner> </span>disconnect()</h4>
+    <h4 class="name" id="~getLastName"><span class="type-signature">&lt;inner> </span>getLastName()</h4>
     
     
 </dt>
@@ -1078,7 +1336,7 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
 
     
     <div class="description">
-        Disconnect the client from the WebSocket server
+        Get last name
     </div>
     
 
@@ -1124,8 +1382,8 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="websocket.js.html">websocket.js</a>,
-				 <a href="websocket.js.html#sunlight-1-line-106">line 106</a>
+				<a href="user.js.html">user.js</a>,
+				 <a href="user.js.html#sunlight-1-line-80">line 80</a>
 			</li>
 		</ul>
 	</dd>
@@ -1150,6 +1408,30 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
     
 
     
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    The user last name
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">String</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
 
     
 </dd>
@@ -1158,7 +1440,7 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
             
 <hr>
 <dt>
-    <h4 class="name" id="~listServiceCallback"><span class="type-signature">&lt;inner> </span>listServiceCallback(data)</h4>
+    <h4 class="name" id="~getPseudonym"><span class="type-signature">&lt;inner> </span>getPseudonym()</h4>
     
     
 </dt>
@@ -1166,7 +1448,343 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
 
     
     <div class="description">
-        Parse the WebSocket server response to retrieve the services list
+        Get pseudonym
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="user.js.html">user.js</a>,
+				 <a href="user.js.html#sunlight-1-line-90">line 90</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    The user pseudonym
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">String</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="~getRight"><span class="type-signature">&lt;inner> </span>getRight()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Get user right
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="user.js.html">user.js</a>,
+				 <a href="user.js.html#sunlight-1-line-125">line 125</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    The user right
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Object</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="~isConnected"><span class="type-signature">&lt;inner> </span>isConnected()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Determine if the user is connected.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="user.js.html">user.js</a>,
+				 <a href="user.js.html#sunlight-1-line-169">line 169</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    True if the user is connected, false otherwise
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Boolean</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="~setAttributes"><span class="type-signature">&lt;inner> </span>setAttributes(data)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Set the User object with a JSON parameter
     </div>
     
 
@@ -1218,7 +1836,7 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
 
             
 
-            <td class="description last">JSON encoded data recieved from the WebSocket server</td>
+            <td class="description last">JSON data</td>
         </tr>
 
     
@@ -1262,8 +1880,8 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="websocket.js.html">websocket.js</a>,
-				 <a href="websocket.js.html#sunlight-1-line-196">line 196</a>
+				<a href="user.js.html">user.js</a>,
+				 <a href="user.js.html#sunlight-1-line-60">line 60</a>
 			</li>
 		</ul>
 	</dd>
@@ -1296,7 +1914,7 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
             
 <hr>
 <dt>
-    <h4 class="name" id="~listServices"><span class="type-signature">&lt;inner> </span>listServices()</h4>
+    <h4 class="name" id="~setConnected"><span class="type-signature">&lt;inner> </span>setConnected(connected)</h4>
     
     
 </dt>
@@ -1304,95 +1922,7 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
 
     
     <div class="description">
-        Query the currents running services from the WebSocket server
-    </div>
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="websocket.js.html">websocket.js</a>,
-				 <a href="websocket.js.html#sunlight-1-line-182">line 182</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="~removeService"><span class="type-signature">&lt;inner> </span>removeService(serviceName)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Remove a service from the WebSocket server
+        Set the connected state
     </div>
     
 
@@ -1427,13 +1957,13 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
 
         <tr>
             
-                <td class="name"><code>serviceName</code></td>
+                <td class="name"><code>connected</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">String</span>
+<span class="param-type">Boolean</span>
 
 
 
@@ -1444,7 +1974,7 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
 
             
 
-            <td class="description last">The service name to remove from the WebSocket server</td>
+            <td class="description last">True if the user is connected, false otherwise</td>
         </tr>
 
     
@@ -1488,284 +2018,8 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="websocket.js.html">websocket.js</a>,
-				 <a href="websocket.js.html#sunlight-1-line-167">line 167</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="~send"><span class="type-signature">&lt;inner> </span>send(data)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Shorthand method to send data to the WebSocket server or delay until the websocket is ready
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>data</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">Data to send to the WebSocket server</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="websocket.js.html">websocket.js</a>,
-				 <a href="websocket.js.html#sunlight-1-line-88">line 88</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="~treatData"><span class="type-signature">&lt;inner> </span>treatData(data)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Treat data recieved from the WebSocket server
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>data</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The text data recieved from the WebSocket server</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="websocket.js.html">websocket.js</a>,
-				 <a href="websocket.js.html#sunlight-1-line-117">line 117</a>
+				<a href="user.js.html">user.js</a>,
+				 <a href="user.js.html#sunlight-1-line-157">line 157</a>
 			</li>
 		</ul>
 	</dd>
