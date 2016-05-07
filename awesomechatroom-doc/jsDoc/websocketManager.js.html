@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>awesomeChatRoom Source: iframe.js</title>
+	<title>awesomeChatRoom Source: websocketManager.js</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -82,206 +82,223 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
 		<div id="main">
 			
 
-		<h1 class="page-title">Source: iframe.js</h1>
+		<h1 class="page-title">Source: websocketManager.js</h1>
     
 <section>
     <article>
         <pre
             class="sunlight-highlight-javascript linenums">/**
- * Iframe module
+ * WebsocketManager module
  *
- * @module               lib/iframe
- *
- * Helper class to integrate iframe in a page without scroll barre and in full width / height well integrated on the
- * page
+ * @module websocketManager
  */
-
 define([
     'jquery',
-    'module',
-    'lodash',
-    'domReady!'
-], function ($, module, _) {
+    'module'
+], function ($, module) {
     'use strict';
 
     /**
-     * Iframe object
+     * WebsocketManager module
      *
-     * @class
-     * @alias      module:lib/iframe
-     * @param      {Object}  Navigation  A Navigation Object
-     * @param      {Object}  settings    Overriden settings
-     * @todo       Put iframe, iframeContext, resizeObserver, resizeObserverConfig out of the protype to handle multiple
-     *             iframes at the same time
+     * @param       {User}    User     The current User
+     * @param       {Object}  settings Overriden settings
+     *
+     * @exports    websocketManager
+     *
+     * @property   {User}       User        The curent user
+     * @property   {Object}     settings    The websocketManager global settings
+     *
+     * @constructor
+     * @alias       module:websocketManager
      */
-    var Iframe = function (Navigation, settings) {
-        this.settings   = $.extend(true, {}, this.settings, module.config(), settings);
-        this.navigation = Navigation;
-    };
+    var WebsocketManager = function (User, settings) {
+            this.settings = $.extend(true, {}, this.settings, settings);
+            this.user     = User;
+            this.init();
+        };
 
-    Iframe.prototype = {
-        /*====================================================
-        =            Object settings / properties            =
-        ====================================================*/
+    WebsocketManager.prototype = {
+        /**
+         * Default settings will get overriden if they are set when the WebsocketManager will be instanciated
+         */
+        "settings": {
+            "serverUrl"   : module.config().serverUrl,
+            "serviceName" : module.config().serviceName,
+            "waitInterval": module.config().waitInterval
+        },
+        /**
+         * The websocket ressource
+         */
+        "socket": {},
+        /**
+         * The current User instance
+         */
+        "user": {},
+        /**
+         * Callbacks method to process data recieved from the WebSocket server
+         */
+        "callbacks": {},
 
         /**
-         * Default settings
+         * Launch the WebSocket server and add the WebSocket server callbacks
          */
-        "settings": {},
-        /**
-         * The navigation object
-         */
-        "navigation": {},
-        /**
-         * The iframe jQuery DOM element
-         */
-        "iframe": {},
-        /**
-         * The iframe context "Windows" as pure javascript DOM element
-         */
-        "iframeContext": {},
-        /**
-         * The resize setIntervall ID
-         */
-        "resizeSetInterval": null,
-
-        /*=====  End of Object settings / properties  ======*/
-
-        /*==============================
-        =            Events            =
-        ==============================*/
-
-        /**
-         * Init an iframe
-         *
-         * @method     init
-         * @param      {String}  iframeId  The iframe ID DOM selector
-         */
-        init: function (iframeId) {
-            this.iframe         = $(iframeId);
-            this.iframeContext  = this.iframe.get(0).contentDocument;
-
-            $('body', this.iframeContext).css({
-                "margin" : 0,
-                "padding": 0,
-                "height" : "100%"
-            });
-
-            this.setPageHeight($('body').innerHeight);
-            this.destroyEvents();
-            this.initEvents();
-            this.updateIframeWidth();
+        init: function () {
+            this.connect();
+            this.addCallback(this.settings.serviceName, this.listServiceCallback, this);
         },
 
         /**
-         * Initialize all the events
+         * Connect the client to the WebSocket server
          *
-         * @method     initEvents
+         * @method     connect
          */
-        initEvents: function () {
-            $(window).on('resize', _.bind(_.throttle(this.updateIframeWidth, 100), this));
-            this.resizeSetInterval = setInterval(_.bind(this.resize, this), this.settings.resizeInterval);
+        connect: function () {
+            var self = this;
+
+            try {
+                this.socket = new WebSocket(this.settings.serverUrl);
+
+                this.socket.onopen = function () {
+                    console.log('socket opened');
+                };
+
+                this.socket.onclose = function () {
+                    console.log('socket closed');
+                };
+
+                this.socket.onerror = function () {
+                    console.log('socket error');
+                };
+
+                this.socket.onmessage = function (message) {
+                    self.treatData(message.data);
+                };
+            } catch (error) {
+                console.log(error);
+            }
         },
 
         /**
-         * Destroy all the initialized events
+         * Shorthand method to send data to the WebSocket server or delay until the websocket is ready
          *
-         * @method     destroyEvents
+         * @method     send
+         * @param      {String}  data    Data to send to the WebSocket server
          */
-        destroyEvents: function () {
-            $(window).off('resize', _.bind(_.throttle(this.updateIframeWidth, 100), this));
-            clearInterval(this.resizeSetInterval);
-        },
+        send: function (data) {
+            var self = this;
 
-        /*=====  End of Events  ======*/
-
-        /*=========================================
-        =            Utilities methods            =
-        =========================================*/
-
-        /**
-         * Resize the iframe and page height to fit well. If the iframe DOM element is removed, it stops the setIterval
-         * and the page width watcher
-         *
-         * @method     resize
-         */
-        resize: function () {
-            var iframeHeight;
-
-            if (this.iframe.length === 0) {
-                this.destroyEvents();
+            if (this.socket.readyState !== 1) {
+                setTimeout(function () {
+                    self.send(data);
+                }, self.settings.waitInterval);
             } else {
-                iframeHeight = this.getIframeHeight();
-
-                if (iframeHeight !== this.navigation.getPage().outerHeight()) {
-                    this.setPageHeight(iframeHeight);
-                }
-
-                this.updateIframeWidth();
+                this.socket.send(data);
             }
         },
 
         /**
-         * Set the page height
+         * Disconnect the client from the WebSocket server
          *
-         * @method     setPageHeight
-         * @param      {Number}  height  The page height with margin and padding
+         * @method     disconnect
          */
-        setPageHeight: function (height) {
-            this.navigation.getPage().outerHeight(height);
-            this.iframe.outerHeight(height);
+        disconnect: function () {
+            this.socket.send(JSON.stringify({
+                "action": "disconnect"
+            }));
         },
 
         /**
-         * Get the iframe height
+         * Treat data recieved from the WebSocket server
          *
-         * @method     getIframeHeight
-         * @return     {Number}  The iframe height with margin and padding
+         * @method     treatData
+         * @param      {String}  data    The text data recieved from the WebSocket server
          */
-        getIframeHeight: function () {
-            return $(this.settings.selectors.iframeHeightContainer, this.iframeContext).outerHeight();
-        },
+        treatData: function (data) {
+            data = JSON.parse(data);
+            console.log(data);
 
-        /**
-         * Update the iframe width relative to page width
-         *
-         * @method     updateIframeWidth
-         */
-        updateIframeWidth: function () {
-            var width = this.navigation.getPage().outerWidth();
-
-            $(this.settings.selectors.iframeWidthContainer, this.iframeContext).outerWidth(width);
-            this.iframe.outerWidth(width);
-        },
-
-        /**
-         * Append the kibana iframe if it is not already present on the page
-         *
-         * @method     loadKibanaIframe
-         */
-        loadKibanaIframe: function () {
-            var self = this,
-                iframe;
-
-            if ($(this.settings.selectors.kibanaIframe).length === 0) {
-                $.getJSON('kibana/getIframe', function (data) {
-                    iframe = $('&lt;iframe/>', {
-                        "src"        : data.src,
-                        "id"         : self.settings.selectors.kibanaIframe.substr(1),
-                        "frameBorder": 0,
-                        "seamless"   : "seamless",
-                        "load"       : _.bind(self.init, self, self.settings.selectors.kibanaIframe)
-                    });
-
-                    $('.page[data-url="kibana"]').append(iframe);
-                });
+            if (data.service &amp;&amp; this.callbacks[data.service]) {
+                this.callbacks[data.service].callback.call(
+                    this.callbacks[data.service].context,
+                    data
+                );
+            } else {
+                console.log(data);
             }
+        },
+
+        /**
+         * Add a callback to process data recieved from the WebSocket server
+         *
+         * @method     addCallback
+         * @param      {String}    serviceName  The callback service name
+         * @param      {Function}  callback     The callback function
+         * @param      {Object}    context      The callback context
+         */
+        addCallback: function (serviceName, callback, context) {
+            this.callbacks[serviceName] = {
+                "callback": callback,
+                "context" : context
+            };
+        },
+
+        /**
+         * Add a service to the WebSocket server
+         *
+         * @method     addService
+         * @param      {String}  serviceName  The service name to add to the WebSocket server
+         */
+        addService: function (serviceName) {
+            this.socket.send(JSON.stringify({
+                "action"    : "manageServer",
+                "login"     : this.user.getEmail(),
+                "password"  : this.user.getPassword(),
+                "addService": serviceName
+            }));
+        },
+
+        /**
+         * Remove a service from the WebSocket server
+         *
+         * @method     removeService
+         * @param      {String}  serviceName  The service name to remove from the WebSocket server
+         */
+        removeService: function (serviceName) {
+            this.socket.send(JSON.stringify({
+                "action"       : "manageServer",
+                "login"        : this.user.getEmail(),
+                "password"     : this.user.getPassword(),
+                "removeService": serviceName
+            }));
+        },
+
+        /**
+         * Query the currents running services from the WebSocket server
+         *
+         * @method     listServices
+         */
+        listServices: function () {
+            this.socket.send(JSON.stringify({
+                "action"      : "manageServer",
+                "login"       : this.user.getEmail(),
+                "password"    : this.user.getPassword(),
+                "listServices": true
+            }));
+        },
+
+        /**
+         * Parse the WebSocket server response to retrieve the services list
+         *
+         * @method     listServiceCallback
+         * @param      {Object}  data    JSON encoded data recieved from the WebSocket server
+         */
+        listServiceCallback: function (data) {
+            console.log(data.services);
         }
-
-        /*=====  End of Utilities methods  ======*/
     };
 
-    return Iframe;
+    return WebsocketManager;
 });
 </pre>
     </article>
