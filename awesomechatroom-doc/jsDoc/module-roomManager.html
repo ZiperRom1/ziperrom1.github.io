@@ -4,9 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
-	<title>awesomeChatRoom Module: lib/client
-
-Client object to handle all client attributes</title>
+	<title>awesomeChatRoom Module: module:roomManager</title>
 
 	<!--[if lt IE 9]>
 	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -84,9 +82,7 @@ page</a></li><li><a href="module-lib_chat.html">lib/chat</a></li><li><a href="mo
 		<div id="main">
 			
 
-	<h1 class="page-title">Module: lib/client
-
-Client object to handle all client attributes</h1>
+	<h1 class="page-title">Module: module:roomManager</h1>
 <section>
 
 <header>
@@ -98,7 +94,7 @@ Client object to handle all client attributes</h1>
     <div class="container-overview">
     
         
-            <div class="description">Client module</div>
+            <div class="description">RoomManager object</div>
         
 
         
@@ -136,8 +132,8 @@ Client object to handle all client attributes</h1>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="client.js.html">client.js</a>,
-				 <a href="client.js.html#sunlight-1-line-1">line 1</a>
+				<a href="roomManager.js.html">roomManager.js</a>,
+				 <a href="roomManager.js.html#sunlight-1-line-27">line 27</a>
 			</li>
 		</ul>
 	</dd>
@@ -145,6 +141,17 @@ Client object to handle all client attributes</h1>
 
 	
 
+	
+	<dt class="tag-see method-doc-label method-doc-details-label">See:</dt>
+	<dd class="tag-see">
+		<ul>
+			<li>module:jquery</li>
+			
+			<li>module:lodash</li>
+			
+			<li><a href="module-room.html">module:room</a></li>
+			</ul>
+	</dd>
 	
 
 	
@@ -174,7 +181,7 @@ Client object to handle all client attributes</h1>
             
 <hr>
 <dt>
-    <h4 class="name" id="~getAttributes"><span class="type-signature">&lt;inner> </span>getAttributes()</h4>
+    <h4 class="name" id="~addRoom"><span class="type-signature">&lt;inner> </span>addRoom(roomAttributes)</h4>
     
     
 </dt>
@@ -182,7 +189,7 @@ Client object to handle all client attributes</h1>
 
     
     <div class="description">
-        Get the client attributes
+        Add a room to the rooms collection
     </div>
     
 
@@ -192,92 +199,118 @@ Client object to handle all client attributes</h1>
 
     
     
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="client.js.html">client.js</a>,
-				 <a href="client.js.html#sunlight-1-line-39">line 39</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    The client attributes as JSON
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
+        <h5>Parameters:</h5>
         
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>roomAttributes</code></td>
+            
+
+            <td class="type">
+            
+                
 <span class="param-type">Object</span>
 
 
 
-    </dd>
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The room attributes as JSON</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="roomManager.js.html">roomManager.js</a>,
+				 <a href="roomManager.js.html#sunlight-1-line-84">line 84</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
 </dl>
 
 
-        
+    
+
+    
+
+    
+
+    
+
+    
+
+    
 
     
 </dd>
@@ -286,7 +319,7 @@ Client object to handle all client attributes</h1>
             
 <hr>
 <dt>
-    <h4 class="name" id="~getConnection"><span class="type-signature">&lt;inner> </span>getConnection()</h4>
+    <h4 class="name" id="~getAllRooms"><span class="type-signature">&lt;inner> </span>getAllRooms()</h4>
     
     
 </dt>
@@ -294,7 +327,7 @@ Client object to handle all client attributes</h1>
 
     
     <div class="description">
-        Get the client connection
+        Get the all rooms
     </div>
     
 
@@ -340,8 +373,8 @@ Client object to handle all client attributes</h1>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="client.js.html">client.js</a>,
-				 <a href="client.js.html#sunlight-1-line-59">line 59</a>
+				<a href="roomManager.js.html">roomManager.js</a>,
+				 <a href="roomManager.js.html#sunlight-1-line-38">line 38</a>
 			</li>
 		</ul>
 	</dd>
@@ -366,30 +399,6 @@ Client object to handle all client attributes</h1>
     
 
     
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    The client connection
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Object</span>
-
-
-
-    </dd>
-</dl>
-
-
-        
 
     
 </dd>
@@ -398,7 +407,7 @@ Client object to handle all client attributes</h1>
             
 <hr>
 <dt>
-    <h4 class="name" id="~getId"><span class="type-signature">&lt;inner> </span>getId()</h4>
+    <h4 class="name" id="~getAllRoomsCallback"><span class="type-signature">&lt;inner> </span>getAllRoomsCallback(data)</h4>
     
     
 </dt>
@@ -406,343 +415,7 @@ Client object to handle all client attributes</h1>
 
     
     <div class="description">
-        Get the client ID
-    </div>
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="client.js.html">client.js</a>,
-				 <a href="client.js.html#sunlight-1-line-79">line 79</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    The client ID
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">String</span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="~getLocation"><span class="type-signature">&lt;inner> </span>getLocation()</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Get the client location
-    </div>
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="client.js.html">client.js</a>,
-				 <a href="client.js.html#sunlight-1-line-119">line 119</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    The location in {"lat": "latitude", "lon": "longitude"} format
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Object</span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="~getUser"><span class="type-signature">&lt;inner> </span>getUser()</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Get the client user object
-    </div>
-    
-
-    
-
-    
-
-    
-    
-
-    
-<dl class="details">
-    
-
-	
-
-	
-
-	
-
-    
-
-    
-
-    
-
-    
-
-	
-
-	
-
-	
-
-	
-
-	
-
-
-
-	
-	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
-	<dd class="tag-source">
-		<ul class="dummy">
-			<li>
-				<a href="client.js.html">client.js</a>,
-				 <a href="client.js.html#sunlight-1-line-99">line 99</a>
-			</li>
-		</ul>
-	</dd>
-	
-
-	
-
-	
-
-	
-</dl>
-
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <h5>Returns:</h5>
-    
-            
-<div class="param-desc">
-    The client user object
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">User</span>
-
-
-
-    </dd>
-</dl>
-
-
-        
-
-    
-</dd>
-
-        
-            
-<hr>
-<dt>
-    <h4 class="name" id="~setAttributes"><span class="type-signature">&lt;inner> </span>setAttributes(data)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Set the Client object with a JSON parameter
+        Add all rooms to the rooms collection
     </div>
     
 
@@ -794,7 +467,7 @@ Client object to handle all client attributes</h1>
 
             
 
-            <td class="description last">JSON data</td>
+            <td class="description last">The server JSON reponse</td>
         </tr>
 
     
@@ -838,8 +511,8 @@ Client object to handle all client attributes</h1>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="client.js.html">client.js</a>,
-				 <a href="client.js.html#sunlight-1-line-49">line 49</a>
+				<a href="roomManager.js.html">roomManager.js</a>,
+				 <a href="roomManager.js.html#sunlight-1-line-68">line 68</a>
 			</li>
 		</ul>
 	</dd>
@@ -872,7 +545,7 @@ Client object to handle all client attributes</h1>
             
 <hr>
 <dt>
-    <h4 class="name" id="~setConnection"><span class="type-signature">&lt;inner> </span>setConnection(connection)</h4>
+    <h4 class="name" id="~updateRoomList"><span class="type-signature">&lt;inner> </span>updateRoomList()</h4>
     
     
 </dt>
@@ -880,7 +553,95 @@ Client object to handle all client attributes</h1>
 
     
     <div class="description">
-        Set the client connection
+        Update the room list in the select picker
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="roomManager.js.html">roomManager.js</a>,
+				 <a href="roomManager.js.html#sunlight-1-line-100">line 100</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="~wsCallbackDispatcher"><span class="type-signature">&lt;inner> </span>wsCallbackDispatcher(data)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Handle the WebSocker server response and process action with the right callback
     </div>
     
 
@@ -915,7 +676,7 @@ Client object to handle all client attributes</h1>
 
         <tr>
             
-                <td class="name"><code>connection</code></td>
+                <td class="name"><code>data</code></td>
             
 
             <td class="type">
@@ -932,7 +693,7 @@ Client object to handle all client attributes</h1>
 
             
 
-            <td class="description last">The client connection</td>
+            <td class="description last">The server JSON reponse</td>
         </tr>
 
     
@@ -976,8 +737,8 @@ Client object to handle all client attributes</h1>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="client.js.html">client.js</a>,
-				 <a href="client.js.html#sunlight-1-line-69">line 69</a>
+				<a href="roomManager.js.html">roomManager.js</a>,
+				 <a href="roomManager.js.html#sunlight-1-line-56">line 56</a>
 			</li>
 		</ul>
 	</dd>
@@ -1006,80 +767,35 @@ Client object to handle all client attributes</h1>
     
 </dd>
 
+        </dl>
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+	<h1 class="page-title">Module: module:roomManager</h1>
+<section>
+
+<header>
+    
+</header>
+
+
+<article>
+    <div class="container-overview">
+    
         
-            
-<hr>
-<dt>
-    <h4 class="name" id="~setId"><span class="type-signature">&lt;inner> </span>setId(Id)</h4>
-    
-    
-</dt>
-<dd>
-
-    
-    <div class="description">
-        Set the client ID
-    </div>
-    
-
-    
-
-    
-
-    
-    
-        <h5>Parameters:</h5>
-        
-
-<table class="params table table-striped">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
+            <div class="description">RoomManager object to handle all room Object</div>
         
 
         
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>Id</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">String</span>
-
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">The client ID</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-    
-
-    
 <dl class="details">
     
 
@@ -1114,8 +830,8 @@ Client object to handle all client attributes</h1>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="client.js.html">client.js</a>,
-				 <a href="client.js.html#sunlight-1-line-89">line 89</a>
+				<a href="roomManager.js.html">roomManager.js</a>,
+				 <a href="roomManager.js.html#sunlight-1-line-1">line 1</a>
 			</li>
 		</ul>
 	</dd>
@@ -1129,26 +845,30 @@ Client object to handle all client attributes</h1>
 </dl>
 
 
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-</dd>
-
         
+    
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        <dl>
             
 <hr>
 <dt>
-    <h4 class="name" id="~setLocation"><span class="type-signature">&lt;inner> </span>setLocation(coordinates)</h4>
+    <h4 class="name" id="~addRoom"><span class="type-signature">&lt;inner> </span>addRoom(roomAttributes)</h4>
     
     
 </dt>
@@ -1156,7 +876,7 @@ Client object to handle all client attributes</h1>
 
     
     <div class="description">
-        Set the location based on navigator.geolocation.getCurrentPosition returned object
+        Add a room to the rooms collection
     </div>
     
 
@@ -1191,7 +911,7 @@ Client object to handle all client attributes</h1>
 
         <tr>
             
-                <td class="name"><code>coordinates</code></td>
+                <td class="name"><code>roomAttributes</code></td>
             
 
             <td class="type">
@@ -1208,7 +928,7 @@ Client object to handle all client attributes</h1>
 
             
 
-            <td class="description last">The navigator.geolocation.getCurrentPosition returned object</td>
+            <td class="description last">The room attributes as JSON</td>
         </tr>
 
     
@@ -1252,8 +972,8 @@ Client object to handle all client attributes</h1>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="client.js.html">client.js</a>,
-				 <a href="client.js.html#sunlight-1-line-129">line 129</a>
+				<a href="roomManager.js.html">roomManager.js</a>,
+				 <a href="roomManager.js.html#sunlight-1-line-84">line 84</a>
 			</li>
 		</ul>
 	</dd>
@@ -1286,7 +1006,7 @@ Client object to handle all client attributes</h1>
             
 <hr>
 <dt>
-    <h4 class="name" id="~setLocationWithGeoip"><span class="type-signature">&lt;inner> </span>setLocationWithGeoip()</h4>
+    <h4 class="name" id="~getAllRooms"><span class="type-signature">&lt;inner> </span>getAllRooms()</h4>
     
     
 </dt>
@@ -1294,7 +1014,7 @@ Client object to handle all client attributes</h1>
 
     
     <div class="description">
-        Set location based on MaxMind geoip database and the client IP address
+        Get the all rooms
     </div>
     
 
@@ -1340,8 +1060,8 @@ Client object to handle all client attributes</h1>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="client.js.html">client.js</a>,
-				 <a href="client.js.html#sunlight-1-line-142">line 142</a>
+				<a href="roomManager.js.html">roomManager.js</a>,
+				 <a href="roomManager.js.html#sunlight-1-line-38">line 38</a>
 			</li>
 		</ul>
 	</dd>
@@ -1374,7 +1094,7 @@ Client object to handle all client attributes</h1>
             
 <hr>
 <dt>
-    <h4 class="name" id="~setUser"><span class="type-signature">&lt;inner> </span>setUser(user)</h4>
+    <h4 class="name" id="~getAllRoomsCallback"><span class="type-signature">&lt;inner> </span>getAllRoomsCallback(data)</h4>
     
     
 </dt>
@@ -1382,7 +1102,7 @@ Client object to handle all client attributes</h1>
 
     
     <div class="description">
-        Set the client user object
+        Add all rooms to the rooms collection
     </div>
     
 
@@ -1417,13 +1137,13 @@ Client object to handle all client attributes</h1>
 
         <tr>
             
-                <td class="name"><code>user</code></td>
+                <td class="name"><code>data</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">User</span>
+<span class="param-type">Object</span>
 
 
 
@@ -1434,7 +1154,7 @@ Client object to handle all client attributes</h1>
 
             
 
-            <td class="description last">The client user object</td>
+            <td class="description last">The server JSON reponse</td>
         </tr>
 
     
@@ -1478,8 +1198,234 @@ Client object to handle all client attributes</h1>
 	<dd class="tag-source">
 		<ul class="dummy">
 			<li>
-				<a href="client.js.html">client.js</a>,
-				 <a href="client.js.html#sunlight-1-line-109">line 109</a>
+				<a href="roomManager.js.html">roomManager.js</a>,
+				 <a href="roomManager.js.html#sunlight-1-line-68">line 68</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="~updateRoomList"><span class="type-signature">&lt;inner> </span>updateRoomList()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Update the room list in the select picker
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="roomManager.js.html">roomManager.js</a>,
+				 <a href="roomManager.js.html#sunlight-1-line-100">line 100</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="~wsCallbackDispatcher"><span class="type-signature">&lt;inner> </span>wsCallbackDispatcher(data)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Handle the WebSocker server response and process action with the right callback
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>data</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The server JSON reponse</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="roomManager.js.html">roomManager.js</a>,
+				 <a href="roomManager.js.html#sunlight-1-line-56">line 56</a>
 			</li>
 		</ul>
 	</dd>
